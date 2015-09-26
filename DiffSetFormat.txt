@@ -1,17 +1,19 @@
 NodeDiff:
+ * InstanceGuid
  * status [string; one of "same", "added", "removed", "changed"]
 
 EdgeDiff:
+ * InstanceGuid
  * status [string; one of "same", "added", "removed"]
 
 
 <DiffSet>
  <Nodes>
-  <NodeDiff status=""></NodeDiff>
+  <NodeDiff InstanceGuid="" status=""></NodeDiff>
   ...
  </Nodes>
  <Edges>
-  <EdgeDiff status=""></EdgeDiff>
+  <EdgeDiff InstanceGuid="" status=""></EdgeDiff>
   ...
  </Edges>
 </DiffSet>
