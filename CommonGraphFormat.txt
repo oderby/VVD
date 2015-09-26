@@ -2,15 +2,19 @@ Node
  * Type [String]
  * InstanceGuid [String]
  * Ports [List of port]
- * MetaData [XML Tree]
+ * MetaData
 
 Port
  * InstanceGuid [String]
- * MetaData [XML Tree]
+ * MetaData
 
 Edge
  * SrcGuid [String]
  * DstGuid [String]
+
+MetaData
+ * Ignore [XML Tree, not inspected for diff]
+ * Inspect [XML Tree, inspected for diff]
 
 <CommonGraph>
  <Nodes>
@@ -18,12 +22,22 @@ Edge
     <Ports>
      <Port InstanceGuid="">
         <MetaData>
-         ...
+         <Ignore>
+          ...
+         </Ignore>
+         <Inspect>
+          ...
+         </Inspect>
         </MetaData>
      </Port>
     </Ports>
     <MetaData>
-     ...
+         <Ignore>
+          ...
+         </Ignore>
+         <Inspect>
+          ...
+         </Inspect>
     </MetaData>
    </Node>
    ...
@@ -31,7 +45,12 @@ Edge
  <Edges>
   <Edge SrcGuid="" DstGuid=""></Edge>
  </Edges>
- <BOS>
-  ...
- </BOS>
+ <MetaData>
+  <Ignore>
+   ...
+  </Ignore>
+  <Inspect>
+   ...
+  </Inspect>
+ </MetaData>
 </CommonGraph>
