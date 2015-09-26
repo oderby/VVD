@@ -13,8 +13,49 @@ class CommonGraph(object):
 	def addEdge(self, edge):
 		self.Edges.append(edge)
 
-#	def diff(self, other):
+	def diff(self, other):
 
+		## NODES 
+
+		selfNodeIGs = set([node.InstanceGuid for node in self.Nodes])
+		otherNodeIGs = set([node.InstanceGuid for node in other.Nodes])
+
+		nodeRemovedGuids = list(selfNodeIGs - otherNodeIGs)
+		nodeAddedGuids = list(otherNodeIGs - selfNodeIGs)
+		nodeIntersectingGuids = list(otherNodeIGs.intersection(selfNodeIGs))
+
+		nodeSameGuids = []
+		nodeChangedGuids = []
+
+		for thisGuid in nodeIntersectingGuids:
+			selfNode = [node for node in self.Nodes if node.InstanceGuid == thisGuid][0] 
+			otherNode = [node for node in other.Nodes if node.InstanceGuid == thisGuid][0]
+			if(cmp(selfNode.MetaData, otherNode.MetaData) == 0):
+				nodeSameGuids.append(thisGuid)
+			else:
+				nodeChangedGuids.append(thisGuid)
+			
+		print "removed node: ", nodeRemovedGuids
+		print "added node: ", nodeAddedGuids
+		print "same node: ", nodeSameGuids
+		print "changed node: ", nodeChangedGuids
+
+		print "---"
+
+		## EDGES
+
+		#IGP stands for Instance Guid Pairs
+		selfEdgeIGPs = set([edge.pairStr() for edge in self.Edges])
+		otherEdgeIGPs = set([edge.pairStr() for edge in other.Edges])
+
+		edgeRemovedIGPs = list(selfEdgeIGPs - otherEdgeIGPs)
+		edgeAddedIGPs = list(otherEdgeIGPs - selfEdgeIGPs)
+		edgeSameIGPs = list(otherEdgeIGPs.intersection(selfEdgeIGPs))
+
+			
+		print "removed edge: ", edgeRemovedIGPs
+		print "added edge: ", edgeAddedIGPs
+		print "same edge: ", edgeSameIGPs
 
 		
 
@@ -46,6 +87,9 @@ class Edge(object):
 		self.DstGuid = DstGuid
 	def __repr__(self):
 		return 'Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
+	def pairStr(self):
+		return self.SrcGuid + "|" + self.DstGuid 
+	
 
 def recursive_dict(element):
 	return element.tag, dict(map(recursive_dict, element)) or element.text
