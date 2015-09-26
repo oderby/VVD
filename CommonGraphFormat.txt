@@ -44,7 +44,8 @@ MetaData
    ...
  </Nodes>
  <Edges>
-  <Edge SrcGuid="" DstGuid=""></Edge>
+  <Edge InstanceGuid="" SrcGuid="" DstGuid=""></Edge>
+  ...
  </Edges>
  <MetaData>
   <Ignore>

@@ -1,33 +1,33 @@
-NodeDiff:
- * InstanceGuid
- * Status [string; one of "same", "added", "removed", "changed"]
- * Ports [list of PortDiffs]
- * MetaData [MetaData; just the inspect portion, and only if there's a difference]
+NodeChange:
+ * Status [String; one of "added", "removed", "changed"]
+ * InstanceGuid: [String]
+ * Type: [String; omitted if status is "removed"]
+ * MetaData [MetaData; just the inspect portion, omitted if status is "removed"]
 
-PortDiff:
- * InstanceGuid
- * Status [string; one of "same", "added", "removed"]
+PortChange:
+ * Status [String; one of "added", "removed", "changed"]
+ * InstanceGuid: [String]
+ * ParentGuid: [String; omitted if status is "removed"]
+ * MetaData [MetaData; just the inspect portion, omitted if status is "removed"]
 
-EdgeDiff:
- * InstanceGuid
- * Status [string; one of "same", "added", "removed"]
-
+EdgeChange:
+ * Status [String; one of "added", "removed", "changed"]
+ * InstanceGuid: [String]
+ * SrcGuid: [String; omitted if status is "removed"]
+ * DstGuid: [String; omitted if status is "removed"]
 
 <DiffSet>
- <Nodes>
-  <NodeDiff InstanceGuid="" Status="">
-   <Ports>
-    <PortDiff InstanceGuid="" Status=""></PortDiff>
-    ...
-   </Ports>
-   <MetaData>
-    <Inspect>...</Inspect>
-   </MetaData>
-  </NodeDiff>
-  ...
- </Nodes>
- <Edges>
-  <EdgeDiff InstanceGuid="" Status=""></EdgeDiff>
-  ...
- </Edges>
+ <NodeChange Status="" InstanceGuid="" Type="">
+  <MetaData>
+   <Inspect>...</Inspect>
+  </MetaData>
+ </NodeChange>
+ <PortChange Status="" ParentGuid="" InstanceGuid="">
+  <MetaData>
+   <Inspect>...</Inspect>
+  </MetaData>
+ </PortChange>
+ <EdgeChange Status="" InstanceGuid="" SrcGuid="" DstGuid="">
+ </EdgeChange>
+ ...
 </DiffSet>
