@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVD-GH-To-CG", "VVD-GH-To-CG\VVD-GH-To-CG.csproj", "{EBB75205-35BD-4104-A74D-4D2EE1F800DE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCommonGraph", "CSharpCommonGraph\CSharpCommonGraph.csproj", "{83F967C1-5E7E-455C-83F0-B420DE150D6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EBB75205-35BD-4104-A74D-4D2EE1F800DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBB75205-35BD-4104-A74D-4D2EE1F800DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBB75205-35BD-4104-A74D-4D2EE1F800DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBB75205-35BD-4104-A74D-4D2EE1F800DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83F967C1-5E7E-455C-83F0-B420DE150D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F967C1-5E7E-455C-83F0-B420DE150D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F967C1-5E7E-455C-83F0-B420DE150D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F967C1-5E7E-455C-83F0-B420DE150D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

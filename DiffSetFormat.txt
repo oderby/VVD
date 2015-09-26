@@ -1,0 +1,17 @@
+NodeDiff:
+ * status [string; one of "same", "added", "removed", "changed"]
+
+EdgeDiff:
+ * status [string; one of "same", "added", "removed"]
+
+
+<DiffSet>
+ <Nodes>
+  <NodeDiff status=""></NodeDiff>
+  ...
+ </Nodes>
+ <Edges>
+  <EdgeDiff status=""></EdgeDiff>
+  ...
+ </Edges>
+</DiffSet>
