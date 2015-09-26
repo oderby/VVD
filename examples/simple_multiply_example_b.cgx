@@ -24,23 +24,9 @@
       </Ports>
       <MetaData>
         <Ignore></Ignore>
-        <Inspect>"I'm a Cloud"</Inspect>
+        <Inspect>"I'm a Horse"</Inspect>
       </MetaData>
     </Node>
-   <Node Type="8ec86459-bf01-4409-baee-174d0d2b13d0" InstanceGuid="98442096-8594-4bc9-b9b5-38e84dbdedac">
-    <Ports>
-     <Port InstanceGuid="98442096-8594-4bc9-b9b5-38e84dbdedac">
-          <MetaData>
-            <Ignore></Ignore>
-            <Inspect>"I'm a Frog"</Inspect>
-          </MetaData>
-     </Port>
-    </Ports>
-    <MetaData>
-      <Ignore></Ignore>
-      <Inspect>"I'm a Cloud"</Inspect>
-    </MetaData>
-   </Node>
    <Node Type="57da07bd-ecab-415d-9d86-af36d7073abc" InstanceGuid="5a4631f8-b018-469a-b175-391d5dd9a769">
     <Ports>
      <Port InstanceGuid="5a4631f8-b018-469a-b175-391d5dd9a769">
