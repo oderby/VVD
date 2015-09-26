@@ -1,19 +1,33 @@
 NodeDiff:
  * InstanceGuid
- * status [string; one of "same", "added", "removed", "changed"]
+ * Status [string; one of "same", "added", "removed", "changed"]
+ * Ports [list of PortDiffs]
+ * MetaData [MetaData; just the inspect portion, and only if there's a difference]
+
+PortDiff:
+ * InstanceGuid
+ * Status [string; one of "same", "added", "removed"]
 
 EdgeDiff:
  * InstanceGuid
- * status [string; one of "same", "added", "removed"]
+ * Status [string; one of "same", "added", "removed"]
 
 
 <DiffSet>
  <Nodes>
-  <NodeDiff InstanceGuid="" status=""></NodeDiff>
+  <NodeDiff InstanceGuid="" Status="">
+   <Ports>
+    <PortDiff InstanceGuid="" Status=""></PortDiff>
+    ...
+   </Ports>
+   <MetaData>
+    <Inspect>...</Inspect>
+   </MetaData>
+  </NodeDiff>
   ...
  </Nodes>
  <Edges>
-  <EdgeDiff InstanceGuid="" status=""></EdgeDiff>
+  <EdgeDiff InstanceGuid="" Status=""></EdgeDiff>
   ...
  </Edges>
 </DiffSet>
