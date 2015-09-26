@@ -10,14 +10,14 @@ namespace CSharpCommonGraph
     {
         public String Type;
         public Guid InstanceGuid;
-        List<Port> Ports;
-        Metadata Metadata;
+        public List<Port> Ports;
+        public Metadata Metadata;
 
     }
 
     public class Metadata
     {
-        string Ignore;
-        string Inspect;
+      public string Ignore;
+      public string Inspect;
     }
 }
