@@ -1,0 +1,37 @@
+Node
+ * Type [String]
+ * InstanceGuid [String]
+ * Ports [List of port]
+ * MetaData [XML Tree]
+
+Port
+ * InstanceGuid [String]
+ * MetaData [XML Tree]
+
+Edge
+ * SrcGuid [String]
+ * DstGuid [String]
+
+<CommonGraph>
+ <Nodes>
+   <Node Type="" InstanceGuid="">
+    <Ports>
+     <Port InstanceGuid="">
+        <MetaData>
+         ...
+        </MetaData>
+     </Port>
+    </Ports>
+    <MetaData>
+     ...
+    </MetaData>
+   </Node>
+   ...
+ </Nodes>
+ <Edges>
+  <Edge SrcGuid="" DstGuid=""></Edge>
+ </Edges>
+ <BOS>
+  ...
+ </BOS>
+</CommonGraph>
