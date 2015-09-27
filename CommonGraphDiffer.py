@@ -4,6 +4,7 @@ import xml.etree.ElementTree as etree
 E = etree.Element
 import copy
 from xml.dom import minidom
+import codecs
 
 
 def getMetaXML(metaData):
@@ -446,7 +447,7 @@ def CgxToObject(xmlfile):
     return thisCG
 
 def CGToXML(cg, fileName):
-    with open(fileName, "w") as fp:
+    with codecs.open(fileName, "w", "utf-8-sig") as fp:
         fp.write( prettify(cg.toXML()))
 
 def prettify(elem):
@@ -456,7 +457,7 @@ def prettify(elem):
     return reparsed.toprettyxml(indent="\t")
 
 def DSToXML(diffSet, fileName):
-    with open(fileName, "w") as fp:
+    with codecs.open(fileName, "w", "utf-8-sig") as fp:
         fp.write( prettify(diffSet.toXML()))
 
 def XMLToDS(fileName):
