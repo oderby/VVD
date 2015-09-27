@@ -15,8 +15,12 @@ namespace DynamoToCG
 
             try
             {
-                Console.WriteLine(args);
-                var path = args[0];
+             var path = args[0];
+                string dest = path.Replace(Path.GetExtension(path), ".cgx");
+            if (args.Length>1){
+               dest = args[1];
+               
+            }
 
                var doc = new XmlDocument();
                 doc.Load(path);
@@ -36,34 +40,14 @@ namespace DynamoToCG
                     Console.WriteLine(" to"+(graph.Nodes.Where(x=>x.Ports.Select(port=>port.InstanceGuid).ToList().Contains(connector.DestGuid)).First().Type));
                 }
 
-                Console.ReadLine();
-
                 System.Xml.Serialization.XmlSerializer xser = new System.Xml.Serialization.XmlSerializer(typeof(CSharpCommonGraph.CommonGraph));
-                TextWriter WriteFileStream = new StreamWriter(@"C:\Users\Mike\Desktop\testOutput.cgx");
+                TextWriter WriteFileStream = new StreamWriter(dest);
                 xser.Serialize(WriteFileStream, NodeGraph.ToCommonCgraph(graph));
                 Console.WriteLine("saved CG to disk");
-                Console.ReadLine();
                 WriteFileStream.Close();
 
-                CSharpCommonGraph.CommonGraph graphFromFile;
-                // Construct an instance of the XmlSerializer with the type
-                // of object that is being deserialized.
-                XmlSerializer mySerializer = 
-                new XmlSerializer(typeof( CSharpCommonGraph.CommonGraph));
-                // To read the file, create a FileStream.
-                FileStream myFileStream = 
-                new FileStream("C:\\Users\\Mike\\Desktop\\testOutput.cgx", FileMode.Open);
-                // Call the Deserialize method and cast to the object type.
-                graphFromFile = (CSharpCommonGraph.CommonGraph)
-                mySerializer.Deserialize(myFileStream);
-
-                Console.WriteLine("now attempting to convert back to a new .dyn");
-
-                var outdoc = new XmlDocument();
-                CGToXML.SaveInternal("C:\\Users\\Mike\\Desktop\\testOutput.dyn",graphFromFile);
+                
                
-               
-
             }
                
               

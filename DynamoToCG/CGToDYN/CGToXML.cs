@@ -17,15 +17,17 @@ namespace DynamoToCG
             {
                 //TODO read this stuff from the metadata from the cg
                 var root = xmlDoc.DocumentElement;
-                root.SetAttribute("Version", (.83).ToString());
+                root.SetAttribute("Version", ("0.8.3.1212"));
                 root.SetAttribute("X", 0.ToString(CultureInfo.InvariantCulture));
                 root.SetAttribute("Y", 0.ToString(CultureInfo.InvariantCulture));
                 root.SetAttribute("zoom", 1.0.ToString(CultureInfo.InvariantCulture));
-                root.SetAttribute("Name", "a diff file");
+                root.SetAttribute("Home", "a diff file");
                 root.SetAttribute("Description", "a diff");
-
+                root.SetAttribute("RunType", "Manual");
+                root.SetAttribute("RunPeriod", "1000");
+                root.SetAttribute("HasRunWithoutCrash", "false");
             
-
+               
                 var elementList = xmlDoc.CreateElement("Elements");
                 //write the root element
                 root.AppendChild(elementList);
@@ -48,20 +50,23 @@ namespace DynamoToCG
 
                 foreach (var el in cg.Nodes)
                 {
-                    foreach (var port in el.Ports.Where(x=>x.MetaData.Inspect.Contains("end")).ToList())
+                    if (el.InstanceGuid == "e4444840-eaab-4092-92da-a5d401ba077a")
+                    {
+                        
+                    }
+                    foreach (var port in el.Ports.Where(x=>x.MetaData.Inspect.Contains("start")).ToList())
                     {
                         foreach (
-                            var c in
-                                cg.Edges.Where(edge=>edge.SrcGuid.Contains(edge.SrcGuid)).ToList())
+                            var edge in cg.Edges.Where(edge=>edge.SrcGuid.Contains(port.InstanceGuid.Split('_').First())).ToList())
                         {
                             var connector = xmlDoc.CreateElement("Dynamo.Models.ConnectorModel");
                             connectorList.AppendChild(connector);
-                            connector.SetAttribute("start", c.SrcGuid.Split('_').First());
-                            connector.SetAttribute("start_index", c.SrcGuid.Split('_').ToList()[1].Replace("OUT",""));
-                            connector.SetAttribute("end", c.DestGuid.Split('_').First());
-                            connector.SetAttribute("end_index", c.DestGuid.Split('_').ToList()[1].Replace("IN",""));
+                            connector.SetAttribute("start", edge.SrcGuid.Split('_').First());
+                            connector.SetAttribute("start_index", edge.SrcGuid.Split('_').ToList()[1].Replace("OUT",""));
+                            connector.SetAttribute("end", edge.DestGuid.Split('_').First());
+                            connector.SetAttribute("end_index", edge.DestGuid.Split('_').ToList()[1].Replace("IN",""));
 
-                            if (c.DestGuid.Split('_').ToList()[1] == "start")
+                            if (port.MetaData.Inspect == "end")
                                 connector.SetAttribute("portType", "0");
                         }
                     }
