@@ -380,29 +380,3 @@ def XMLToDS(fileName):
             print "!!!!!unknown tag", xmlChange.tag
         thisDiffSet.addChange(change)
     return thisDiffSet
-
-def main():
-    CGA = CgxToObject("examples/simple_multiply_example.cgx")
-
-    CGB = CgxToObject("examples/simple_multiply_example_b.cgx")
-    ds = CGA.diff(CGB)
-    DSToXML(ds, "foo.dsx")
-    ds2 = XMLToDS("foo.dsx")
-    DSToXML(ds2, "foo2.dsx")
-
-    print "========================="
-    CGB2 = CGA.applyDiff(ds)
-    print "========================="
-    CGB3 = CGA.applyDiff(ds2)
-
-    print "=CGA========================"
-    print CGA
-    print "=CGB========================"
-    print CGB
-    print "=CGB2========================"
-    print CGB2
-    print "=CGB3========================"
-    print CGB3
-    print "========================="
-
-main()
