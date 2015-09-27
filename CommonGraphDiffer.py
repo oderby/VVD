@@ -2,6 +2,8 @@
 
 from lxml import etree
 from lxml.builder import E
+import copy
+
 # TODO: should use import xml.etree.ElementTree
 
 def getMetaXML(metaData):
@@ -122,10 +124,37 @@ class CommonGraph(object):
         self.MetaData = MetaData
         self.Nodes = []
         self.Edges = []
-    def addNode(self, node):
-        self.Nodes.append(node)
-    def addEdge(self, edge):
-        self.Edges.append(edge)
+    def __repr__(self):
+        return repr(self.Nodes) + repr(self.Edges)
+
+    def add(self, objType, obj):
+        if(objType == "node"):
+            self.Nodes.append(obj)
+        if(objType == "edge"):
+            self.Edges.append(obj)
+
+    def removeObj(self, objType, obj):
+        if(objType == "node"):
+            objList = self.Nodes
+        if(objType == "edge"):
+            objList = self.Edges
+        try:
+            objList.remove(obj)
+            return True
+        except:
+            return False
+    def changeObj(self, objType, obj):
+        if(objType == "node"):
+            objList = self.Nodes
+        if(objType == "edge"):
+            objList = self.Edges
+        try:
+            for idx, thisN in enumerate(objList):
+                if node == thisN:
+                    objList[idx].MetaData = node.MetaData
+            return True
+        except:
+            return False
     def getAllPorts(self):
         return [port for node in self.Nodes for port in node.Ports]
 
@@ -159,19 +188,55 @@ class CommonGraph(object):
         return thisDiffSet
 
     def applyDiff(self, diffSet):
+        # order is important: iterate over node changes, then port changes, then edge changes
 
-        for thisChange in diffSet.Changes:
-            print thisChange
-            """
-            iterate over node changes, then port changes,
-            if change is an addition
-            then turn a change into a node
-            and add the node.
+        """
+        # order is important: iterate over node changes, then port changes, then edge changes
+        node:
+            if change is an addition then turn a change into a node and add the node.
+            if change is an removal then TRY removing node  (otherwise failure)
+            if change is an modification then TRY replace old node metadata with new metadata (otherwise failure)
+        port:
+            if change is an addition then turn a change into a port and add the port.
+            if change is an removal then TRY removing port  (otherwise failure)
+            if change is an modification then TRY replace old port metadata with new metadata (otherwise failure)
+        edge:
+            if change is an addition then turn a change into a edge and add the edge.
+            if change is an removal then TRY removing edge  (otherwise failure)
+        """
 
 
-#            if change is ad
-        #print diffSet
-            """
+        newCG = copy.deepcopy(self)
+
+        for thisNodeChange in [change for change in diffSet.Changes if change.__class__.__name__ == "NodeChange"]:
+            print thisNodeChange
+            if(thisNodeChange.Status == "added"):
+                newCG.add("node", Node.addFromChange(thisNodeChange))
+            if(thisNodeChange.Status == "removed"):
+                newCG.removeObj("node", Node.addFromChange(thisNodeChange))
+            if(thisNodeChange.Status == "changed"):
+                newCG.changeObj("node", Node.addFromChange(thisNodeChange))
+
+        for thisPortChange in [change for change in diffSet.Changes if change.__class__.__name__ == "PortChange"]:
+            print thisPortChange
+            if(thisPortChange.Status == "added"):
+                newCG.add("port", Port.addFromChange(thisPortChange))
+            if(thisPortChange.Status == "removed"):
+                newCG.removeObj("port", Port.addFromChange(thisPortChange))
+            if(thisPortChange.Status == "changed"):
+                newCG.changeObj("port", Port.addFromChange(thisPortChange))
+
+        for thisEdgeChange in [change for change in diffSet.Changes if change.__class__.__name__ == "EdgeChange"]:
+            print thisEdgeChange
+            if(thisEdgeChange.Status == "added"):
+                newCG.add("edge", Edge.addFromChange(thisEdgeChange))
+            if(thisEdgeChange.Status == "removed"):
+                newCG.removeObj("edge", Edge.addFromChange(thisEdgeChange))
+            if(thisEdgeChange.Status == "changed"):
+                newCG.changeObj("edge", Edge.addFromChange(thisEdgeChange))
+
+
+        return newCG
 
 class Node(object):
     def __init__(self, Type, InstanceGuid, MetaData):
@@ -179,8 +244,17 @@ class Node(object):
         self.InstanceGuid = InstanceGuid
         self.MetaData = MetaData
         self.Ports = []
+    def __eq__(self, other):
+        if self.InstanceGuid == other.InstanceGuid:
+            return True
+        else:
+            return False
+    @classmethod
+    def addFromChange(cls, nodeChange):
+        return cls(nodeChange.Type, nodeChange.InstanceGuid, nodeChange.MetaData)
+
     def __repr__(self):
-        return '\n(   ) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ') \n' +\
+        return '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ') \n' +\
                 '\n'.join([str(p) for p in self.Ports])
     def addPort(self, port):
         self.Ports.append(port)
@@ -192,6 +266,9 @@ class Port(object):
         self.MetaData = MetaData
     def __repr__(self):
         return '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ')'
+    @classmethod
+    def addFromChange(cls, portChange):
+        return cls(portChange.InstanceGuid, portChange.ParentGuid, portChange.MetaData)
 
 class Edge(object):
     def __init__(self, SrcGuid, DstGuid):
@@ -200,6 +277,10 @@ class Edge(object):
         self.InstanceGuid = self.SrcGuid + "|" + self.DstGuid
     def __repr__(self):
         return '\n  == Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
+    @classmethod
+    def addFromChange(cls, edgeChange):
+        return cls(edgeChange.SrcGuid, edgeChange.DstGuid)
+
 
 
 def recursive_dict(element):
@@ -216,11 +297,11 @@ def CgxToObject(xmlfile):
         for xmlPort in xmlNode.findall(".//Port"):
             xmlPortAsDict = recursive_dict(xmlPort)[1]
             thisNode.addPort(Port(xmlPort.get('InstanceGuid'), thisNode.InstanceGuid, xmlPort.find('MetaData')))
-        thisCG.addNode(thisNode)
+        thisCG.add("node", thisNode)
 
     for xmlEdge in root.findall(".//Edge"):
         thisEdge = Edge(xmlEdge.get('SrcGuid'), xmlEdge.get('DstGuid'))
-        thisCG.addEdge(thisEdge)
+        thisCG.add("edge", thisEdge)
 #	print thisCG.Nodes
 #	print thisCG.Edges
 
@@ -234,11 +315,13 @@ def main():
     CGB = CgxToObject("examples/simple_multiply_example_b.cgx")
     ds = CGA.diff(CGB)
 
-    CGB2 = CGA.applyDiff(ds)
 
     DSToXML(ds, "foo.dsx")
 
+    CGB2 = CGA.applyDiff(ds)
 
+    print "========================="
+#    print CGB2
 
 
 if __name__ == "__main__":
