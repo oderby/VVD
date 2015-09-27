@@ -219,7 +219,7 @@ class CommonGraph(object):
 
         (nodesRemoved, nodesAdded, nodesChanged, nodesSame) = booleanObjectLists("node", self.Nodes, other.Nodes)
         for thisNode in nodesRemoved:
-            thisDiffSet.addChange(NodeChange("removed", thisNode.InstanceGuid))
+            thisDiffSet.addChange(NodeChange("removed", thisNode.InstanceGuid, thisNode.Position))
         for thisNode in nodesAdded:
             thisDiffSet.addChange(NodeChange("added", thisNode.InstanceGuid, thisNode.Position, thisNode.Type, thisNode.MetaData))
         for thisNode in nodesChanged:
