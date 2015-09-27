@@ -1,378 +1,184 @@
 <?xml version="1.0" ?>
 <CommonGraph>
-	<Nodes>
-		<Node InstanceGuid="1e537ab6-6674-4105-837d-c10635c5233c" Type="807b86e3-be8d-4970-92b5-f8cdcb45b06b">
-			<Ports>
-				<Port InstanceGuid="a0955fdd-49a4-416b-9969-01d67fa9ecca"/>
-				<Port InstanceGuid="3f4aad68-dee3-4063-96ca-7442466ef48c"/>
-				<Port InstanceGuid="24d6030d-c232-43e3-bf82-5740443086e5"/>
-			</Ports>
-			<Position>
-				
-        
-				<X>447</X>
-				
-        
-				<Y>218</Y>
-				
-      
-			</Position>
-			
-    
-		</Node>
-		<Node InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
-			<Ports>
-				<Port InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264"/>
-			</Ports>
-			<Position>
-				
-        
-				<X>7.5</X>
-				
-        
-				<Y>206</Y>
-				
-      
-			</Position>
-			
-    
-		</Node>
-		<Node InstanceGuid="afc9ec8c-8c3e-4d3f-b5fc-b06c472811e4" Type="b8963bb1-aa57-476e-a20e-ed6cf635a49c">
-			<Ports>
-				<Port InstanceGuid="42714db0-10d9-43e4-a775-52501f2377b8"/>
-				<Port InstanceGuid="371c78ea-7880-40a8-8ccc-98eb026d7895"/>
-				<Port InstanceGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84"/>
-			</Ports>
-			<Position>
-				
-        
-				<X>279</X>
-				
-        
-				<Y>242</Y>
-				
-      
-			</Position>
-			
-    
-		</Node>
-		<Node InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
-			<Ports>
-				<Port InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053"/>
-			</Ports>
-			<Position>
-				
-        
-				<X>12.5</X>
-				
-        
-				<Y>261</Y>
-				
-      
-			</Position>
-			
-    
-		</Node>
-		<Node InstanceGuid="ed16bfa0-ac00-4711-a7dc-35f79ce10eb9" Type="807b86e3-be8d-4970-92b5-f8cdcb45b06b">
-			<Ports>
-				<Port InstanceGuid="31c40430-72fe-4a7e-b8f6-ecb42e471640">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Base plane of circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;31c40430-72fe-4a7e-b8f6-ecb42e471640&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;172&lt;/X&gt;&lt;Y&gt;24&lt;/Y&gt;&lt;W&gt;39&lt;/W&gt;&lt;H&gt;23&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;193&lt;/X&gt;&lt;Y&gt;35.5&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;plane&quot; type_name=&quot;gh_plane&quot; type_code=&quot;72&quot;&gt;&lt;Ox&gt;0&lt;/Ox&gt;&lt;Oy&gt;0&lt;/Oy&gt;&lt;Oz&gt;0&lt;/Oz&gt;&lt;Xx&gt;1&lt;/Xx&gt;&lt;Xy&gt;0&lt;/Xy&gt;&lt;Xz&gt;0&lt;/Xz&gt;&lt;Yx&gt;0&lt;/Yx&gt;&lt;Yy&gt;1&lt;/Yy&gt;&lt;Yz&gt;0&lt;/Yz&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-				<Port InstanceGuid="b1fedf57-721a-46c3-94e1-261cde938658">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius of circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;b1fedf57-721a-46c3-94e1-261cde938658&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;5b0508f1-e04b-43b8-a323-1313570f1e68&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;172&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;W&gt;39&lt;/W&gt;&lt;H&gt;23&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;193&lt;/X&gt;&lt;Y&gt;58.5&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;number&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-				<Port InstanceGuid="814cde53-ae3e-4491-9b41-b26c511eba0b">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Resulting circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;814cde53-ae3e-4491-9b41-b26c511eba0b&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;241&lt;/X&gt;&lt;Y&gt;24&lt;/Y&gt;&lt;W&gt;37&lt;/W&gt;&lt;H&gt;46&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;259.5&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-			</Ports>
-			<Position>
-				
-        
-				<X>226</X>
-				
-        
-				<Y>47</Y>
-				
-      
-			</Position>
-			
-    
-		</Node>
-		<Node InstanceGuid="5b0508f1-e04b-43b8-a323-1313570f1e68" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
-			<Ports>
-				<Port InstanceGuid="5b0508f1-e04b-43b8-a323-1313570f1e68">
-					<MetaData/>
-					
-        
-				</Port>
-			</Ports>
-			<Position>
-				
-        
-				<X>-56.5</X>
-				
-        
-				<Y>46</Y>
-				
-      
-			</Position>
-			
-    
-		</Node>
-		<Node InstanceGuid="310a1555-cbd3-4267-83bd-f58c3135b67d" Type="2162e72e-72fc-4bf8-9459-d4d82fa8aa14">
-			<Ports>
-				<Port InstanceGuid="3625190b-e261-4464-98e7-de6ce43bbd35">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Curve to divide&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;3625190b-e261-4464-98e7-de6ce43bbd35&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Curve&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Curve&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;814cde53-ae3e-4491-9b41-b26c511eba0b&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;302&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;W&gt;36&lt;/W&gt;&lt;H&gt;30&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;321.5&lt;/X&gt;&lt;Y&gt;62.33333&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-				<Port InstanceGuid="f94fa695-d4e2-4cd8-accc-864c0ce76361">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number of segments&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;f94fa695-d4e2-4cd8-accc-864c0ce76361&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Count&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Count&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;302&lt;/X&gt;&lt;Y&gt;77&lt;/Y&gt;&lt;W&gt;36&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;321.5&lt;/X&gt;&lt;Y&gt;93&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;number&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;10&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-				<Port InstanceGuid="2e3e4d4c-5f1f-430f-8ff0-bf670c4a7bfc">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;2&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Split segments at kinks&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;2e3e4d4c-5f1f-430f-8ff0-bf670c4a7bfc&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Kinks&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Kinks&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;302&lt;/X&gt;&lt;Y&gt;108&lt;/Y&gt;&lt;W&gt;36&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;321.5&lt;/X&gt;&lt;Y&gt;123.6667&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;boolean&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-				<Port InstanceGuid="54946ae2-7fa9-4068-a573-4147fbf7f34b">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Access&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Division points&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;54946ae2-7fa9-4068-a573-4147fbf7f34b&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Points&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Points&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;368&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;W&gt;64&lt;/W&gt;&lt;H&gt;30&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;400&lt;/X&gt;&lt;Y&gt;62.33333&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-				<Port InstanceGuid="2bd6f5fb-6223-49ad-bdf0-9e9178522924">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Access&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Tangent vectors at division points&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;2bd6f5fb-6223-49ad-bdf0-9e9178522924&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Tangents&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Tangents&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;368&lt;/X&gt;&lt;Y&gt;77&lt;/Y&gt;&lt;W&gt;64&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;400&lt;/X&gt;&lt;Y&gt;93&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-				<Port InstanceGuid="db1db998-e6fb-4462-8954-834eeaf7097c">
-					<MetaData>
-						
-            
-						<Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;2&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Access&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Parameter values at division points&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;db1db998-e6fb-4462-8954-834eeaf7097c&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Parameters&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Parameters&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;368&lt;/X&gt;&lt;Y&gt;108&lt;/Y&gt;&lt;W&gt;64&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;400&lt;/X&gt;&lt;Y&gt;123.6667&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
-						
-          
-					</MetaData>
-					
-        
-				</Port>
-			</Ports>
-			<Position>
-				
-        
-				<X>353</X>
-				
-        
-				<Y>93</Y>
-				
-      
-			</Position>
-			
-    
-		</Node>
-		<Node InstanceGuid="c3e123ac-98b2-4e63-af62-9fe2a87668d4" Type="962034e9-cc27-4394-afc4-5c16e3447cf9">
-			<Ports>
-				<Port InstanceGuid="19399a2f-5153-4ef7-b834-1c1c26827e2c"/>
-				<Port InstanceGuid="9290aa5a-dbb3-4822-b317-730fd1bc05ab"/>
-				<Port InstanceGuid="0e232400-7775-47c6-bd57-70cfb950d6d6"/>
-			</Ports>
-			<Position>
-				
-			
-        
-			
-				<X>676</X>
-				
-			
-        
-			
-				<Y>249</Y>
-				
-			
-      
-		
-			</Position>
-			
-		
-    
-	
-		</Node>
-		<Node InstanceGuid="79e70a33-1c70-4124-9d30-cf722bcb04e4" Type="9103c240-a6a9-4223-9b42-dbd19bf38e2b">
-			<Ports>
-				<Port InstanceGuid="e53d0112-16fe-4cbe-80d2-9aa4f10d041c"/>
-				<Port InstanceGuid="436ce1c7-77ef-43a1-bf46-71cac0f1ca70"/>
-			</Ports>
-			<Position>
-				
-			
-        
-			
-				<X>452</X>
-				
-			
-        
-			
-				<Y>332</Y>
-				
-			
-      
-		
-			</Position>
-			
-		
-    
-	
-		</Node>
-		<Node InstanceGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
-			<Ports>
-				<Port InstanceGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e"/>
-			</Ports>
-			<Position>
-				
-			
-        
-			
-				<X>181.5</X>
-				
-			
-        
-			
-				<Y>372</Y>
-				
-			
-      
-		
-			</Position>
-			
-		
-    
-	
-		</Node>
-		<Node InstanceGuid="066d44bd-306c-49ac-a428-9549d408a2dd" Type="2e205f24-9279-47b2-b414-d06dcd0b21a7">
-			<Ports>
-				<Port InstanceGuid="f4c0527d-13f1-41c5-93ab-3920eaea31a5"/>
-				<Port InstanceGuid="1e55807b-e514-4bb3-a3f0-a0e57e9ab1ec"/>
-				<Port InstanceGuid="b4f5637e-ece5-483f-acdc-a646658b7eaa"/>
-			</Ports>
-			<Position>
-				
-			
-        
-			
-				<X>866</X>
-				
-			
-        
-			
-				<Y>249</Y>
-				
-			
-      
-		
-			</Position>
-			
-		
-    
-	
-		</Node>
-		<Node InstanceGuid="586a5790-ba0c-4550-9cb2-7b86485ce338" Type="59e0b89a-e487-49f8-bab8-b5bab16be14c">
-			<Ports>
-				<Port InstanceGuid="586a5790-ba0c-4550-9cb2-7b86485ce338"/>
-			</Ports>
-			<Position>
-				
-			
-        
-			
-				<X>0</X>
-				
-			
-        
-			
-				<Y>0</Y>
-				
-			
-      
-		
-			</Position>
-			
-		
-    
-	
-		</Node>
-	</Nodes>
-	<Edges>
-		<Edge DstGuid="a0955fdd-49a4-416b-9969-01d67fa9ecca" InstanceGuid="54946ae2-7fa9-4068-a573-4147fbf7f34b|a0955fdd-49a4-416b-9969-01d67fa9ecca" SrcGuid="54946ae2-7fa9-4068-a573-4147fbf7f34b"/>
-		<Edge DstGuid="3f4aad68-dee3-4063-96ca-7442466ef48c" InstanceGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84|3f4aad68-dee3-4063-96ca-7442466ef48c" SrcGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84"/>
-		<Edge DstGuid="42714db0-10d9-43e4-a775-52501f2377b8" InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264|42714db0-10d9-43e4-a775-52501f2377b8" SrcGuid="82f7c0eb-eec6-4867-83ea-10a043027264"/>
-		<Edge DstGuid="371c78ea-7880-40a8-8ccc-98eb026d7895" InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053|371c78ea-7880-40a8-8ccc-98eb026d7895" SrcGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053"/>
-		<Edge DstGuid="b1fedf57-721a-46c3-94e1-261cde938658" InstanceGuid="5b0508f1-e04b-43b8-a323-1313570f1e68|b1fedf57-721a-46c3-94e1-261cde938658" SrcGuid="5b0508f1-e04b-43b8-a323-1313570f1e68"/>
-		<Edge DstGuid="3625190b-e261-4464-98e7-de6ce43bbd35" InstanceGuid="814cde53-ae3e-4491-9b41-b26c511eba0b|3625190b-e261-4464-98e7-de6ce43bbd35" SrcGuid="814cde53-ae3e-4491-9b41-b26c511eba0b"/>
-		<Edge DstGuid="19399a2f-5153-4ef7-b834-1c1c26827e2c" InstanceGuid="24d6030d-c232-43e3-bf82-5740443086e5|19399a2f-5153-4ef7-b834-1c1c26827e2c" SrcGuid="24d6030d-c232-43e3-bf82-5740443086e5"/>
-		<Edge DstGuid="9290aa5a-dbb3-4822-b317-730fd1bc05ab" InstanceGuid="436ce1c7-77ef-43a1-bf46-71cac0f1ca70|9290aa5a-dbb3-4822-b317-730fd1bc05ab" SrcGuid="436ce1c7-77ef-43a1-bf46-71cac0f1ca70"/>
-		<Edge DstGuid="e53d0112-16fe-4cbe-80d2-9aa4f10d041c" InstanceGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e|e53d0112-16fe-4cbe-80d2-9aa4f10d041c" SrcGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e"/>
-		<Edge DstGuid="f4c0527d-13f1-41c5-93ab-3920eaea31a5" InstanceGuid="0e232400-7775-47c6-bd57-70cfb950d6d6|f4c0527d-13f1-41c5-93ab-3920eaea31a5" SrcGuid="0e232400-7775-47c6-bd57-70cfb950d6d6"/>
-		<Edge DstGuid="586a5790-ba0c-4550-9cb2-7b86485ce338" InstanceGuid="1e55807b-e514-4bb3-a3f0-a0e57e9ab1ec|586a5790-ba0c-4550-9cb2-7b86485ce338" SrcGuid="1e55807b-e514-4bb3-a3f0-a0e57e9ab1ec"/>
-	</Edges>
-	<MetaData>
-		
-    
-		<Ignore>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;
+  <Nodes>
+    <Node InstanceGuid="1e537ab6-6674-4105-837d-c10635c5233c" Type="807b86e3-be8d-4970-92b5-f8cdcb45b06b">
+      <Ports>
+        <Port InstanceGuid="a0955fdd-49a4-416b-9969-01d67fa9ecca"/>
+        <Port InstanceGuid="3f4aad68-dee3-4063-96ca-7442466ef48c"/>
+        <Port InstanceGuid="24d6030d-c232-43e3-bf82-5740443086e5"/>
+      </Ports>
+      <Position>
+        <X>447</X>
+        <Y>218</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
+      <Ports>
+        <Port InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264"/>
+      </Ports>
+      <Position>
+        <X>7.5</X>
+        <Y>206</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="afc9ec8c-8c3e-4d3f-b5fc-b06c472811e4" Type="b8963bb1-aa57-476e-a20e-ed6cf635a49c">
+      <Ports>
+        <Port InstanceGuid="42714db0-10d9-43e4-a775-52501f2377b8"/>
+        <Port InstanceGuid="371c78ea-7880-40a8-8ccc-98eb026d7895"/>
+        <Port InstanceGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84"/>
+      </Ports>
+      <Position>
+        <X>279</X>
+        <Y>242</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
+      <Ports>
+        <Port InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053"/>
+      </Ports>
+      <Position>
+        <X>12.5</X>
+        <Y>261</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="ed16bfa0-ac00-4711-a7dc-35f79ce10eb9" Type="807b86e3-be8d-4970-92b5-f8cdcb45b06b">
+      <Ports>
+        <Port InstanceGuid="31c40430-72fe-4a7e-b8f6-ecb42e471640">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Base plane of circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;31c40430-72fe-4a7e-b8f6-ecb42e471640&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;172&lt;/X&gt;&lt;Y&gt;24&lt;/Y&gt;&lt;W&gt;39&lt;/W&gt;&lt;H&gt;23&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;193&lt;/X&gt;&lt;Y&gt;35.5&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;plane&quot; type_name=&quot;gh_plane&quot; type_code=&quot;72&quot;&gt;&lt;Ox&gt;0&lt;/Ox&gt;&lt;Oy&gt;0&lt;/Oy&gt;&lt;Oz&gt;0&lt;/Oz&gt;&lt;Xx&gt;1&lt;/Xx&gt;&lt;Xy&gt;0&lt;/Xy&gt;&lt;Xz&gt;0&lt;/Xz&gt;&lt;Yx&gt;0&lt;/Yx&gt;&lt;Yy&gt;1&lt;/Yy&gt;&lt;Yz&gt;0&lt;/Yz&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="b1fedf57-721a-46c3-94e1-261cde938658">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius of circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;b1fedf57-721a-46c3-94e1-261cde938658&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;5b0508f1-e04b-43b8-a323-1313570f1e68&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;172&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;W&gt;39&lt;/W&gt;&lt;H&gt;23&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;193&lt;/X&gt;&lt;Y&gt;58.5&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;number&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="814cde53-ae3e-4491-9b41-b26c511eba0b">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Resulting circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;814cde53-ae3e-4491-9b41-b26c511eba0b&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;241&lt;/X&gt;&lt;Y&gt;24&lt;/Y&gt;&lt;W&gt;37&lt;/W&gt;&lt;H&gt;46&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;259.5&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+      </Ports>
+      <Position>
+        <X>226</X>
+        <Y>47</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="5b0508f1-e04b-43b8-a323-1313570f1e68" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
+      <Ports>
+        <Port InstanceGuid="5b0508f1-e04b-43b8-a323-1313570f1e68">
+          <MetaData/>
+        </Port>
+      </Ports>
+      <Position>
+        <X>-56.5</X>
+        <Y>46</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="310a1555-cbd3-4267-83bd-f58c3135b67d" Type="2162e72e-72fc-4bf8-9459-d4d82fa8aa14">
+      <Ports>
+        <Port InstanceGuid="3625190b-e261-4464-98e7-de6ce43bbd35">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Curve to divide&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;3625190b-e261-4464-98e7-de6ce43bbd35&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Curve&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Curve&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;814cde53-ae3e-4491-9b41-b26c511eba0b&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;302&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;W&gt;36&lt;/W&gt;&lt;H&gt;30&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;321.5&lt;/X&gt;&lt;Y&gt;62.33333&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="f94fa695-d4e2-4cd8-accc-864c0ce76361">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number of segments&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;f94fa695-d4e2-4cd8-accc-864c0ce76361&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Count&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Count&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;302&lt;/X&gt;&lt;Y&gt;77&lt;/Y&gt;&lt;W&gt;36&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;321.5&lt;/X&gt;&lt;Y&gt;93&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;number&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;10&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="2e3e4d4c-5f1f-430f-8ff0-bf670c4a7bfc">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_input&quot; index=&quot;2&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Split segments at kinks&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;2e3e4d4c-5f1f-430f-8ff0-bf670c4a7bfc&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Kinks&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Kinks&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;302&lt;/X&gt;&lt;Y&gt;108&lt;/Y&gt;&lt;W&gt;36&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;321.5&lt;/X&gt;&lt;Y&gt;123.6667&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;boolean&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="54946ae2-7fa9-4068-a573-4147fbf7f34b">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Access&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Division points&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;54946ae2-7fa9-4068-a573-4147fbf7f34b&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Points&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Points&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;368&lt;/X&gt;&lt;Y&gt;47&lt;/Y&gt;&lt;W&gt;64&lt;/W&gt;&lt;H&gt;30&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;400&lt;/X&gt;&lt;Y&gt;62.33333&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="2bd6f5fb-6223-49ad-bdf0-9e9178522924">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Access&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Tangent vectors at division points&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;2bd6f5fb-6223-49ad-bdf0-9e9178522924&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Tangents&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Tangents&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;368&lt;/X&gt;&lt;Y&gt;77&lt;/Y&gt;&lt;W&gt;64&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;400&lt;/X&gt;&lt;Y&gt;93&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="db1db998-e6fb-4462-8954-834eeaf7097c">
+          <MetaData>
+            <Ignore>&lt;chunk name=&quot;param_output&quot; index=&quot;2&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Access&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Parameter values at division points&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;db1db998-e6fb-4462-8954-834eeaf7097c&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Parameters&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Parameters&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;368&lt;/X&gt;&lt;Y&gt;108&lt;/Y&gt;&lt;W&gt;64&lt;/W&gt;&lt;H&gt;31&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;400&lt;/X&gt;&lt;Y&gt;123.6667&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Ignore>
+          </MetaData>
+        </Port>
+      </Ports>
+      <Position>
+        <X>353</X>
+        <Y>93</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="c3e123ac-98b2-4e63-af62-9fe2a87668d4" Type="962034e9-cc27-4394-afc4-5c16e3447cf9">
+      <Ports>
+        <Port InstanceGuid="19399a2f-5153-4ef7-b834-1c1c26827e2c"/>
+        <Port InstanceGuid="9290aa5a-dbb3-4822-b317-730fd1bc05ab"/>
+        <Port InstanceGuid="0e232400-7775-47c6-bd57-70cfb950d6d6"/>
+      </Ports>
+      <Position>
+        <X>676</X>
+        <Y>249</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="79e70a33-1c70-4124-9d30-cf722bcb04e4" Type="9103c240-a6a9-4223-9b42-dbd19bf38e2b">
+      <Ports>
+        <Port InstanceGuid="e53d0112-16fe-4cbe-80d2-9aa4f10d041c"/>
+        <Port InstanceGuid="436ce1c7-77ef-43a1-bf46-71cac0f1ca70"/>
+      </Ports>
+      <Position>
+        <X>452</X>
+        <Y>332</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
+      <Ports>
+        <Port InstanceGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e"/>
+      </Ports>
+      <Position>
+        <X>181.5</X>
+        <Y>372</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="066d44bd-306c-49ac-a428-9549d408a2dd" Type="2e205f24-9279-47b2-b414-d06dcd0b21a7">
+      <Ports>
+        <Port InstanceGuid="f4c0527d-13f1-41c5-93ab-3920eaea31a5"/>
+        <Port InstanceGuid="1e55807b-e514-4bb3-a3f0-a0e57e9ab1ec"/>
+        <Port InstanceGuid="b4f5637e-ece5-483f-acdc-a646658b7eaa"/>
+      </Ports>
+      <Position>
+        <X>866</X>
+        <Y>249</Y>
+      </Position>
+    </Node>
+    <Node InstanceGuid="586a5790-ba0c-4550-9cb2-7b86485ce338" Type="59e0b89a-e487-49f8-bab8-b5bab16be14c">
+      <Ports>
+        <Port InstanceGuid="586a5790-ba0c-4550-9cb2-7b86485ce338"/>
+      </Ports>
+      <Position>
+        <X>0</X>
+        <Y>0</Y>
+      </Position>
+    </Node>
+  </Nodes>
+  <Edges>
+    <Edge DstGuid="a0955fdd-49a4-416b-9969-01d67fa9ecca" InstanceGuid="54946ae2-7fa9-4068-a573-4147fbf7f34b|a0955fdd-49a4-416b-9969-01d67fa9ecca" SrcGuid="54946ae2-7fa9-4068-a573-4147fbf7f34b"/>
+    <Edge DstGuid="3f4aad68-dee3-4063-96ca-7442466ef48c" InstanceGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84|3f4aad68-dee3-4063-96ca-7442466ef48c" SrcGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84"/>
+    <Edge DstGuid="42714db0-10d9-43e4-a775-52501f2377b8" InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264|42714db0-10d9-43e4-a775-52501f2377b8" SrcGuid="82f7c0eb-eec6-4867-83ea-10a043027264"/>
+    <Edge DstGuid="371c78ea-7880-40a8-8ccc-98eb026d7895" InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053|371c78ea-7880-40a8-8ccc-98eb026d7895" SrcGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053"/>
+    <Edge DstGuid="b1fedf57-721a-46c3-94e1-261cde938658" InstanceGuid="5b0508f1-e04b-43b8-a323-1313570f1e68|b1fedf57-721a-46c3-94e1-261cde938658" SrcGuid="5b0508f1-e04b-43b8-a323-1313570f1e68"/>
+    <Edge DstGuid="3625190b-e261-4464-98e7-de6ce43bbd35" InstanceGuid="814cde53-ae3e-4491-9b41-b26c511eba0b|3625190b-e261-4464-98e7-de6ce43bbd35" SrcGuid="814cde53-ae3e-4491-9b41-b26c511eba0b"/>
+    <Edge DstGuid="19399a2f-5153-4ef7-b834-1c1c26827e2c" InstanceGuid="24d6030d-c232-43e3-bf82-5740443086e5|19399a2f-5153-4ef7-b834-1c1c26827e2c" SrcGuid="24d6030d-c232-43e3-bf82-5740443086e5"/>
+    <Edge DstGuid="9290aa5a-dbb3-4822-b317-730fd1bc05ab" InstanceGuid="436ce1c7-77ef-43a1-bf46-71cac0f1ca70|9290aa5a-dbb3-4822-b317-730fd1bc05ab" SrcGuid="436ce1c7-77ef-43a1-bf46-71cac0f1ca70"/>
+    <Edge DstGuid="e53d0112-16fe-4cbe-80d2-9aa4f10d041c" InstanceGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e|e53d0112-16fe-4cbe-80d2-9aa4f10d041c" SrcGuid="e3adc9b4-b956-418b-af6a-195e03bbb84e"/>
+    <Edge DstGuid="f4c0527d-13f1-41c5-93ab-3920eaea31a5" InstanceGuid="0e232400-7775-47c6-bd57-70cfb950d6d6|f4c0527d-13f1-41c5-93ab-3920eaea31a5" SrcGuid="0e232400-7775-47c6-bd57-70cfb950d6d6"/>
+    <Edge DstGuid="586a5790-ba0c-4550-9cb2-7b86485ce338" InstanceGuid="1e55807b-e514-4bb3-a3f0-a0e57e9ab1ec|586a5790-ba0c-4550-9cb2-7b86485ce338" SrcGuid="1e55807b-e514-4bb3-a3f0-a0e57e9ab1ec"/>
+  </Edges>
+  <MetaData>
+    <Ignore>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;
 &lt;Archive name=&quot;Root&quot;&gt;
   &lt;items count=&quot;1&quot;&gt;
     &lt;item name=&quot;ArchiveVersion&quot; type_name=&quot;gh_version&quot; type_code=&quot;80&quot;&gt;
@@ -1262,9 +1068,6 @@
     &lt;/chunk&gt;
   &lt;/chunks&gt;
 &lt;/Archive&gt;</Ignore>
-		
-  
-	</MetaData>
-	
-
+  </MetaData>
 </CommonGraph>
+
