@@ -56,8 +56,8 @@ def main():
 
     G = pgv.AGraph(strict=False, directed=True)
     
-    G.node_attr['fontsize'] =  5.0
-    G.node_attr['shape'] = 'rectangle'
+    G.node_attr['fontsize'] =  2.0
+    G.node_attr['shape'] = 'circle'
 
     G = graphAddCGX(G, CGA, 'grey')
    
