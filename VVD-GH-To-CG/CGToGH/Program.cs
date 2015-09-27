@@ -40,6 +40,7 @@ namespace CGToGH
 
                 GH_FileComposer composer = new GH_FileComposer(graphFromFile);
                 composer.SaveFile(dest);
+                Console.ReadKey();
 
             }
 

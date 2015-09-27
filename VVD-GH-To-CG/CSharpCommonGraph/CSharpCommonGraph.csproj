@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="CommonGraph.cs" />
     <Compile Include="Edge.cs" />
-    <Compile Include="Metadata.cs" />
+    <Compile Include="MetaData.cs" />
     <Compile Include="Node.cs" />
     <Compile Include="Port.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

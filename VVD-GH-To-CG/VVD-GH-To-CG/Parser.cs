@@ -124,7 +124,7 @@ namespace VVD_GH_To_CG
                 md.Ignore = chunkToXmlString(singleObjectChunk);
                 //TODO - REMOVE COMPONENTS OF XML THAT SHOULDN'T BE INSPECTED
                 md.Inspect = chunkToXmlString(singleObjectChunk);
-               node.Metadata = md; 
+               node.MetaData = md; 
 
                 List<Port> ports = new List<Port>();
                 List<Edge> edges = new List<Edge>();

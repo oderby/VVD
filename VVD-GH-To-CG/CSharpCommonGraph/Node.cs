@@ -16,7 +16,7 @@ namespace CSharpCommonGraph
         [XmlAttribute("Name")]
         public string Name;
         public List<Port> Ports = new List<Port>();
-        public MetaData Metadata = new MetaData();
+        public MetaData MetaData = new MetaData();
         public Position Position = new Position();
 
     }

@@ -20,16 +20,14 @@ namespace CGToGH
     public class GH_FileComposer
     {
         CommonGraph graph;
-        GH_Archive archive;
         XDocument doc;
         public GH_FileComposer(CommonGraph cg)
         {
             graph = cg;
-            archive = new GH_Archive();
 
             doc = XDocument.Parse(graph.MetaData.Ignore);
 
-            File.WriteAllText(@"C:\Users\aheumann\Desktop\xml out test.txt", graph.MetaData.Ignore);
+            //File.WriteAllText(@"C:\Users\aheumann\Desktop\xml out test.txt", graph.MetaData.Ignore);
            
 
             ConstructGH();
@@ -68,19 +66,25 @@ namespace CGToGH
 
 
             List<XElement> nodesFromGraph = new List<XElement>();
+           
             foreach (Node n in graph.Nodes)
             {
                 nodesFromGraph.Add(ElementFromNode(n));
 
             }
 
-            nodesFromGraph.RemoveAt(3);
-            nodesFromGraph.RemoveAt(1);
+   
             int i=0;
             foreach (XElement nodeFromGraph in nodesFromGraph)
             {
-                nodeFromGraph.SetAttributeValue(XName.Get("index"), i);
-                i++;
+                try
+                {
+                  //  Console.WriteLine(elementName(nodeFromGraph));
+                 //   nodeFromGraph.SetAttributeValue(XName.Get("index"), i);
+                    i++;
+                }
+                catch { }
+               
             }
 
             var items = definitionObjects.Elements().Where(elem => elem.Name == "items").First();
@@ -113,12 +117,12 @@ namespace CGToGH
         private static XElement ElementFromNode(Node n)
         {
             XElement testElem = null;
-            string objectXML = n.Metadata.Ignore;
-
+            string objectXML = n.MetaData.Ignore;
+            Console.WriteLine(objectXML);
             try
             {
                 testElem = XElement.Parse(objectXML);
-                Console.WriteLine(testElem.Name);
+                Console.WriteLine("foo foo"+testElem.Name);
             }
             catch (Exception e)
             {
