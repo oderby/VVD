@@ -25,7 +25,7 @@ def statusToString(status):
         return "[/]"
 
 class DiffSet(object):
-    def __init__(self, MetaData):
+    def __init__(self, MetaData=None):
         self.Changes = []
         self.MetaData = MetaData
     def addChange(self, Change):
@@ -66,8 +66,7 @@ class PortChange(object):
         attributes = {}
         attributes["Status"] = self.Status
         attributes["InstanceGuid"] = self.InstanceGuid
-        if self.Status != "removed":
-            attributes["ParentGuid"] = self.ParentGuid
+        attributes["ParentGuid"] = self.ParentGuid
         return buildXML("PortChange", attributes, self.MetaData)
     def __repr__(self):
         return statusToString(self.Status) + ' Port (InstanceGuid: ' + self.InstanceGuid + ')'
@@ -170,9 +169,11 @@ class CommonGraph(object):
         return [port for node in self.Nodes for port in node.Ports]
 
     def diff(self, other):
-        #TODO: Compute diff for top-level MetaData field
-
-        thisDiffSet = DiffSet(self.MetaData)
+        # If the metadata changed, include the other's metadata
+        if cmp(recursive_dict(self.MetaData), recursive_dict(other.MetaData)) !=0:
+            thisDiffSet = DiffSet(other.MetaData)
+        else:
+            thisDiffSet = DiffSet()
 
         (nodesRemoved, nodesAdded, nodesChanged, nodesSame) = booleanObjectLists("node", self.Nodes, other.Nodes)
         for thisNode in nodesRemoved:
@@ -191,7 +192,7 @@ class CommonGraph(object):
         (portsRemoved, portsAdded, portsChanged, portsSame) = booleanObjectLists("port", self.getAllPorts(), other.getAllPorts())
 
         for thisPort in portsRemoved:
-            thisDiffSet.addChange(PortChange("removed", thisPort.InstanceGuid))
+            thisDiffSet.addChange(PortChange("removed", thisPort.InstanceGuid, thisPort.ParentGuid))
         for thisPort in portsAdded:
             thisDiffSet.addChange(PortChange("added", thisPort.InstanceGuid, thisPort.ParentGuid, thisPort.MetaData))
         for thisPort in portsChanged:
@@ -291,6 +292,8 @@ class Edge(object):
 
 
 def recursive_dict(element):
+    if element is None:
+        return {}
     return element.tag, dict(map(recursive_dict, element)) or element.text
 
 def CgxToObject(xmlfile):
@@ -346,17 +349,16 @@ def main():
     ds2 = XMLToDS("foo.dsx")
     DSToXML(ds2, "foo2.dsx")
 
-
-    CGB3 = CGA.applyDiff(ds2)
-
     CGB2 = CGA.applyDiff(ds)
+    CGB3 = CGA.applyDiff(ds2)
 
     print "========================="
     print CGB
     print "========================="
     print CGB2
     print "========================="
-
+    print CGB3
+    print "========================="
 
 if __name__ == "__main__":
     main()
