@@ -69,12 +69,12 @@
       <Inspect>"I'm a Cloud"</Inspect>
     </MetaData>
    </Node>
-   <Node Type="3e8ca6be-fda8-4aaf-b5c0-3c54c8bb7312" InstanceGuid="a0f78302-d79e-46b2-af23-b959da359475">
+   <Node Type="3e8ca6be-fda8-4aaf-b5c0-3c54c8bb7312" InstanceGuid="MAGICa0f78302-d79e-46b2-af23-b959da359475">
     <Ports>
-     <Port InstanceGuid="a0f78302-d79e-46b2-af23-b959da359475">
+     <Port InstanceGuid="MAGICa0f78302-d79e-46b2-af23-b959da359475">
           <MetaData>
             <Ignore></Ignore>
-            <Inspect>"I'm a Horse"</Inspect>
+            <Inspect>"I'm a MAGIC UNICORN"</Inspect>
           </MetaData>
      </Port>
     </Ports>
@@ -87,7 +87,7 @@
  <Edges>
   <Edge SrcGuid="3ab31f8-b018-469a-b175-391d5dd9a769" DstGuid="7b52c449-1c50-4675-b009-ed74c6dd703a"></Edge>
   <Edge SrcGuid="26aacdcb-06cf-468e-82c8-996c191f5284" DstGuid="7b52c449-1c50-4675-b009-ed74c6dd703a"></Edge>
-  <Edge SrcGuid="a0f78302-d79e-46b2-af23-b959da359475" DstGuid="7b52c449-1c50-4675-b009-ed74c6dd703a"></Edge>
+  <Edge SrcGuid="MAGICa0f78302-d79e-46b2-af23-b959da359475" DstGuid="7b52c449-1c50-4675-b009-ed74c6dd703a"></Edge>
   <Edge SrcGuid="037acdd6-1292-4daf-80c7-f80c5db2e283" DstGuid="98442096-8594-4bc9-b9b5-38e84dbdedac"></Edge>
  </Edges>
 </CommonGraph>

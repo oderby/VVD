@@ -151,20 +151,25 @@ class CommonGraph(object):
                 objList = parentNode.Ports
             except Exception, e:
                 # this sometimes doesn't work because parentNode was already deleted - and that's okay!
-                return False
+                return True
         try:
             objList.remove([o for o in objList if o.InstanceGuid == objGuid][0])
         except:
             return False
         return True
 
-    def changeObj(self, objType, obj):
+    def changeObj(self, objType, obj, objParentGuid = None):
         if(objType == "node"):
             objList = self.Nodes
         if(objType == "edge"):
             objList = self.Edges
         if(objType == "port"):
-            objList = [port for node in self.Nodes for port in node.Ports]
+            try:
+                parentNode = [node for node in self.Nodes if node.InstanceGuid == objParentGuid][0]
+                objList = parentNode.Ports
+            except Exception, e:
+                # if this doesn't work, this is bad
+                return False
         try:
             for idx, thisN in enumerate(objList):
                 if obj == thisN:
@@ -237,13 +242,13 @@ class CommonGraph(object):
                 newCG.changeObj("node", Node.addFromChange(thisNodeChange))
 
         for thisPortChange in [change for change in diffSet.Changes if change.__class__.__name__ == "PortChange"]:
+            print thisPortChange
             if(thisPortChange.Status == "added"):
                 newCG.add("port", Port.addFromChange(thisPortChange))
             if(thisPortChange.Status == "removed"):
-                print thisPortChange.ParentGuid
-                newCG.removeObj("port", thisPortChange.InstanceGuid, objParentGuid=thisPortChange.ParentGuid)
+                newCG.removeObj("port", thisPortChange.InstanceGuid, objParentGuid = thisPortChange.ParentGuid)
             if(thisPortChange.Status == "changed"):
-                newCG.changeObj("port", Port.addFromChange(thisPortChange))
+                newCG.changeObj("port", Port.addFromChange(thisPortChange), objParentGuid = thisPortChange.ParentGuid)
 
         for thisEdgeChange in [change for change in diffSet.Changes if change.__class__.__name__ == "EdgeChange"]:
             print thisEdgeChange
@@ -270,7 +275,7 @@ class Node(object):
         return cls(nodeChange.Type, nodeChange.InstanceGuid, nodeChange.MetaData)
 
     def __repr__(self):
-        return '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ') \n' +\
+        return '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ' MetaData: ' + etree.tostring(self.MetaData) + ' ) \n' +\
                 '\n'.join([str(p) for p in self.Ports])
     def addPort(self, port):
         self.Ports.append(port)
@@ -280,8 +285,13 @@ class Port(object):
         self.InstanceGuid = InstanceGuid
         self.ParentGuid = ParentGuid
         self.MetaData = MetaData
+    def __eq__(self, other):
+        if self.InstanceGuid == other.InstanceGuid:
+            return True
+        else:
+            return False
     def __repr__(self):
-        return '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ')'
+        return '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ' MetaData: ' + etree.tostring(self.MetaData) + ' )'
     @classmethod
     def addFromChange(cls, portChange):
         return cls(portChange.InstanceGuid, portChange.ParentGuid, portChange.MetaData)
@@ -291,6 +301,11 @@ class Edge(object):
         self.SrcGuid = SrcGuid
         self.DstGuid = DstGuid
         self.InstanceGuid = self.SrcGuid + "|" + self.DstGuid
+    def __eq__(self, other):
+        if self.InstanceGuid == other.InstanceGuid:
+            return True
+        else:
+            return False
     def __repr__(self):
         return '\n  == Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
     @classmethod
@@ -329,7 +344,7 @@ def DSToXML(diffSet, fileName):
 def XMLToDS(fileName):
     tree = etree.parse(fileName)
     root = tree.getroot()
-    print root.findall("*")
+    #print root.findall("*")
     xmlChanges = [e for e in root.findall("*") if e.tag.find("Change")>=0]
 
     thisDiffSet = DiffSet(root.find("MetaData"))
@@ -355,14 +370,18 @@ def main():
     ds2 = XMLToDS("foo.dsx")
     DSToXML(ds2, "foo2.dsx")
 
+    print "========================="
     CGB2 = CGA.applyDiff(ds)
+    print "========================="
     CGB3 = CGA.applyDiff(ds2)
 
-    print "========================="
+    print "=CGA========================"
+    print CGA
+    print "=CGB========================"
     print CGB
-    print "========================="
+    print "=CGB2========================"
     print CGB2
-    print "========================="
+    print "=CGB3========================"
     print CGB3
     print "========================="
 
