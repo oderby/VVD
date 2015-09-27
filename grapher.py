@@ -12,29 +12,33 @@ def parseArgs():
     return parser.parse_args()
 
 
-def graphAddCGX(G, CGX, col='black'):
+def graphAddCGX(G, CGX, sameColor ='gray', borderColor='black'):
     # add all nodes from CGA
-    G.edge_attr['color'] = col
-    G.node_attr['color'] = col
+    G.edge_attr['color'] = sameColor
+    G.node_attr['color'] = borderColor
+    G.node_attr['fillcolor'] = sameColor
+    G.node_attr['style'] = 'filled'
     for (nodeid, name, position) in CGX.getNodesForGraphviz():
 #        print (nodeid, name, position) 
-        G.add_node(nodeid, color=col, label=name, pin="true", pos=position + "!")
+        G.add_node(nodeid, color=borderColor, label=name, pin="true", pos=position + "!")
     for (src, dst) in CGX.getEdgePairs():
 #        print (src, dst)
         G.add_edge(src,dst)
     return G
 
 
-def graphApplyDS(G, CGX,  ds, addedColor, removedColor, changedColor):
+def graphApplyDS(G, CGX,  ds, borderColor, addedColor, removedColor, changedColor):
+    G.node_attr['style'] = 'filled'
     for thisNodeChange in [change for change in ds.Changes if change.__class__.__name__ == "NodeChange"]:
         print thisNodeChange
         if(thisNodeChange.Status == "added"):
             (nodeid, name, position) = cgd.Node.getGraphVizRep(thisNodeChange)
-            G.add_node(nodeid, color=addedColor, label=name, pin="true", pos=position + "!")
+	    G.node_attr['style'] = 'filled'
+            G.add_node(nodeid, color=borderColor, fillcolor=addedColor, label=name, pin="true", pos=position + "!")
         if(thisNodeChange.Status == "removed"):
-            G.get_node(thisNodeChange.InstanceGuid).attr['color']=removedColor
+            G.get_node(thisNodeChange.InstanceGuid).attr['fillcolor']=removedColor
         if(thisNodeChange.Status == "changed"):
-            G.get_node(thisNodeChange.InstanceGuid).attr['color']=changedColor
+            G.get_node(thisNodeChange.InstanceGuid).attr['fillcolor']=changedColor
 
     for thisEdgeChange in [change for change in ds.Changes if change.__class__.__name__ == "EdgeChange"]:
         print thisEdgeChange
@@ -57,13 +61,16 @@ def main():
     G = pgv.AGraph('digraph foo {}')
  
     G.node_attr['fontsize'] =  10.0
-    G.node_attr['shape'] = 'circle'
+    G.node_attr['shape'] = 'rectangle'
 
     print "## generating graph from", args.cg1, "and", args.ds
 
-    G = graphAddCGX(G, CGA, 'grey')
+    borderColor = 'black'
+    sameColor = '#DDDDDD'
+
+    G = graphAddCGX(G, CGA, sameColor=sameColor, borderColor=borderColor)
    
-    G = graphApplyDS(G, CGA, ds, addedColor='#319E8E', removedColor='#D13A82', changedColor='#FFDF4E')
+    G = graphApplyDS(G, CGA, ds, borderColor=borderColor, addedColor='#00CC00', removedColor='#FF0066', changedColor='#FFFFAA')
 
     G.layout(prog='neato') # layout with default (neato)
     G.draw(args.png)
