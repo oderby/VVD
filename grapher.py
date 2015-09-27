@@ -61,7 +61,7 @@ def main():
 
     G = graphAddCGX(G, CGA, 'grey')
    
-    G = graphApplyDS(G, CGA, ds, addedColor='#319E8E', removedColor='#319E8E', changedColor='#319E8E')
+    G = graphApplyDS(G, CGA, ds, addedColor='#319E8E', removedColor='#D13A82', changedColor='#FFDF4E')
 
     print G.string()
     G.layout(prog='neato') # layout with default (neato)
