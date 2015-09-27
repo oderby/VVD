@@ -130,25 +130,38 @@ class CommonGraph(object):
 
     def add(self, objType, obj):
         if(objType == "node"):
-            objList = self.Nodes
+            self.Nodes.append(obj)
+            return True
         if(objType == "edge"):
-            objList = self.Edges
+            self.Edges.append(obj)
+            return True
         if(objType == "port"):
-            return False
-            # TODO: implement add Port
+            parentNode = [n for n in self.Nodes if n.InstanceGuid == obj.ParentGuid][0]
+            parentNode.addPort(obj)
+            return True
 
-        objList.append(obj)
-
-    def removeObj(self, objType, objGuid):
+    def removeObj(self, objType, objGuid, objParentGuid=None):
         if(objType == "node"):
             objList = self.Nodes
         if(objType == "edge"):
             objList = self.Edges
         if(objType == "port"):
-            return False
-            # TODO: implement remove Port
+            parentNode = [node for node in self.Nodes if objGuid in [p.InstanceGuid for p in node.Ports]]
+            print "parentNode = ", parentNode
+            print "yoyoyo port"
         try:
+            print "---"
+            print "-we want to remove a--" , objType
+            print "---"
+            print objList
+            print objGuid
+            print len([o for o in objList if o.InstanceGuid == objGuid]),
+            print len(objList),
             objList.remove([o for o in objList if o.InstanceGuid == objGuid][0])
+            print len(objList)
+            print "---"
+            print objList
+            print "---"
             return True
         except:
             return False
@@ -159,8 +172,7 @@ class CommonGraph(object):
         if(objType == "edge"):
             objList = self.Edges
         if(objType == "port"):
-            return False
-            # TODO: implement chnage Port
+            objList = [port for node in self.Nodes for port in node.Ports]
         try:
             for idx, thisN in enumerate(objList):
                 if obj == thisN:
@@ -231,11 +243,11 @@ class CommonGraph(object):
                 newCG.changeObj("node", Node.addFromChange(thisNodeChange))
 
         for thisPortChange in [change for change in diffSet.Changes if change.__class__.__name__ == "PortChange"]:
-            print thisPortChange
             if(thisPortChange.Status == "added"):
                 newCG.add("port", Port.addFromChange(thisPortChange))
             if(thisPortChange.Status == "removed"):
-                newCG.removeObj("port", thisPortChange.InstanceGuid)
+                print thisPortChange.ParentGuid
+                newCG.removeObj("port", thisPortChange.InstanceGuid, objParentGuid=thisPortChange.ParentGuid)
             if(thisPortChange.Status == "changed"):
                 newCG.changeObj("port", Port.addFromChange(thisPortChange))
 
@@ -350,7 +362,7 @@ def main():
     DSToXML(ds2, "foo2.dsx")
 
 
-    CGB3 = CGA.applyDiff(ds2)
+    #CGB3 = CGA.applyDiff(ds2)
 
     CGB2 = CGA.applyDiff(ds)
 
