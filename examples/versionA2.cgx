@@ -3,6 +3,8 @@
   <Edges>
     <Edge SrcGuid="f6033b30-bdc9-4973-9bab-7e4831e5dd65" DstGuid="2704e8e1-7d49-4c04-a1c9-81590aad4497" />
     <Edge SrcGuid="8d1ed326-31b6-4caf-a496-a87cf51d5656" DstGuid="3b42c378-6170-49fd-89f9-21110433ab65" />
+    <Edge SrcGuid="8402820c-a21d-4da6-891e-59f1e6ce3f65" DstGuid="9c955466-52cc-4fda-b14d-a598f9e446c2" />
+    <Edge SrcGuid="9c955466-52cc-4fda-b14d-a598f9e446c2" DstGuid="c3f2e586-52e4-45f7-9096-544b1dc9f34c" />
   </Edges>
   <Nodes>
     <Node Type="57da07bd-ecab-415d-9d86-af36d7073abc" InstanceGuid="f6033b30-bdc9-4973-9bab-7e4831e5dd65" Name="Number Slider">
