@@ -54,7 +54,7 @@ def main():
     CGA = cgd.CgxToObject(args.cg1)
     ds =  cgd.XMLToDS(args.ds)
 
-    G = pgv.AGraph(strict=False, directed=False)
+    G = pgv.AGraph('digraph foo {}')
     print "is G strict", G.is_strict()
     print "is G directed", G.is_directed()
  
@@ -64,16 +64,6 @@ def main():
     G = graphAddCGX(G, CGA, 'grey')
    
     G = graphApplyDS(G, CGA, ds, addedColor='#319E8E', removedColor='#D13A82', changedColor='#FFDF4E')
-
-    graphAsString = G.string()
-    graphAsString = graphAsString.replace("strict digraph", "strict graph")
-    G = pgv.AGraph(graphAsString)
-
-    print "is G strict", G.is_strict()
-    print "is G directed", G.is_directed()
-
-    print graphAsString
-
 
     G.layout(prog='neato') # layout with default (neato)
     G.draw(args.png)
