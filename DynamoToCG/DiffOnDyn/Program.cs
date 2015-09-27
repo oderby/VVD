@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dynamo.Utilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,13 +42,44 @@ namespace DiffOnDyn
 
                 Console.WriteLine("now attempting to generate annotations ");
 
-                foreach (var change in diffFromFile.Changes)
+                 
+                foreach (var change in diffFromFile.NodeChanges)
                 {
                     if (change is NodeChange)
                     {
                         if (change.Status == "added")
                         {
-                            //add a new node and color it green...
+                             var tempdoc = new XmlDocument();
+                            tempdoc.LoadXml(change.MetaData.Inspect);
+                            var elementsList = doc.GetElementById("Elements");
+                            //necessary for crossing XmlDocument contexts
+                            XmlNode importNode = elementsList.OwnerDocument.ImportNode(doc.DocumentElement, true);
+                            //now the node is added...
+                            //lets add it to an annoation by its guid
+                           elementsList.AppendChild(importNode);
+                            
+                            //add a new node... we have to create the node from the change issues
+                             var annotationList = doc.CreateElement("Annotations");
+
+                             var element = doc.CreateElement("Dynamo.Models.AnnotationModel");
+
+                             XmlElementHelper helper = new XmlElementHelper(element);
+                             helper.SetAttribute("guid", Guid.NewGuid());
+                             helper.SetAttribute("annotationText", "a addition");
+                             helper.SetAttribute("left", 1);
+                             helper.SetAttribute("top", 1);
+                             helper.SetAttribute("width", 100);
+                             helper.SetAttribute("height", 100);
+                             helper.SetAttribute("fontSize", 100);
+                             helper.SetAttribute("InitialTop", 100);
+                             helper.SetAttribute("InitialHeight", 100);
+                             helper.SetAttribute("TextblockHeight",100);
+                             helper.SetAttribute("backgrouund", ("#00FF00"));    
+                          
+
+
+
+                            //add a new node and color it green...#00FF00
                         }
 
                         if (change.Status == "removed")
@@ -58,7 +90,7 @@ namespace DiffOnDyn
                 }
 
                 var outdoc = new XmlDocument();
-               // CGToXML.SaveInternal(dest, diffFromFile);
+                doc.Save(Path.GetFileName(dynpath) + "diffview"+".dyn");
 
 
                   //now apply the diff, this will create some groups for now

@@ -8,14 +8,20 @@ using CSharpCommonGraph;
 
 namespace DiffOnDyn
 {
-    [Serializable]
+    [Serializable()]
     public class DiffSet{
-        public List<Change> Changes;
-    
+       [XmlElement("NodeChange")]
+        public List<NodeChange> NodeChanges;
+       [XmlElement("EdgeChange")]
+         public   List<EdgeChange> EdgeChanges ;
+       [XmlElement("PortChange")]
+            public List<PortChange> PortChanges;
 
        public DiffSet()
        {
-            Changes = new List<Change>();
+            NodeChanges = new List<NodeChange>();
+            EdgeChanges = new List<EdgeChange>();
+            PortChanges = new List<PortChange>();
        }
            
 
