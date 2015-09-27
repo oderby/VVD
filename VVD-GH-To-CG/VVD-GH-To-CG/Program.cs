@@ -29,15 +29,8 @@ namespace VVD_GH_To_CG
             TextWriter WriteFileStream = new StreamWriter(dest);
             SerializerObj.Serialize(WriteFileStream, dg);
 
-
-          //  GH_FileComposer composerTest = new GH_FileComposer(dg);
-          //  composerTest.saveFile();
-
-
-
-
-           // DoThePython();
-        // Console.ReadKey();
+           
+         Console.ReadKey();
 
         }
 

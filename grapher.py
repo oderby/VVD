@@ -54,7 +54,7 @@ def main():
     CGA = cgd.CgxToObject(args.cg1)
     ds =  cgd.XMLToDS(args.ds)
 
-    G = pgv.AGraph()
+    G = pgv.AGraph(strict=False, directed=True)
     
     G.node_attr['fontsize'] =  5.0
 

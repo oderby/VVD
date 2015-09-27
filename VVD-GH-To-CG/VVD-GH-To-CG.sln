@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VVD-GH-To-CG", "VVD-GH-To-C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpCommonGraph", "CSharpCommonGraph\CSharpCommonGraph.csproj", "{83F967C1-5E7E-455C-83F0-B420DE150D6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGToGH", "CGToGH\CGToGH.csproj", "{C84009EB-0EF4-4B12-983D-12BFB60299DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{83F967C1-5E7E-455C-83F0-B420DE150D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83F967C1-5E7E-455C-83F0-B420DE150D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83F967C1-5E7E-455C-83F0-B420DE150D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C84009EB-0EF4-4B12-983D-12BFB60299DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C84009EB-0EF4-4B12-983D-12BFB60299DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C84009EB-0EF4-4B12-983D-12BFB60299DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C84009EB-0EF4-4B12-983D-12BFB60299DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

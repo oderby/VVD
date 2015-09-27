@@ -15,3 +15,4 @@ C:\Users\aheumann\Documents\vvd\VVD-GH-To-CG\VVD-GH-To-CG\bin\Debug\VVD-GH-To-CG
 C:\Users\aheumann\Documents\vvd\VVD-GH-To-CG\VVD-GH-To-CG\bin\Debug\CSharpCommonGraph.dll
 C:\Users\aheumann\Documents\vvd\VVD-GH-To-CG\VVD-GH-To-CG\bin\Debug\GH_IO.dll
 C:\Users\aheumann\Documents\vvd\VVD-GH-To-CG\VVD-GH-To-CG\bin\Debug\CSharpCommonGraph.pdb
+C:\Users\aheumann\Documents\vvd\VVD-GH-To-CG\VVD-GH-To-CG\bin\Debug\CommonGraphDiffer.dll
