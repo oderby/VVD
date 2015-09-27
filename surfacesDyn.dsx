@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" ?>
+<DiffSet>
+	<NodeChange InstanceGuid="c1e10fd1-974e-4374-b6ec-0766615d3df4" Status="removed">
+		<Position>
+			
+        
+			<X>-22861.9182723749</X>
+			
+        
+			<Y>-20305.5957145932</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<NodeChange InstanceGuid="ae4bfdfe-524a-4a5c-bd64-75fd56be89af" Status="removed">
+		<Position>
+			
+        
+			<X>-22586.5445982076</X>
+			
+        
+			<Y>-20518.126024631</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<NodeChange InstanceGuid="799b4dce-33ec-4a25-8518-7d988f7e267a" Status="removed">
+		<Position>
+			
+        
+			<X>-22867.8842411053</X>
+			
+        
+			<Y>-20500.6220741811</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<NodeChange InstanceGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a" Status="added" Type="BoundingBox.ByGeometry">
+		<MetaData>
+			<Inspect>&lt;Dynamo.Nodes.DSFunction guid=&quot;c996d46f-8943-4242-88fe-c7ab6a9fee8a&quot; type=&quot;Dynamo.Nodes.DSFunction&quot; nickname=&quot;BoundingBox.ByGeometry&quot; x=&quot;-23277.0410580978&quot; y=&quot;-18946.1843758797&quot; isVisible=&quot;true&quot; isUpstreamVisible=&quot;true&quot; lacing=&quot;Shortest&quot; isSelectedInput=&quot;False&quot; assembly=&quot;ProtoGeometry.dll&quot; function=&quot;Autodesk.DesignScript.Geometry.BoundingBox.ByGeometry@Autodesk.DesignScript.Geometry.Geometry&quot; /&gt;</Inspect>
+			
+      
+		</MetaData>
+		<Position>
+			
+        
+			<X>-23277.0410580978</X>
+			
+        
+			<Y>-18946.1843758797</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<NodeChange InstanceGuid="6a26a0ab-54c4-43c1-b059-ef7f1dd91b55" Status="added" Type="BoundingBox.ToCuboid">
+		<MetaData>
+			<Inspect>&lt;Dynamo.Nodes.DSFunction guid=&quot;6a26a0ab-54c4-43c1-b059-ef7f1dd91b55&quot; type=&quot;Dynamo.Nodes.DSFunction&quot; nickname=&quot;BoundingBox.ToCuboid&quot; x=&quot;-23118.8222105775&quot; y=&quot;-18854.7513735439&quot; isVisible=&quot;true&quot; isUpstreamVisible=&quot;true&quot; lacing=&quot;Shortest&quot; isSelectedInput=&quot;False&quot; assembly=&quot;ProtoGeometry.dll&quot; function=&quot;Autodesk.DesignScript.Geometry.BoundingBox.ToCuboid&quot; /&gt;</Inspect>
+			
+      
+		</MetaData>
+		<Position>
+			
+        
+			<X>-23118.8222105775</X>
+			
+        
+			<Y>-18854.7513735439</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<NodeChange InstanceGuid="3a3f07a6-8c80-4a83-a47f-efc0d476644d" Status="changed" Type="Code Block">
+		<MetaData>
+			<Inspect>&lt;Dynamo.Nodes.CodeBlockNodeModel guid=&quot;3a3f07a6-8c80-4a83-a47f-efc0d476644d&quot; type=&quot;Dynamo.Nodes.CodeBlockNodeModel&quot; nickname=&quot;Code Block&quot; x=&quot;-23841.6241165446&quot; y=&quot;-19245.2045683088&quot; isVisible=&quot;true&quot; isUpstreamVisible=&quot;true&quot; lacing=&quot;Disabled&quot; isSelectedInput=&quot;True&quot; CodeText=&quot;30;&quot; ShouldFocus=&quot;false&quot; /&gt;</Inspect>
+			
+      
+		</MetaData>
+		<Position>
+			
+        
+			<X>-23841.6241165446</X>
+			
+        
+			<Y>-19245.2045683088</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<EdgeChange InstanceGuid="c8658b11-66f5-4b96-ad0f-6b482220aed8_OUT0|799b4dce-33ec-4a25-8518-7d988f7e267a_IN0" Status="removed"/>
+	<EdgeChange InstanceGuid="b3654f9d-298b-4156-8dca-c1684b017930_OUT0|c1e10fd1-974e-4374-b6ec-0766615d3df4_IN0" Status="removed"/>
+	<EdgeChange InstanceGuid="799b4dce-33ec-4a25-8518-7d988f7e267a_OUT0|ae4bfdfe-524a-4a5c-bd64-75fd56be89af_IN0" Status="removed"/>
+	<EdgeChange DstGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a_IN0" InstanceGuid="4b1e3b96-afc8-43f4-9dcb-0157f4bc7f29_OUT0|c996d46f-8943-4242-88fe-c7ab6a9fee8a_IN0" SrcGuid="4b1e3b96-afc8-43f4-9dcb-0157f4bc7f29_OUT0" Status="added"/>
+	<EdgeChange DstGuid="6a26a0ab-54c4-43c1-b059-ef7f1dd91b55_IN0" InstanceGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a_OUT0|6a26a0ab-54c4-43c1-b059-ef7f1dd91b55_IN0" SrcGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a_OUT0" Status="added"/>
+	<PortChange InstanceGuid="c1e10fd1-974e-4374-b6ec-0766615d3df4_IN0" ParentGuid="c1e10fd1-974e-4374-b6ec-0766615d3df4" Status="removed"/>
+	<PortChange InstanceGuid="ae4bfdfe-524a-4a5c-bd64-75fd56be89af_IN0" ParentGuid="ae4bfdfe-524a-4a5c-bd64-75fd56be89af" Status="removed"/>
+	<PortChange InstanceGuid="799b4dce-33ec-4a25-8518-7d988f7e267a_IN0" ParentGuid="799b4dce-33ec-4a25-8518-7d988f7e267a" Status="removed"/>
+	<PortChange InstanceGuid="799b4dce-33ec-4a25-8518-7d988f7e267a_OUT0" ParentGuid="799b4dce-33ec-4a25-8518-7d988f7e267a" Status="removed"/>
+	<PortChange InstanceGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a_IN0" ParentGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a" Status="added">
+		<MetaData>
+			<Inspect>end</Inspect>
+			
+          
+		</MetaData>
+	</PortChange>
+	<PortChange InstanceGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a_OUT0" ParentGuid="c996d46f-8943-4242-88fe-c7ab6a9fee8a" Status="added">
+		<MetaData>
+			<Inspect>start</Inspect>
+			
+          
+		</MetaData>
+	</PortChange>
+	<PortChange InstanceGuid="6a26a0ab-54c4-43c1-b059-ef7f1dd91b55_IN0" ParentGuid="6a26a0ab-54c4-43c1-b059-ef7f1dd91b55" Status="added">
+		<MetaData>
+			<Inspect>end</Inspect>
+			
+          
+		</MetaData>
+	</PortChange>
+</DiffSet>
