@@ -11,7 +11,7 @@ namespace CSharpCommonGraph
     {
         [XmlAttribute("SrcGuid")]
       public string SrcGuid;
-        [XmlAttribute("DestGuid")]
+        [XmlAttribute("DstGuid")]
       public string DestGuid;
         [XmlAttribute("InstanceGuid")]
       public string InstanceGuid;

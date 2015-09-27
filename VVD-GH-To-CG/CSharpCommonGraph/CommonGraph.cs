@@ -11,6 +11,7 @@ namespace CSharpCommonGraph
     {
       public List<Edge> Edges;
       public List<Node> Nodes;
+      public MetaData MetaData;
 
       //empty constructor for the purposes of XMLSerializer
       public CommonGraph()
@@ -18,6 +19,7 @@ namespace CSharpCommonGraph
          
           Edges = new List<Edge>();
           Nodes = new List<Node>();
+          MetaData = new MetaData();
       }
 
 
