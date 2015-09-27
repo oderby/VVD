@@ -115,8 +115,9 @@ def booleanObjectLists(objType, selfObjs, otherObjs):
 
     if objType == "node" or objType == "port":
         for selfObj in objsIntersection:
+            myDict = recursive_dict(selfObj.MetaData)
             otherObj = [obj for obj in otherObjs if obj.InstanceGuid == selfObj.InstanceGuid][0]
-            if( cmp(otherObj.MetaData, selfObj.MetaData) == 0): #it's the samE!
+            if( cmp(recursive_dict(otherObj.MetaData), myDict) == 0): #it's the samE!
                 objsSame.append(otherObj)
             else:
                 objsChanged.append(otherObj)
@@ -201,6 +202,7 @@ class CommonGraph(object):
             for idx, thisN in enumerate(objList):
                 if obj == thisN:
                     objList[idx].MetaData = obj.MetaData
+            else: return False
             return True
         except Exception, e:
             return False
