@@ -79,8 +79,8 @@ namespace CGToGH
             {
                 try
                 {
-                  //  Console.WriteLine(elementName(nodeFromGraph));
-                 //   nodeFromGraph.SetAttributeValue(XName.Get("index"), i);
+                  // Console.WriteLine(elementName(nodeFromGraph));
+                    nodeFromGraph.SetAttributeValue(XName.Get("index"), i);
                     i++;
                 }
                 catch { }
@@ -118,11 +118,9 @@ namespace CGToGH
         {
             XElement testElem = null;
             string objectXML = n.MetaData.Ignore;
-            Console.WriteLine(objectXML);
             try
             {
                 testElem = XElement.Parse(objectXML);
-                Console.WriteLine("foo foo"+testElem.Name);
             }
             catch (Exception e)
             {

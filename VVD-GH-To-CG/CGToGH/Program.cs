@@ -18,7 +18,7 @@ namespace CGToGH
             try
             {
                 var path = args[0];
-                string dest = path.Replace(Path.GetExtension(path), ".gh");
+                string dest = path.Replace(Path.GetExtension(path), "_Generated.ghx");
                 if (args.Length > 1)
                 {
                     dest = args[1];
