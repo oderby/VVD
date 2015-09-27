@@ -2,18 +2,19 @@
 
 from lxml import etree
 from lxml.builder import E
+# TODO: should use import xml.etree.ElementTree 
 
 def getMetaXML(change):
-        return E("MetaData", E("Inspect", change.find("Inspect")))
+	return E("MetaData", E("Inspect", change.find("Inspect")))
 
 class DiffSet(object):
 	def __init__(self):
 		self.Changes = []
-                # TODO: This should track overall metadata changes...
+				# TODO: This should track overall metadata changes...
 	def addChange(self, Change):
 		self.Changes.append(Change)
-        def toXML(self):
-                return E("DiffSet", getMetaXML(self.MetaData), *[c.toXML() for c in self.Changes])
+	def toXML(self):
+		return E("DiffSet", getMetaXML(self.MetaData), *[c.toXML() for c in self.Changes])
 
 class NodeChange(object):
 	def __init__(self, Status, Node):
@@ -21,14 +22,14 @@ class NodeChange(object):
 		self.InstanceGuid = Node.InstanceGuid
 		self.Type = Node.Type
 		self.MetaData = Node.MetaData
-        def toXML(self):
-                attributes = {}
-                attributes["Status"] = self.Status
-                attributes["InstanceGuid"] = self.InstanceGuid
-                if self.Status != "removed":
-                        attributes["Type"] = self.Type
-                        return E("NodeChange", attributes, getMetaXML(self.MetaData))
-                return E("NodeChange", attributes)
+	def toXML(self):
+		attributes = {}
+		attributes["Status"] = self.Status
+		attributes["InstanceGuid"] = self.InstanceGuid
+		if self.Status != "removed":
+			attributes["Type"] = self.Type
+			return E("NodeChange", attributes, getMetaXML(self.MetaData))
+		return E("NodeChange", attributes)
 
 class PortChange(object):
 	def __init__(self, Status, Port):
@@ -36,14 +37,14 @@ class PortChange(object):
 		self.InstanceGuid = Port.InstanceGuid
 #		self.ParentGuid = Port.ParentGuid
 		self.MetaData = Port.MetaData
-        def toXML(self):
-                attributes = {}
-                attributes["Status"] = self.Status
-                attributes["InstanceGuid"] = self.InstanceGuid
-                if self.Status != "removed":
-                        attributes["ParentGuid"] = self.ParentGuid
-                        return E("NodeChange", attributes, getMetaXML(self.MetaData))
-                return E("PortChange", attributes)
+	def toXML(self):
+		attributes = {}
+		attributes["Status"] = self.Status
+		attributes["InstanceGuid"] = self.InstanceGuid
+		if self.Status != "removed":
+			attributes["ParentGuid"] = self.ParentGuid
+			return E("NodeChange", attributes, getMetaXML(self.MetaData))
+		return E("PortChange", attributes)
 
 class EdgeChange(object):
 	def __init__(self, Status, Edge):
@@ -51,14 +52,14 @@ class EdgeChange(object):
 		self.InstanceGuid = Edge.InstanceGuid
 		self.SrcGuid = Edge.SrcGuid
 		self.DstGuid = Edge.DstGuid
-        def toXML(self):
-                attributes = {}
-                attributes["Status"] = self.Status
-                attributes["InstanceGuid"] = self.InstanceGuid
-                if self.Status != "removed":
-                        attributes["SrcGuid"] = self.SrcGuid
-                        attributes["DstGuid"] = self.DstGuid
-                return E("PortChange", attributes)
+	def toXML(self):
+		attributes = {}
+		attributes["Status"] = self.Status
+		attributes["InstanceGuid"] = self.InstanceGuid
+		if self.Status != "removed":
+			attributes["SrcGuid"] = self.SrcGuid
+			attributes["DstGuid"] = self.DstGuid
+		return E("PortChange", attributes)
 
 
 
@@ -91,7 +92,7 @@ def booleanObjectLists(objType, selfObjs, otherObjs):
 
 class CommonGraph(object):
 	def __init__(self, MetaData):
-                self.MetaData = MetaData
+		self.MetaData = MetaData
 		self.Nodes = []
 		self.Edges = []
 	def addNode(self, node):
@@ -102,7 +103,7 @@ class CommonGraph(object):
 		return [port for node in self.Nodes for port in node.Ports]
 
 	def diff(self, other):
-                #TODO: Compute diff for top-level MetaData field
+		#TODO: Compute diff for top-level MetaData field
 
 		thisDiffSet = DiffSet()
 
@@ -151,7 +152,7 @@ class Node(object):
 		self.Ports = []
 	def __repr__(self):
 		return '\n=== Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ') \n' +\
-		'\n'.join([str(p) for p in self.Ports])
+				'\n'.join([str(p) for p in self.Ports])
 	def addPort(self, port):
 		self.Ports.append(port)
 
@@ -196,7 +197,7 @@ def CgxToObject(xmlfile):
 	return thisCG
 
 def DSToXML(diffSet, fileName):
-        etree.ElementTree(diffSet.toXML()).write(fileName)
+	etree.ElementTree(diffSet.toXML()).write(fileName)
 
 def main():
 	CGA = CgxToObject("examples/simple_multiply_example.cgx")
