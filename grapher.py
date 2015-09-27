@@ -6,9 +6,9 @@ import argparse
 
 def parseArgs():
     parser = argparse.ArgumentParser()
-    parser.add_argument("cg1")
-    parser.add_argument("cg2")
-    parser.add_argument("out")
+    parser.add_argument("cg1", help="This is a .CGX (CommonGraph) file")
+    parser.add_argument("ds", help="This is a .DSX (DiffSet) file")
+    parser.add_argument("png", help="This is the output filename of a .png file")
     return parser.parse_args()
 
 
@@ -52,12 +52,11 @@ def graphApplyDS(G, CGX,  ds, addedColor, removedColor, changedColor):
 def main():
     args = parseArgs()
     CGA = cgd.CgxToObject(args.cg1)
-    CGB = cgd.CgxToObject(args.cg2)
-    ds = CGA.diff(CGB)
+    ds =  cgd.XMLToDS(args.ds)
 
     G = pgv.AGraph()
     
-    G.node_attr['fontsize'] =  8.0
+    G.node_attr['fontsize'] =  5.0
 
     G = graphAddCGX(G, CGA, 'grey')
    
@@ -65,7 +64,7 @@ def main():
 
     print G.string()
     G.layout() # layout with default (neato)
-    G.draw(args.out)
+    G.draw(args.png)
 
 if __name__ == "__main__":
     main()
