@@ -1,0 +1,585 @@
+<?xml version="1.0" ?>
+<CommonGraph>
+	<Nodes>
+		<Node InstanceGuid="1e537ab6-6674-4105-837d-c10635c5233c" Type="807b86e3-be8d-4970-92b5-f8cdcb45b06b">
+			<Ports>
+				<Port InstanceGuid="a0955fdd-49a4-416b-9969-01d67fa9ecca"/>
+				<Port InstanceGuid="3f4aad68-dee3-4063-96ca-7442466ef48c"/>
+				<Port InstanceGuid="24d6030d-c232-43e3-bf82-5740443086e5"/>
+			</Ports>
+			<Position>
+				
+        
+				<X>447</X>
+				
+        
+				<Y>218</Y>
+				
+      
+			</Position>
+			
+    
+			<MetaData>
+				
+			
+				<Inspect>&lt;chunk name=&quot;Object&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;807b86e3-be8d-4970-92b5-f8cdcb45b06b&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Container&quot;&gt;&lt;items count=&quot;4&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Create a circle defined by base plane and radius.&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;1e537ab6-6674-4105-837d-c10635c5233c&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;4&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;391&lt;/X&gt;&lt;Y&gt;193&lt;/Y&gt;&lt;W&gt;110&lt;/W&gt;&lt;H&gt;50&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;447&lt;/X&gt;&lt;Y&gt;218&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Base plane of circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;a0955fdd-49a4-416b-9969-01d67fa9ecca&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;393&lt;/X&gt;&lt;Y&gt;195&lt;/Y&gt;&lt;W&gt;39&lt;/W&gt;&lt;H&gt;23&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;414&lt;/X&gt;&lt;Y&gt;206.5&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;plane&quot; type_name=&quot;gh_plane&quot; type_code=&quot;72&quot;&gt;&lt;Ox&gt;0&lt;/Ox&gt;&lt;Oy&gt;0&lt;/Oy&gt;&lt;Oz&gt;0&lt;/Oz&gt;&lt;Xx&gt;1&lt;/Xx&gt;&lt;Xy&gt;0&lt;/Xy&gt;&lt;Xz&gt;0&lt;/Xz&gt;&lt;Yx&gt;0&lt;/Yx&gt;&lt;Yy&gt;1&lt;/Yy&gt;&lt;Yz&gt;0&lt;/Yz&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius of circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;3f4aad68-dee3-4063-96ca-7442466ef48c&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;52c999ae-6ec0-459d-afe6-b6f25b470b84&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;393&lt;/X&gt;&lt;Y&gt;218&lt;/Y&gt;&lt;W&gt;39&lt;/W&gt;&lt;H&gt;23&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;414&lt;/X&gt;&lt;Y&gt;229.5&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;PersistentData&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;1&quot;&gt;&lt;item name=&quot;number&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Resulting circle&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;24d6030d-c232-43e3-bf82-5740443086e5&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;462&lt;/X&gt;&lt;Y&gt;195&lt;/Y&gt;&lt;W&gt;37&lt;/W&gt;&lt;H&gt;46&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;480.5&lt;/X&gt;&lt;Y&gt;218&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Inspect>
+				
+			
+      
+		
+			</MetaData>
+			
+		
+		</Node>
+		<Node InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
+			<Ports>
+				<Port InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264"/>
+			</Ports>
+			<Position>
+				
+        
+				<X>7.5</X>
+				
+        
+				<Y>206</Y>
+				
+      
+			</Position>
+			
+    
+			<MetaData>
+				
+			
+				<Inspect>&lt;chunk name=&quot;Object&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;57da07bd-ecab-415d-9d86-af36d7073abc&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Container&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Numeric slider for single values&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;82f7c0eb-eec6-4867-83ea-10a043027264&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;7&lt;/X&gt;&lt;Y&gt;206&lt;/Y&gt;&lt;W&gt;203&lt;/W&gt;&lt;H&gt;20&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;7.5&lt;/X&gt;&lt;Y&gt;206&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;Slider&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Digits&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;3&lt;/item&gt;&lt;item name=&quot;GripDisplay&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Interval&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Max&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;100&lt;/item&gt;&lt;item name=&quot;Min&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;0&lt;/item&gt;&lt;item name=&quot;SnapCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;item name=&quot;Value&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;21&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Inspect>
+				
+			
+      
+		
+			</MetaData>
+			
+		
+		</Node>
+		<Node InstanceGuid="afc9ec8c-8c3e-4d3f-b5fc-b06c472811e4" Type="b8963bb1-aa57-476e-a20e-ed6cf635a49c">
+			<Ports>
+				<Port InstanceGuid="42714db0-10d9-43e4-a775-52501f2377b8"/>
+				<Port InstanceGuid="371c78ea-7880-40a8-8ccc-98eb026d7895"/>
+				<Port InstanceGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84"/>
+			</Ports>
+			<Position>
+				
+        
+				<X>279</X>
+				
+        
+				<Y>242</Y>
+				
+      
+			</Position>
+			
+    
+			<MetaData>
+				
+			
+				<Inspect>&lt;chunk name=&quot;Object&quot; index=&quot;2&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;b8963bb1-aa57-476e-a20e-ed6cf635a49c&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Multiplication&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Container&quot;&gt;&lt;items count=&quot;4&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Mathematical multiplication&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;afc9ec8c-8c3e-4d3f-b5fc-b06c472811e4&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Multiplication&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Multiplication&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;4&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;248&lt;/X&gt;&lt;Y&gt;189&lt;/Y&gt;&lt;W&gt;88&lt;/W&gt;&lt;H&gt;105&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;279&lt;/X&gt;&lt;Y&gt;242&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;First item for multiplication&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;42714db0-10d9-43e4-a775-52501f2377b8&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;A&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;A&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;82f7c0eb-eec6-4867-83ea-10a043027264&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;250&lt;/X&gt;&lt;Y&gt;191&lt;/Y&gt;&lt;W&gt;14&lt;/W&gt;&lt;H&gt;50&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;258.5&lt;/X&gt;&lt;Y&gt;216.25&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Second item for multiplication&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;371c78ea-7880-40a8-8ccc-98eb026d7895&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;B&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;B&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;250&lt;/X&gt;&lt;Y&gt;241&lt;/Y&gt;&lt;W&gt;14&lt;/W&gt;&lt;H&gt;51&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;258.5&lt;/X&gt;&lt;Y&gt;266.75&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;The result of the Multiplication&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;52c999ae-6ec0-459d-afe6-b6f25b470b84&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Result&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Result&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;294&lt;/X&gt;&lt;Y&gt;191&lt;/Y&gt;&lt;W&gt;40&lt;/W&gt;&lt;H&gt;101&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;314&lt;/X&gt;&lt;Y&gt;241.5&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Inspect>
+				
+			
+      
+		
+			</MetaData>
+			
+		
+		</Node>
+		<Node InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053" Type="57da07bd-ecab-415d-9d86-af36d7073abc">
+			<Ports>
+				<Port InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053"/>
+			</Ports>
+			<Position>
+				
+        
+				<X>12.5</X>
+				
+        
+				<Y>261</Y>
+				
+      
+			</Position>
+			
+    
+			<MetaData>
+				
+			
+				<Inspect>&lt;chunk name=&quot;Object&quot; index=&quot;3&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;57da07bd-ecab-415d-9d86-af36d7073abc&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;1&quot;&gt;&lt;chunk name=&quot;Container&quot;&gt;&lt;items count=&quot;6&quot;&gt;&lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Numeric slider for single values&lt;/item&gt;&lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053&lt;/item&gt;&lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;&lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;&lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;&lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;/items&gt;&lt;chunks count=&quot;2&quot;&gt;&lt;chunk name=&quot;Attributes&quot;&gt;&lt;items count=&quot;2&quot;&gt;&lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;&lt;X&gt;12&lt;/X&gt;&lt;Y&gt;261&lt;/Y&gt;&lt;W&gt;203&lt;/W&gt;&lt;H&gt;20&lt;/H&gt;&lt;/item&gt;&lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;&lt;X&gt;12.5&lt;/X&gt;&lt;Y&gt;261&lt;/Y&gt;&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;chunk name=&quot;Slider&quot;&gt;&lt;items count=&quot;7&quot;&gt;&lt;item name=&quot;Digits&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;GripDisplay&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;&lt;item name=&quot;Interval&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;item name=&quot;Max&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;10&lt;/item&gt;&lt;item name=&quot;Min&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;0&lt;/item&gt;&lt;item name=&quot;SnapCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;&lt;item name=&quot;Value&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;4.6&lt;/item&gt;&lt;/items&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;&lt;/chunks&gt;&lt;/chunk&gt;</Inspect>
+				
+			
+      
+		
+			</MetaData>
+			
+		
+		</Node>
+	</Nodes>
+	<Edges>
+		<Edge DstGuid="3f4aad68-dee3-4063-96ca-7442466ef48c" InstanceGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84|3f4aad68-dee3-4063-96ca-7442466ef48c" SrcGuid="52c999ae-6ec0-459d-afe6-b6f25b470b84"/>
+		<Edge DstGuid="42714db0-10d9-43e4-a775-52501f2377b8" InstanceGuid="82f7c0eb-eec6-4867-83ea-10a043027264|42714db0-10d9-43e4-a775-52501f2377b8" SrcGuid="82f7c0eb-eec6-4867-83ea-10a043027264"/>
+		<Edge DstGuid="371c78ea-7880-40a8-8ccc-98eb026d7895" InstanceGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053|371c78ea-7880-40a8-8ccc-98eb026d7895" SrcGuid="a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053"/>
+	</Edges>
+	<MetaData>
+		
+    
+		<Ignore>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;Archive name=&quot;Root&quot;&gt;
+  &lt;items count=&quot;1&quot;&gt;
+    &lt;item name=&quot;ArchiveVersion&quot; type_name=&quot;gh_version&quot; type_code=&quot;80&quot;&gt;
+      &lt;Major&gt;0&lt;/Major&gt;
+      &lt;Minor&gt;2&lt;/Minor&gt;
+      &lt;Revision&gt;2&lt;/Revision&gt;
+    &lt;/item&gt;
+  &lt;/items&gt;
+  &lt;chunks count=&quot;2&quot;&gt;
+    &lt;chunk name=&quot;Definition&quot;&gt;
+      &lt;items count=&quot;1&quot;&gt;
+        &lt;item name=&quot;plugin_version&quot; type_name=&quot;gh_version&quot; type_code=&quot;80&quot;&gt;
+          &lt;Major&gt;0&lt;/Major&gt;
+          &lt;Minor&gt;9&lt;/Minor&gt;
+          &lt;Revision&gt;76&lt;/Revision&gt;
+        &lt;/item&gt;
+      &lt;/items&gt;
+      &lt;chunks count=&quot;5&quot;&gt;
+        &lt;chunk name=&quot;DocumentHeader&quot;&gt;
+          &lt;items count=&quot;5&quot;&gt;
+            &lt;item name=&quot;DocumentID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;a4ce2207-1b57-47de-92f7-50a40a73321d&lt;/item&gt;
+            &lt;item name=&quot;Preview&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Shaded&lt;/item&gt;
+            &lt;item name=&quot;PreviewMeshType&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+            &lt;item name=&quot;PreviewNormal&quot; type_name=&quot;gh_drawing_color&quot; type_code=&quot;36&quot;&gt;
+              &lt;ARGB&gt;100;150;0;0&lt;/ARGB&gt;
+            &lt;/item&gt;
+            &lt;item name=&quot;PreviewSelected&quot; type_name=&quot;gh_drawing_color&quot; type_code=&quot;36&quot;&gt;
+              &lt;ARGB&gt;100;0;150;0&lt;/ARGB&gt;
+            &lt;/item&gt;
+          &lt;/items&gt;
+        &lt;/chunk&gt;
+        &lt;chunk name=&quot;DefinitionProperties&quot;&gt;
+          &lt;items count=&quot;3&quot;&gt;
+            &lt;item name=&quot;Date&quot; type_name=&quot;gh_date&quot; type_code=&quot;8&quot;&gt;635789322739687296&lt;/item&gt;
+            &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;&lt;/item&gt;
+            &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;versionCircle.ghx&lt;/item&gt;
+          &lt;/items&gt;
+          &lt;chunks count=&quot;3&quot;&gt;
+            &lt;chunk name=&quot;Revisions&quot;&gt;
+              &lt;items count=&quot;1&quot;&gt;
+                &lt;item name=&quot;RevisionCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+              &lt;/items&gt;
+            &lt;/chunk&gt;
+            &lt;chunk name=&quot;Projection&quot;&gt;
+              &lt;items count=&quot;2&quot;&gt;
+                &lt;item name=&quot;Target&quot; type_name=&quot;gh_drawing_point&quot; type_code=&quot;30&quot;&gt;
+                  &lt;X&gt;-64&lt;/X&gt;
+                  &lt;Y&gt;-30&lt;/Y&gt;
+                &lt;/item&gt;
+                &lt;item name=&quot;Zoom&quot; type_name=&quot;gh_single&quot; type_code=&quot;5&quot;&gt;1&lt;/item&gt;
+              &lt;/items&gt;
+            &lt;/chunk&gt;
+            &lt;chunk name=&quot;Views&quot;&gt;
+              &lt;items count=&quot;1&quot;&gt;
+                &lt;item name=&quot;ViewCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+              &lt;/items&gt;
+            &lt;/chunk&gt;
+          &lt;/chunks&gt;
+        &lt;/chunk&gt;
+        &lt;chunk name=&quot;RcpLayout&quot;&gt;
+          &lt;items count=&quot;1&quot;&gt;
+            &lt;item name=&quot;GroupCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+          &lt;/items&gt;
+        &lt;/chunk&gt;
+        &lt;chunk name=&quot;GHALibraries&quot;&gt;
+          &lt;items count=&quot;1&quot;&gt;
+            &lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+          &lt;/items&gt;
+        &lt;/chunk&gt;
+        &lt;chunk name=&quot;DefinitionObjects&quot;&gt;
+          &lt;items count=&quot;1&quot;&gt;
+            &lt;item name=&quot;ObjectCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;4&lt;/item&gt;
+          &lt;/items&gt;
+          &lt;chunks count=&quot;4&quot;&gt;
+            &lt;chunk name=&quot;Object&quot; index=&quot;0&quot;&gt;
+              &lt;items count=&quot;2&quot;&gt;
+                &lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;807b86e3-be8d-4970-92b5-f8cdcb45b06b&lt;/item&gt;
+                &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;
+              &lt;/items&gt;
+              &lt;chunks count=&quot;1&quot;&gt;
+                &lt;chunk name=&quot;Container&quot;&gt;
+                  &lt;items count=&quot;4&quot;&gt;
+                    &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Create a circle defined by base plane and radius.&lt;/item&gt;
+                    &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;1e537ab6-6674-4105-837d-c10635c5233c&lt;/item&gt;
+                    &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;
+                    &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;
+                  &lt;/items&gt;
+                  &lt;chunks count=&quot;4&quot;&gt;
+                    &lt;chunk name=&quot;Attributes&quot;&gt;
+                      &lt;items count=&quot;2&quot;&gt;
+                        &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                          &lt;X&gt;391&lt;/X&gt;
+                          &lt;Y&gt;193&lt;/Y&gt;
+                          &lt;W&gt;110&lt;/W&gt;
+                          &lt;H&gt;50&lt;/H&gt;
+                        &lt;/item&gt;
+                        &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                          &lt;X&gt;447&lt;/X&gt;
+                          &lt;Y&gt;218&lt;/Y&gt;
+                        &lt;/item&gt;
+                      &lt;/items&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;
+                      &lt;items count=&quot;6&quot;&gt;
+                        &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Base plane of circle&lt;/item&gt;
+                        &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;a0955fdd-49a4-416b-9969-01d67fa9ecca&lt;/item&gt;
+                        &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;
+                        &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Plane&lt;/item&gt;
+                        &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                        &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                      &lt;/items&gt;
+                      &lt;chunks count=&quot;2&quot;&gt;
+                        &lt;chunk name=&quot;Attributes&quot;&gt;
+                          &lt;items count=&quot;2&quot;&gt;
+                            &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                              &lt;X&gt;393&lt;/X&gt;
+                              &lt;Y&gt;195&lt;/Y&gt;
+                              &lt;W&gt;39&lt;/W&gt;
+                              &lt;H&gt;23&lt;/H&gt;
+                            &lt;/item&gt;
+                            &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                              &lt;X&gt;414&lt;/X&gt;
+                              &lt;Y&gt;206.5&lt;/Y&gt;
+                            &lt;/item&gt;
+                          &lt;/items&gt;
+                        &lt;/chunk&gt;
+                        &lt;chunk name=&quot;PersistentData&quot;&gt;
+                          &lt;items count=&quot;1&quot;&gt;
+                            &lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                          &lt;/items&gt;
+                          &lt;chunks count=&quot;1&quot;&gt;
+                            &lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;
+                              &lt;items count=&quot;2&quot;&gt;
+                                &lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                                &lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;
+                              &lt;/items&gt;
+                              &lt;chunks count=&quot;1&quot;&gt;
+                                &lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;
+                                  &lt;items count=&quot;1&quot;&gt;
+                                    &lt;item name=&quot;plane&quot; type_name=&quot;gh_plane&quot; type_code=&quot;72&quot;&gt;
+                                      &lt;Ox&gt;0&lt;/Ox&gt;
+                                      &lt;Oy&gt;0&lt;/Oy&gt;
+                                      &lt;Oz&gt;0&lt;/Oz&gt;
+                                      &lt;Xx&gt;1&lt;/Xx&gt;
+                                      &lt;Xy&gt;0&lt;/Xy&gt;
+                                      &lt;Xz&gt;0&lt;/Xz&gt;
+                                      &lt;Yx&gt;0&lt;/Yx&gt;
+                                      &lt;Yy&gt;1&lt;/Yy&gt;
+                                      &lt;Yz&gt;0&lt;/Yz&gt;
+                                    &lt;/item&gt;
+                                  &lt;/items&gt;
+                                &lt;/chunk&gt;
+                              &lt;/chunks&gt;
+                            &lt;/chunk&gt;
+                          &lt;/chunks&gt;
+                        &lt;/chunk&gt;
+                      &lt;/chunks&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;
+                      &lt;items count=&quot;7&quot;&gt;
+                        &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius of circle&lt;/item&gt;
+                        &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;3f4aad68-dee3-4063-96ca-7442466ef48c&lt;/item&gt;
+                        &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;
+                        &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Radius&lt;/item&gt;
+                        &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                        &lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;52c999ae-6ec0-459d-afe6-b6f25b470b84&lt;/item&gt;
+                        &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                      &lt;/items&gt;
+                      &lt;chunks count=&quot;2&quot;&gt;
+                        &lt;chunk name=&quot;Attributes&quot;&gt;
+                          &lt;items count=&quot;2&quot;&gt;
+                            &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                              &lt;X&gt;393&lt;/X&gt;
+                              &lt;Y&gt;218&lt;/Y&gt;
+                              &lt;W&gt;39&lt;/W&gt;
+                              &lt;H&gt;23&lt;/H&gt;
+                            &lt;/item&gt;
+                            &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                              &lt;X&gt;414&lt;/X&gt;
+                              &lt;Y&gt;229.5&lt;/Y&gt;
+                            &lt;/item&gt;
+                          &lt;/items&gt;
+                        &lt;/chunk&gt;
+                        &lt;chunk name=&quot;PersistentData&quot;&gt;
+                          &lt;items count=&quot;1&quot;&gt;
+                            &lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                          &lt;/items&gt;
+                          &lt;chunks count=&quot;1&quot;&gt;
+                            &lt;chunk name=&quot;Branch&quot; index=&quot;0&quot;&gt;
+                              &lt;items count=&quot;2&quot;&gt;
+                                &lt;item name=&quot;Count&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                                &lt;item name=&quot;Path&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;{0}&lt;/item&gt;
+                              &lt;/items&gt;
+                              &lt;chunks count=&quot;1&quot;&gt;
+                                &lt;chunk name=&quot;Item&quot; index=&quot;0&quot;&gt;
+                                  &lt;items count=&quot;1&quot;&gt;
+                                    &lt;item name=&quot;number&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;1&lt;/item&gt;
+                                  &lt;/items&gt;
+                                &lt;/chunk&gt;
+                              &lt;/chunks&gt;
+                            &lt;/chunk&gt;
+                          &lt;/chunks&gt;
+                        &lt;/chunk&gt;
+                      &lt;/chunks&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;
+                      &lt;items count=&quot;6&quot;&gt;
+                        &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Resulting circle&lt;/item&gt;
+                        &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;24d6030d-c232-43e3-bf82-5740443086e5&lt;/item&gt;
+                        &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;
+                        &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Circle&lt;/item&gt;
+                        &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                        &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                      &lt;/items&gt;
+                      &lt;chunks count=&quot;1&quot;&gt;
+                        &lt;chunk name=&quot;Attributes&quot;&gt;
+                          &lt;items count=&quot;2&quot;&gt;
+                            &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                              &lt;X&gt;462&lt;/X&gt;
+                              &lt;Y&gt;195&lt;/Y&gt;
+                              &lt;W&gt;37&lt;/W&gt;
+                              &lt;H&gt;46&lt;/H&gt;
+                            &lt;/item&gt;
+                            &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                              &lt;X&gt;480.5&lt;/X&gt;
+                              &lt;Y&gt;218&lt;/Y&gt;
+                            &lt;/item&gt;
+                          &lt;/items&gt;
+                        &lt;/chunk&gt;
+                      &lt;/chunks&gt;
+                    &lt;/chunk&gt;
+                  &lt;/chunks&gt;
+                &lt;/chunk&gt;
+              &lt;/chunks&gt;
+            &lt;/chunk&gt;
+            &lt;chunk name=&quot;Object&quot; index=&quot;1&quot;&gt;
+              &lt;items count=&quot;2&quot;&gt;
+                &lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;57da07bd-ecab-415d-9d86-af36d7073abc&lt;/item&gt;
+                &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;
+              &lt;/items&gt;
+              &lt;chunks count=&quot;1&quot;&gt;
+                &lt;chunk name=&quot;Container&quot;&gt;
+                  &lt;items count=&quot;6&quot;&gt;
+                    &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Numeric slider for single values&lt;/item&gt;
+                    &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;82f7c0eb-eec6-4867-83ea-10a043027264&lt;/item&gt;
+                    &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;
+                    &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;
+                    &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                    &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                  &lt;/items&gt;
+                  &lt;chunks count=&quot;2&quot;&gt;
+                    &lt;chunk name=&quot;Attributes&quot;&gt;
+                      &lt;items count=&quot;2&quot;&gt;
+                        &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                          &lt;X&gt;7&lt;/X&gt;
+                          &lt;Y&gt;206&lt;/Y&gt;
+                          &lt;W&gt;203&lt;/W&gt;
+                          &lt;H&gt;20&lt;/H&gt;
+                        &lt;/item&gt;
+                        &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                          &lt;X&gt;7.5&lt;/X&gt;
+                          &lt;Y&gt;206&lt;/Y&gt;
+                        &lt;/item&gt;
+                      &lt;/items&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;Slider&quot;&gt;
+                      &lt;items count=&quot;7&quot;&gt;
+                        &lt;item name=&quot;Digits&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;3&lt;/item&gt;
+                        &lt;item name=&quot;GripDisplay&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                        &lt;item name=&quot;Interval&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                        &lt;item name=&quot;Max&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;100&lt;/item&gt;
+                        &lt;item name=&quot;Min&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;0&lt;/item&gt;
+                        &lt;item name=&quot;SnapCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                        &lt;item name=&quot;Value&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;21&lt;/item&gt;
+                      &lt;/items&gt;
+                    &lt;/chunk&gt;
+                  &lt;/chunks&gt;
+                &lt;/chunk&gt;
+              &lt;/chunks&gt;
+            &lt;/chunk&gt;
+            &lt;chunk name=&quot;Object&quot; index=&quot;2&quot;&gt;
+              &lt;items count=&quot;2&quot;&gt;
+                &lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;b8963bb1-aa57-476e-a20e-ed6cf635a49c&lt;/item&gt;
+                &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Multiplication&lt;/item&gt;
+              &lt;/items&gt;
+              &lt;chunks count=&quot;1&quot;&gt;
+                &lt;chunk name=&quot;Container&quot;&gt;
+                  &lt;items count=&quot;4&quot;&gt;
+                    &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Mathematical multiplication&lt;/item&gt;
+                    &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;afc9ec8c-8c3e-4d3f-b5fc-b06c472811e4&lt;/item&gt;
+                    &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Multiplication&lt;/item&gt;
+                    &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Multiplication&lt;/item&gt;
+                  &lt;/items&gt;
+                  &lt;chunks count=&quot;4&quot;&gt;
+                    &lt;chunk name=&quot;Attributes&quot;&gt;
+                      &lt;items count=&quot;2&quot;&gt;
+                        &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                          &lt;X&gt;248&lt;/X&gt;
+                          &lt;Y&gt;189&lt;/Y&gt;
+                          &lt;W&gt;88&lt;/W&gt;
+                          &lt;H&gt;105&lt;/H&gt;
+                        &lt;/item&gt;
+                        &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                          &lt;X&gt;279&lt;/X&gt;
+                          &lt;Y&gt;242&lt;/Y&gt;
+                        &lt;/item&gt;
+                      &lt;/items&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;param_input&quot; index=&quot;0&quot;&gt;
+                      &lt;items count=&quot;7&quot;&gt;
+                        &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;First item for multiplication&lt;/item&gt;
+                        &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;42714db0-10d9-43e4-a775-52501f2377b8&lt;/item&gt;
+                        &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;A&lt;/item&gt;
+                        &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;A&lt;/item&gt;
+                        &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                        &lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;82f7c0eb-eec6-4867-83ea-10a043027264&lt;/item&gt;
+                        &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                      &lt;/items&gt;
+                      &lt;chunks count=&quot;1&quot;&gt;
+                        &lt;chunk name=&quot;Attributes&quot;&gt;
+                          &lt;items count=&quot;2&quot;&gt;
+                            &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                              &lt;X&gt;250&lt;/X&gt;
+                              &lt;Y&gt;191&lt;/Y&gt;
+                              &lt;W&gt;14&lt;/W&gt;
+                              &lt;H&gt;50&lt;/H&gt;
+                            &lt;/item&gt;
+                            &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                              &lt;X&gt;258.5&lt;/X&gt;
+                              &lt;Y&gt;216.25&lt;/Y&gt;
+                            &lt;/item&gt;
+                          &lt;/items&gt;
+                        &lt;/chunk&gt;
+                      &lt;/chunks&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;param_input&quot; index=&quot;1&quot;&gt;
+                      &lt;items count=&quot;7&quot;&gt;
+                        &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Second item for multiplication&lt;/item&gt;
+                        &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;371c78ea-7880-40a8-8ccc-98eb026d7895&lt;/item&gt;
+                        &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;B&lt;/item&gt;
+                        &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;B&lt;/item&gt;
+                        &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                        &lt;item name=&quot;Source&quot; index=&quot;0&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053&lt;/item&gt;
+                        &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                      &lt;/items&gt;
+                      &lt;chunks count=&quot;1&quot;&gt;
+                        &lt;chunk name=&quot;Attributes&quot;&gt;
+                          &lt;items count=&quot;2&quot;&gt;
+                            &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                              &lt;X&gt;250&lt;/X&gt;
+                              &lt;Y&gt;241&lt;/Y&gt;
+                              &lt;W&gt;14&lt;/W&gt;
+                              &lt;H&gt;51&lt;/H&gt;
+                            &lt;/item&gt;
+                            &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                              &lt;X&gt;258.5&lt;/X&gt;
+                              &lt;Y&gt;266.75&lt;/Y&gt;
+                            &lt;/item&gt;
+                          &lt;/items&gt;
+                        &lt;/chunk&gt;
+                      &lt;/chunks&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;param_output&quot; index=&quot;0&quot;&gt;
+                      &lt;items count=&quot;6&quot;&gt;
+                        &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;The result of the Multiplication&lt;/item&gt;
+                        &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;52c999ae-6ec0-459d-afe6-b6f25b470b84&lt;/item&gt;
+                        &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Result&lt;/item&gt;
+                        &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Result&lt;/item&gt;
+                        &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                        &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                      &lt;/items&gt;
+                      &lt;chunks count=&quot;1&quot;&gt;
+                        &lt;chunk name=&quot;Attributes&quot;&gt;
+                          &lt;items count=&quot;2&quot;&gt;
+                            &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                              &lt;X&gt;294&lt;/X&gt;
+                              &lt;Y&gt;191&lt;/Y&gt;
+                              &lt;W&gt;40&lt;/W&gt;
+                              &lt;H&gt;101&lt;/H&gt;
+                            &lt;/item&gt;
+                            &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                              &lt;X&gt;314&lt;/X&gt;
+                              &lt;Y&gt;241.5&lt;/Y&gt;
+                            &lt;/item&gt;
+                          &lt;/items&gt;
+                        &lt;/chunk&gt;
+                      &lt;/chunks&gt;
+                    &lt;/chunk&gt;
+                  &lt;/chunks&gt;
+                &lt;/chunk&gt;
+              &lt;/chunks&gt;
+            &lt;/chunk&gt;
+            &lt;chunk name=&quot;Object&quot; index=&quot;3&quot;&gt;
+              &lt;items count=&quot;2&quot;&gt;
+                &lt;item name=&quot;GUID&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;57da07bd-ecab-415d-9d86-af36d7073abc&lt;/item&gt;
+                &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;
+              &lt;/items&gt;
+              &lt;chunks count=&quot;1&quot;&gt;
+                &lt;chunk name=&quot;Container&quot;&gt;
+                  &lt;items count=&quot;6&quot;&gt;
+                    &lt;item name=&quot;Description&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Numeric slider for single values&lt;/item&gt;
+                    &lt;item name=&quot;InstanceGuid&quot; type_name=&quot;gh_guid&quot; type_code=&quot;9&quot;&gt;a0ac4a1c-ee5a-4542-8b1c-bb0a18f7c053&lt;/item&gt;
+                    &lt;item name=&quot;Name&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;
+                    &lt;item name=&quot;NickName&quot; type_name=&quot;gh_string&quot; type_code=&quot;10&quot;&gt;Number Slider&lt;/item&gt;
+                    &lt;item name=&quot;Optional&quot; type_name=&quot;gh_bool&quot; type_code=&quot;1&quot;&gt;false&lt;/item&gt;
+                    &lt;item name=&quot;SourceCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                  &lt;/items&gt;
+                  &lt;chunks count=&quot;2&quot;&gt;
+                    &lt;chunk name=&quot;Attributes&quot;&gt;
+                      &lt;items count=&quot;2&quot;&gt;
+                        &lt;item name=&quot;Bounds&quot; type_name=&quot;gh_drawing_rectanglef&quot; type_code=&quot;35&quot;&gt;
+                          &lt;X&gt;12&lt;/X&gt;
+                          &lt;Y&gt;261&lt;/Y&gt;
+                          &lt;W&gt;203&lt;/W&gt;
+                          &lt;H&gt;20&lt;/H&gt;
+                        &lt;/item&gt;
+                        &lt;item name=&quot;Pivot&quot; type_name=&quot;gh_drawing_pointf&quot; type_code=&quot;31&quot;&gt;
+                          &lt;X&gt;12.5&lt;/X&gt;
+                          &lt;Y&gt;261&lt;/Y&gt;
+                        &lt;/item&gt;
+                      &lt;/items&gt;
+                    &lt;/chunk&gt;
+                    &lt;chunk name=&quot;Slider&quot;&gt;
+                      &lt;items count=&quot;7&quot;&gt;
+                        &lt;item name=&quot;Digits&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                        &lt;item name=&quot;GripDisplay&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;1&lt;/item&gt;
+                        &lt;item name=&quot;Interval&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                        &lt;item name=&quot;Max&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;10&lt;/item&gt;
+                        &lt;item name=&quot;Min&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;0&lt;/item&gt;
+                        &lt;item name=&quot;SnapCount&quot; type_name=&quot;gh_int32&quot; type_code=&quot;3&quot;&gt;0&lt;/item&gt;
+                        &lt;item name=&quot;Value&quot; type_name=&quot;gh_double&quot; type_code=&quot;6&quot;&gt;4.6&lt;/item&gt;
+                      &lt;/items&gt;
+                    &lt;/chunk&gt;
+                  &lt;/chunks&gt;
+                &lt;/chunk&gt;
+              &lt;/chunks&gt;
+            &lt;/chunk&gt;
+          &lt;/chunks&gt;
+        &lt;/chunk&gt;
+      &lt;/chunks&gt;
+    &lt;/chunk&gt;
+    &lt;chunk name=&quot;Thumbnail&quot;&gt;
+      &lt;items count=&quot;1&quot;&gt;
+        &lt;item name=&quot;Thumbnail&quot; type_name=&quot;gh_drawing_bitmap&quot; type_code=&quot;37&quot;&gt;
+          &lt;bitmap length=&quot;3059&quot;&gt;iVBORw0KGgoAAAANSUhEUgAAAJYAAABkCAIAAADrOV6nAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwwAADsMBx2+oZAAAC5VJREFUeF7tmolP1FcewPufmJgYYxo1Mepq16NRbGsVq8a7MRrP1VrjfURcFbQIKqAgKIcgpyLINTMiM9wDDDCccl8qBVfxVraNTdfdD/N+zs4MyO6GjczbfZ/QX3/85jfvN/M+73s82s8U/wv8XSEt/1T4s0JClELpUQqlRymUHqVQepRC6VEKpUcplB6lUHqUQulRCqVHKZQepVB6lELpUQqlRymUHqVQepRC6VEKpUcplB6lUHpGU2Fvby/HBx949OjRYxt/sfHw4UPthUHwxp6eHjHIMHDPyNHGcmNGTSEaOjo6zGZzWVmZxcbt27eTkpISEhISExOTk5O5Xl5eLl5yhOvQ3d09/Pwyfnt7e2tra5sz4grrAxhEHD92Z2dnp1hn7syoKSTaMMQcvXv37rfffuvq6oqJibl16xbycBkdHV1fX//777//dRBcrKysbGxsHGZyCejq6mpMc6e1CqycCKxWK89llfC4iIgIHhQbG1taWspN2h0OlJSU8CBG08Z1S5wUigxmh48+chhnyLlGYUVFRUNDAydPnz5lBrds2bJt27bc3NxTp06tWbMmLy/vxYsXvNeFvr4+3DQ1NXGujTUIxmSc/v7+X3799c2bN2/f9iP+/fu/AV+zs7MjPDz8xo0bmZmZN2/e5Lympub9+/e/OMPaYijsMpoY1j1xUsjCr6+vs/3Yzoai/t4AH3t1MMwOCROX2gM/IBTW1tb29PZyzpJfuXLlt99+S2Qg8uuvvzaZTNgSGc8RhiL9DqPw2bNniAkMDGT1PH78KCUm5mJQpD5dp8vSZ2ZmZGVnl1jK165ds3z5claJt7c3D83JyRn8LIbim7JcZFJoNpNjqi2WKoPhbkFBAcWANMJkCch17W1tJKXq6hq+G1d41fEGO/aLnDQ3NxcVFfEk5oi5sPPy5UtyHfT83MOvQuGSJUvi4+OPHj361VdfMa1PnjzRGhgHMDe8QkYODQ29cOECxbK7uys7XWdINwT4+l++HB0edTUg+EpxqWXJEs8dO3akpaXt27dv7ty5BoOBjzcw+sMHA/YGSuTD+/fvs/6Aj6EN7ZY4KTxx8pzP6QuBF2MSErNqawc+Ol/DNhEDUKIIPmtFSfKtJH1W9iPb/IrVaj9ys+ORt5MMmSBfX18kaQ2JxUL8sUR8fHyaW1qKTXeS0/S1dXUrVqxYt24dAXTo0KEFCxbcvXsXtYzgAsMOr1A8l5pKk0JX0tnVdb+rq6Wlpb29g9KLo+Li4oULF65fv97f33/Pnj1z5szR63WWsmKTMb+q0lpRWVGcV2yprGhr7yC9UzJ5EGNqo7sfTgq3bN+7adNurxMXQy7HiihkDZLryIeUhB9++CExMYGuMS4pmZRUU39PLFIgmLht8JGXmEfiacOGDSEhIZGRkeRJ0USQwXbt2nW/q9N4Jz05TVdaXvndd0t27txJAPEgDw+P7OxsMiGh7wIfmrAeRiGrDfd4amhsRCHyQHSYnLDs+GpEOaskLi5u8+bNX3zxx7SUG6mZt/UpmaEBl/lwV86HHPY6UdvQzBsIU0rm8+fPtdHdDyeF/v7h5/zDz5+POHkyID09gzVIYhXQyOXn53NiMubk5RcQSeL6vwSX169fNxqNb9++pUrZefXqFQ0FN1AL+/qe0PstXrz4+++/Jwp//PHHefPmEbuUPeLGBQwVFhZ+TCEXSR70R8x7fV0tHWhLa1tHZ4dI+ohkt0mV/fLLL5ctW0YDTDqdOnXq7dTUKqvFZMqrqqw2m4vNRebCwuKm5hYyB0uN3MNi0h7gfjgpTEq6JX7i45OYAqKHbGaHb87RyL+MRnHl3wET6KHSaA/8ABNNcLMySHr8yj2enp4EBwnwzJkzs2bN0ul0+KAVcoEUPVghslkWjEnpZcyAgIDAoIsVhfm+p32TbtyIi4kLDQ1Lup6q02empqXfuZszZ/bs1atXE/QsmilTprAfJTqbmpvokBmZIt5sOyfcyfmEIOtGe5L74aTw2bOn9h+mw9bR/XfQnuYAF5kdILCwQt6jM1y0aNHZs2f3798/e/Zs1tCTvj7KmDBHQu4aKIUDuZSZ5QxtQMAhD3OU6uDg4EuXLpEejx07FhgUVGE2J8RcDwm++JOPf0BwSPSVmICAc6EREelZ+j9Mn849u3fvpu5OmDCBHkpUDUdYYawV1hZToX1ot8RJoXbtkyAUkkjRQwQwWd98882qVaswd+DAgZkzZ2ZlZhSYTObyCtsW5l5be1tpQWFRsZl+BVuAP16gZF69epWwIwMz71wkaJh0Aos63tDYQEnmttqaWsbhhubmFuIbbdTCgwcPklHHjh1Lz8IS4U5HeBdVk7WlFA6NUMiui/pEYFFo58+ff+TIkcTERNqZGTNmZmXcjgoMvhAU4H3aJyw07FpM9LkTZ6KuxXX39LKfIwGeP3+e3oeYo0ElqWLOXrGYdLb2GRkZdwZBdUhPT2cDQ7klXdM3EfpEIdVau+MDLI6UlBQW2ZBZxH0YTYXMDo2u+FMkVphTyqHYVEyfPj01JeVeTV1BXi71NycnOyM9jaa/tKyMdEobEhYWJgYRMefS9PMry4IlQj8yGNo0WhtKnYBzeq7BN3OF69qIbswoKySAKGMkMdEl0pQShVFRUUQk/erD7m4Esx0gUsUmT+wQiBhq4fBdIhZ5xMjRhnNjnBRqn9oGSxu0X0bM4OnmItFApWF339XZSX5ji7127Vo/P79NmzbRJRKORKftz3lOoJybOQ65qfg/xEkhYWFrMQb2fKQ44GQYuNl2f7l14I8alaQdcd0FCp7j1krEx5s3bzBBCaytrrJWVXFO8mSXRllC4eTJk+lH6HR4owu0/OxVlEI7TgoLCy25uXTRVSUlVoPBJNoEUhZN/5CwW6Lk9Pb2tLa2dLa3syF7IP686ABvZxBKHd0g2tgA0H8Sf7Qhe/bsqamrzYyP8/ENyDblzpgxY+vWrXQoGzdunDRpEhmV5Dnwl3JnKF00GkqhHSeFB/f+eduO/dv+tPfIsXNXI5JLS0qRxKpnKkXF4khBEkfkBQUFHTx0uKzIeDH0sk6XeeFSSGNLK1s4+80ceTuPYc+AsISEhMjIyMDAwIiIiPDw8MOHD1dYK/N0uqiYRH32XTYS06ZNo79nxyb2ajxFa/AdoAGhXWRwpVDgpPDoYZ/9h7wPHPD+6Wz4pUvXjUYTDkT6Yvm7HJlEtuF79+3LNxoio6P1WXp2zdaauoZ79xxvAwahAdm1axebOZIqFY79eH9/P17Jn5Q3gliv0+Fv6dKlx48fZ3f4+eefx8bG0rmQnF1gQL1erxTacVLo5xfm73eF49mzoV5efnFx8bQb5MAhoYxxxEGx2VxSYs7Py2cjLC66gCqyIsnz9evXVEEx9ZxQR2lERWCxo584caKXl5fBYNi+ffu4ceMIRzzxLhdYGezNlUI7TgrxYv/Jzc0rKiqiMH4MKiVHWh5xMgyMQyHEmfZMG7S7FouFFSACi+02ydPHx4f72dqPHTv22rVrlD1tj+YAQ2VlZSmFdpwUkt8+0DfwT1+f2FqMHBd/wEX0k2CJKlQRhePHj/fw8Fi4cCF9zZgxY1DIplAkT0dIvNxMiVUKBU4KtWufBPYYyGPzR0iRGCmTGzZsWLRoEQo9PT1XrlxJO0NSxdZgUlNTaabc+T/DfkpGTSEQRsQfiZFySC5lF0inY4cCyXU0u8D9dKoqBO2MpkJ4ZPtf3P5TlD9HRlmhYuQohdKjFEqPUig9SqH0KIXSoxRKj1IoPUqh9CiF0qMUSo9SKD1KofQohdKjFEqPUig9SqH0KIXSoxRKj1IoPUqh9CiF0qMUSo9SKD1KofQohdKjFEqPUig9SqH0KIXSoxRKj1IoPUqh9CiF0qMUSo9SKD1KofQohdKjFEqPUig9SqH0KIXSoxRKj1IoPUqh9CiF0qMUSo9SKD1KofQ4KVRIiqZQITGfffYPX8QXpX4tVnIAAAAASUVORK5CYII=&lt;/bitmap&gt;
+        &lt;/item&gt;
+      &lt;/items&gt;
+    &lt;/chunk&gt;
+  &lt;/chunks&gt;
+&lt;/Archive&gt;</Ignore>
+		
+  
+	</MetaData>
+	
+
+</CommonGraph>
