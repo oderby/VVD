@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommonGraph xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Edges>
+    <Edge SrcGuid="cd7f0018-e653-4a84-9222-9e0c708374ad_OUT0" DstGuid="a0cc175a-6202-4c0f-b239-e1906700ec34_IN0" InstanceGuid="3c03584d-727c-439c-91de-1e9d048fbdf5" />
+    <Edge SrcGuid="50ea967a-32b6-4f84-93c9-49d6b394c0b3_OUT0" DstGuid="a0cc175a-6202-4c0f-b239-e1906700ec34_IN1" InstanceGuid="2c485ede-8b0a-4f37-9b88-b027f090ee80" />
+    <Edge SrcGuid="a0cc175a-6202-4c0f-b239-e1906700ec34_OUT0" DstGuid="d2bbb3e3-fbd2-4c9d-a8ab-cbf78d355717_IN0" InstanceGuid="749b62fb-115f-492b-bf2d-75094053de4d" />
+  </Edges>
+  <Nodes>
+    <Node Type="Code Block" InstanceGuid="cd7f0018-e653-4a84-9222-9e0c708374ad">
+      <Ports>
+        <Port InstanceGuid="cd7f0018-e653-4a84-9222-9e0c708374ad_OUT0" Name="a cool port">
+          <MetaData>
+            <Inspect>start</Inspect>
+          </MetaData>
+        </Port>
+      </Ports>
+      <Metadata>
+        <Inspect>&lt;Dynamo.Nodes.CodeBlockNodeModel guid="cd7f0018-e653-4a84-9222-9e0c708374ad" type="Dynamo.Nodes.CodeBlockNodeModel" nickname="Code Block" x="-611" y="-211" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True" CodeText="2;" ShouldFocus="false" /&gt;</Inspect>
+      </Metadata>
+      <Position>
+        <X>-611</X>
+        <Y>-211</Y>
+      </Position>
+    </Node>
+    <Node Type="Number Slider" InstanceGuid="50ea967a-32b6-4f84-93c9-49d6b394c0b3">
+      <Ports>
+        <Port InstanceGuid="50ea967a-32b6-4f84-93c9-49d6b394c0b3_OUT0" Name="a cool port">
+          <MetaData>
+            <Inspect>start</Inspect>
+          </MetaData>
+        </Port>
+      </Ports>
+      <Metadata>
+        <Inspect>&lt;DSCoreNodesUI.Input.DoubleSlider guid="50ea967a-32b6-4f84-93c9-49d6b394c0b3" type="DSCoreNodesUI.Input.DoubleSlider" nickname="Number Slider" x="-670.795390862859" y="-80.2952714956485" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="True"&gt;&lt;System.Double&gt;30.2&lt;/System.Double&gt;&lt;Range min="0" max="100" step="0.1" /&gt;&lt;/DSCoreNodesUI.Input.DoubleSlider&gt;</Inspect>
+      </Metadata>
+      <Position>
+        <X>-670.795390862859</X>
+        <Y>-80.2952714956485</Y>
+      </Position>
+    </Node>
+    <Node Type="*" InstanceGuid="a0cc175a-6202-4c0f-b239-e1906700ec34">
+      <Ports>
+        <Port InstanceGuid="a0cc175a-6202-4c0f-b239-e1906700ec34_IN0" Name="a cool port">
+          <MetaData>
+            <Inspect>end</Inspect>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="a0cc175a-6202-4c0f-b239-e1906700ec34_IN1" Name="a cool port">
+          <MetaData>
+            <Inspect>end</Inspect>
+          </MetaData>
+        </Port>
+        <Port InstanceGuid="a0cc175a-6202-4c0f-b239-e1906700ec34_OUT0" Name="a cool port">
+          <MetaData>
+            <Inspect>start</Inspect>
+          </MetaData>
+        </Port>
+      </Ports>
+      <Metadata>
+        <Inspect>&lt;Dynamo.Nodes.DSFunction guid="a0cc175a-6202-4c0f-b239-e1906700ec34" type="Dynamo.Nodes.DSFunction" nickname="*" x="-259.595390862859" y="-197.095271495649" isVisible="true" isUpstreamVisible="true" lacing="Shortest" isSelectedInput="False" assembly="Operators" function="*@var[]..[],var[]..[]" /&gt;</Inspect>
+      </Metadata>
+      <Position>
+        <X>-259.595390862859</X>
+        <Y>-197.095271495649</Y>
+      </Position>
+    </Node>
+    <Node Type="Watch" InstanceGuid="d2bbb3e3-fbd2-4c9d-a8ab-cbf78d355717">
+      <Ports>
+        <Port InstanceGuid="d2bbb3e3-fbd2-4c9d-a8ab-cbf78d355717_IN0" Name="a cool port">
+          <MetaData>
+            <Inspect>end</Inspect>
+          </MetaData>
+        </Port>
+      </Ports>
+      <Metadata>
+        <Inspect>&lt;Dynamo.Nodes.Watch guid="d2bbb3e3-fbd2-4c9d-a8ab-cbf78d355717" type="Dynamo.Nodes.Watch" nickname="Watch" x="-53.5953908628591" y="-208.695271495649" isVisible="true" isUpstreamVisible="true" lacing="Disabled" isSelectedInput="False" /&gt;</Inspect>
+      </Metadata>
+      <Position>
+        <X>-53.5953908628591</X>
+        <Y>-208.695271495649</Y>
+      </Position>
+    </Node>
+  </Nodes>
+  <MetaData />
+</CommonGraph>
