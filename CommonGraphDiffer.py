@@ -157,7 +157,12 @@ class CommonGraph(object):
             self.Edges.append(obj)
             return True
         if(objType == "port"):
-            parentNode = [n for n in self.Nodes if n.InstanceGuid == obj.ParentGuid][0]
+            try:
+#                print "list of all NodeGUIs", [n.InstanceGuid for n in self.Nodes]
+                parentNode = [n for n in self.Nodes if n.InstanceGuid == obj.ParentGuid][0]
+            except Exception as e:
+                print e
+                raise ValueError("Invalid input! Apply of diff not possible")
             parentNode.addPort(obj)
             return True
 
@@ -280,6 +285,11 @@ class CommonGraph(object):
 
         return newCG
 
+    def ObjectToCgx(self, filename):
+        print self
+
+
+
 class Node(object):
     def __init__(self, Type, InstanceGuid, Position, MetaData):
         self.Type = Type
@@ -294,7 +304,7 @@ class Node(object):
             return False
     @classmethod
     def addFromChange(cls, nodeChange):
-        return cls(nodeChange.Type, nodeChange.Position, nodeChange.InstanceGuid, nodeChange.MetaData)
+        return cls(nodeChange.Type, nodeChange.InstanceGuid, nodeChange.Position, nodeChange.MetaData)
     @staticmethod
     def getLabel(obj):
         return obj.InstanceGuid
@@ -311,7 +321,7 @@ class Node(object):
     def __repr__(self):
         s = '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type
         if self.Position is not None:
-            s += 'Position:' + etree.tostring(self.Position)
+            s += ' Position:' + etree.tostring(self.Position)
         if self.MetaData is not None:
             s += ' MetaData: ' + etree.tostring(self.MetaData)
         s += ' ) \n' + '\n'.join([str(p) for p in self.Ports])
@@ -331,7 +341,11 @@ class Port(object):
         else:
             return False
     def __repr__(self):
-        return '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ' MetaData: ' + etree.tostring(self.MetaData) + ' )'
+        s =  '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid
+        if self.MetaData is not None:
+            s += ' MetaData: ' + etree.tostring(self.MetaData) 
+        s += ' )'
+        return s 
     @classmethod
     def addFromChange(cls, portChange):
         return cls(portChange.InstanceGuid, portChange.ParentGuid, portChange.MetaData)
@@ -370,7 +384,6 @@ class Edge(object):
         if SrcParentGuid == None or DstParentGuid == None:
             return None
         else: 
-            print "PARENTEDGE -> ", (SrcParentGuid, DstParentGuid)
             return (SrcParentGuid, DstParentGuid)
 
 def recursive_dict(element):
