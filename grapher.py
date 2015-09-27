@@ -57,13 +57,14 @@ def main():
     G = pgv.AGraph(strict=False, directed=True)
     
     G.node_attr['fontsize'] =  5.0
+    G.node_attr['shape'] = 'rectangle'
 
     G = graphAddCGX(G, CGA, 'grey')
    
-    G = graphApplyDS(G, CGA, ds, addedColor='blue', removedColor='red', changedColor='orange')
+    G = graphApplyDS(G, CGA, ds, addedColor='#319E8E', removedColor='#319E8E', changedColor='#319E8E')
 
     print G.string()
-    G.layout() # layout with default (neato)
+    G.layout(prog='neato') # layout with default (neato)
     G.draw(args.png)
 
 if __name__ == "__main__":
