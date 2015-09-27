@@ -17,10 +17,10 @@ def graphAddCGX(G, CGX, col='black'):
     G.edge_attr['color'] = col
     G.node_attr['color'] = col
     for (nodeid, name, position) in CGX.getNodesForGraphviz():
-        print (nodeid, name, position) 
+#        print (nodeid, name, position) 
         G.add_node(nodeid, color=col, label=name, pin="true", pos=position + "!")
     for (src, dst) in CGX.getEdgePairs():
-        print (src, dst)
+#        print (src, dst)
         G.add_edge(src,dst)
     return G
 
@@ -55,11 +55,11 @@ def main():
     ds =  cgd.XMLToDS(args.ds)
 
     G = pgv.AGraph('digraph foo {}')
-    print "is G strict", G.is_strict()
-    print "is G directed", G.is_directed()
  
-    G.node_attr['fontsize'] =  2.0
+    G.node_attr['fontsize'] =  10.0
     G.node_attr['shape'] = 'circle'
+
+    print "## generating graph from", args.cg1, "and", args.ds
 
     G = graphAddCGX(G, CGA, 'grey')
    
@@ -67,6 +67,8 @@ def main():
 
     G.layout(prog='neato') # layout with default (neato)
     G.draw(args.png)
+
+    print "## wrote", args.png
 
 if __name__ == "__main__":
     main()
