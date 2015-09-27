@@ -3,6 +3,8 @@
 import xml.etree.ElementTree as etree
 E = etree.Element
 import copy
+from xml.dom import minidom
+
 
 def getMetaXML(metaData):
     if metaData is not None and metaData.find("Inspect") is not None:
@@ -338,8 +340,15 @@ def CgxToObject(xmlfile):
 
     return thisCG
 
+def prettify(elem):
+    # Return a pretty-printed XML string for the Element.
+    rough_string = etree.tostring(elem, 'utf-8')
+    reparsed = minidom.parseString(rough_string)
+    return reparsed.toprettyxml(indent="\t")
+
 def DSToXML(diffSet, fileName):
-    etree.ElementTree(diffSet.toXML()).write(fileName)
+    with open(fileName, "w") as fp:
+        fp.write( prettify(diffSet.toXML()))
 
 def XMLToDS(fileName):
     tree = etree.parse(fileName)
