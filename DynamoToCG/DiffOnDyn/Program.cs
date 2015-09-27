@@ -42,7 +42,11 @@ namespace DiffOnDyn
 
                 Console.WriteLine("now attempting to generate annotations ");
 
-                var annotationList = doc.CreateElement("Annotations");
+                var annotationList = doc.GetElementsByTagName("Annotations")[0];
+                  if (annotationList== null){
+                      annotationList = doc.CreateElement("Annotations");
+                  }
+                ;
                 doc.DocumentElement.AppendChild(annotationList);
                 foreach (var change in diffFromFile.NodeChanges)
                 {
