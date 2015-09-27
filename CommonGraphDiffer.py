@@ -20,7 +20,7 @@ class PortChange(object):
 	def __init__(self, Status, Port):
 		self.Status = Status
 		self.InstanceGuid = Port.InstanceGuid
-		self.ParentGuid = Port.ParentGuid
+#		self.ParentGuid = Port.ParentGuid
 		self.MetaData = Port.MetaData
 
 class EdgeChange(object):
@@ -31,16 +31,30 @@ class EdgeChange(object):
 		self.DstGuid = Edge.DstGuid
 
 
-def booleanObjectLists(selfObjs, otherObjs):
+def booleanObjectLists(objType, selfObjs, otherObjs):
 
 	selfIGs = set(x.InstanceGuid for x in selfObjs)  # All ids in list 1
-	otherIGs = set(x.InstanceGuid for x in selfObjs)  # All ids in list 1
+	otherIGs = set(x.InstanceGuid for x in otherObjs)  # All ids in list 1
 
 	objsRemoved = [item for item in selfObjs if item.InstanceGuid not in otherIGs] 
 	objsAdded = [item for item in otherObjs if item.InstanceGuid not in selfIGs] 
-	objsIntersection = [item for item in otherObjs if item.InstanceGuid in selfIGs] 
+	objsIntersection = [item for item in selfObjs if item.InstanceGuid in otherIGs] 
 
-	return (objsRemoved, objsAdded, objsIntersection)
+	objsSame = []
+	objsChanged = []
+
+	if objType == "node" or objType == "port":
+		for selfObj in objsIntersection:
+			otherObj = [obj for obj in otherObjs if obj.InstanceGuid == selfObj.InstanceGuid][0]
+			if( cmp(otherObj.MetaData, selfObj.MetaData) == 0): #it's the samE!
+				objsSame.append(otherObj)
+			else:
+				objsChanged.append(otherObj)	
+
+	if objType == "edge":
+		objsSame = objsIntersection
+
+	return (objsRemoved, objsAdded, objsChanged, objsSame)
 
 
 class CommonGraph(object):
@@ -51,72 +65,48 @@ class CommonGraph(object):
 		self.Nodes.append(node)
 	def addEdge(self, edge):
 		self.Edges.append(edge)
+	def getAllPorts(self):
+		return [port for node in self.Nodes for port in node.Ports]
 
 	def diff(self, other):
 
 		thisDiffSet = DiffSet()
 
-		## NODES 
-
-
-		# compare self and other nodes, and get three different sets
-		# using those three different sets, write node changes
-		# but - if the nodes are the same, scan for ports
-		
-
-		(nodesRemoved, nodesAdded, nodesIntersecting) = booleanObjectLists(self.Nodes, other.Nodes)
-
-		print nodesRemoved
+		(nodesRemoved, nodesAdded, nodesChanged, nodesSame) = booleanObjectLists("node", self.Nodes, other.Nodes)
 		for thisNode in nodesRemoved:
-			print thisNode
 			thisDiffSet.addChange(NodeChange("removed", thisNode))
 		for thisNode in nodesAdded:
-			print thisNode
 			thisDiffSet.addChange(NodeChange("added", thisNode))
-		for thisNode in nodesIntersecting:
-			print thisNode
-		print thisDiffSet.Changes
-		"""
-		nodeSameGuids = []
-		nodeChangedGuids = []
+		for thisNode in nodesChanged:
+			thisDiffSet.addChange(NodeChange("changed", thisNode))
 
-		# if the node is intersecting, node is either same or modified
-		for thisGuid in nodeIntersectingGuids:
-			selfNode = [node for node in self.Nodes if node.InstanceGuid == thisGuid][0] 
-			otherNode = [node for node in other.Nodes if node.InstanceGuid == thisGuid][0]
+		print "NODES"
+		print "nodesRemoved: ", nodesRemoved
+		print "nodesAdded: ", nodesAdded
+		print "nodesChanged: ", nodesChanged
 
-			(portRemovedGuids, portAddedGuids, portSameGuids) = booleanObjectLists([obj.InstanceGuid for obj in selfNode.Ports], [obj.InstanceGuid for obj in otherNode.Ports])
+		(edgesRemoved, edgesAdded, edgesChanged, edgesSame) = booleanObjectLists("edge", self.Edges, other.Edges)
+		for thisEdge in edgesRemoved:
+			thisDiffSet.addChange(EdgeChange("removed", thisEdge))
+		for thisEdge in edgesAdded:
+			thisDiffSet.addChange(EdgeChange("added", thisEdge))
 
-			print "---PORTS--"
-			print "removed ports" , portRemovedGuids 
-			print "added porst", portAddedGuids  
-			print "same ports", portSameGuids 
+		print "EDGES"
+		print "edgesRemoved: ", edgesRemoved
+		print "edgesAdded: ", edgesAdded
 
+		(portsRemoved, portsAdded, portsChanged, portsSame) = booleanObjectLists("port", self.getAllPorts(), other.getAllPorts())
+		print "PORTS"
+		print "portsRemoved: ", portsRemoved
+		print "portsAdded: ", portsAdded
+		print "portsChanged: ", portsChanged
 
-			#metadata is different
-			if(cmp(selfNode.MetaData['Inspect'], otherNode.MetaData['Inspect']) == 0):
-				nodeSameGuids.append(thisGuid)
-			else:
-				nodeChangedGuids.append(thisGuid)
-			
-		print "---NODES--"
-		print "removed node: ", nodeRemovedGuids
-		print "added node: ", nodeAddedGuids
-		print "same node: ", nodeSameGuids
-		print "changed node: ", nodeChangedGuids
-
-		## EDGES
-
-		#IGP stands for Instance Guid Pairs
-		(edgeRemovedIGPs, edgeAddedIGPs, edgeSameIGPs) = booleanObjectLists([edge.InstanceGuid for edge in self.Edges], [edge.InstanceGuid for edge in other.Edges])
-
-		print "---EDGES--"
-		print "removed edge: ", edgeRemovedIGPs
-		print "added edge: ", edgeAddedIGPs
-		print "same edge: ", edgeSameIGPs
-		"""
-
-		
+		for thisPort in portsRemoved:
+			thisDiffSet.addChange(PortChange("removed", thisPort))
+		for thisPort in portsAdded:
+			thisDiffSet.addChange(PortChange("added", thisPort))
+		for thisPort in portsChanged:
+			thisDiffSet.addChange(PortChange("changed", thisPort))
 
 	
 
