@@ -36,6 +36,12 @@ namespace VVD_GH_To_CG
                 Guid typeGuid = singleObjectChunk.GetGuid("GUID");
 
                 var container = singleObjectChunk.FindChunk("Container");
+
+                var attributes = container.FindChunk("Attributes");
+              //  GH_Point2D locPoint = attributes.GetPoint2D("Pivot");
+                
+
+
                 Guid instanceGuid = container.GetGuid("InstanceGuid");
                 string name = singleObjectChunk.GetString("Name");
 
@@ -91,8 +97,12 @@ namespace VVD_GH_To_CG
                 Node node = new Node();
                 //type and instance
                 node.Type = typeGuid.ToString();
-                node.InstanceGuid = instanceGuid;
+                node.InstanceGuid = instanceGuid.ToString();
                 node.Name = name;
+                Position pos = new Position();
+               // pos.X = locPoint.x;
+               // pos.Y = locPoint.y;
+                node.Position = pos;
 
                 //Metadata 
                 MetaData md = new MetaData();
@@ -115,7 +125,7 @@ namespace VVD_GH_To_CG
                         Port port = new Port();
                         GH_Chunk portChunk = portIChunk as GH_Chunk;
                         Guid portInstanceGuid = portChunk.GetGuid("InstanceGuid");
-                        port.InstanceGuid = portInstanceGuid;
+                        port.InstanceGuid = portInstanceGuid.ToString();
                         port.Name = portChunk.GetString("Name");
                         MetaData portMetadata = new MetaData();
                         portMetadata.Ignore = portChunk.Archive.Serialize_Xml();
@@ -129,8 +139,8 @@ namespace VVD_GH_To_CG
                         foreach(GH_Item item in sources){
                             Console.WriteLine("EDGE");
                              Edge edge = new Edge();
-                            edge.DestGuid = portInstanceGuid;
-                            edge.SrcGuid = item._guid;
+                            edge.DestGuid = portInstanceGuid.ToString();
+                            edge.SrcGuid = item._guid.ToString();
                             edges.Add(edge);
                         }
 
@@ -146,7 +156,7 @@ namespace VVD_GH_To_CG
                     Port port = new Port();
                     //wrapper for object - if it's a param, instance for virtual node and port are the same. 
                     Guid portInstanceGuid = instanceGuid;
-                    port.InstanceGuid = instanceGuid;
+                    port.InstanceGuid = instanceGuid.ToString();
                     port.Name = name;
                     ports.Add(port);
                 }
