@@ -13,7 +13,7 @@ def main():
     CGA = cgd.CgxToObject(args.cg)
     ds =  cgd.XMLToDS(args.ds)
     CGout = CGA.applyDiff(ds)
-    CGout.ObjectToCgx(args.ds)
+    cgd.CGToXML(CGout, args.cgout)
 
 if __name__ == "__main__":
     main()

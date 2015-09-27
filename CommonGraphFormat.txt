@@ -2,10 +2,10 @@ Node
  * Type [String]
  * InstanceGuid [String]
  * Ports [List of port]
- * Location [Optional]
+ * Position [Optional]
  * MetaData
 
-Location
+Position
  * X [Number]
  * Y [Number]
 
@@ -37,7 +37,7 @@ MetaData
         </MetaData>
      </Port>
     </Ports>
-    <Location>
+    <Position>
      <X>20</X>
      <Y>34</Y>
     <MetaData>

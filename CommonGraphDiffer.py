@@ -140,13 +140,13 @@ class CommonGraph(object):
         # TODO: use name from metadata
 
     def getEdgePairs(self):
-           
+
         def idOfPortParent(id):
             try:
                 return [n.InstanceGuid for n in self.Nodes for port in n.Ports if port.InstanceGuid == id][0]
             except:
-                return None 
-       
+                return None
+
         return [(idOfPortParent(edge.SrcGuid), idOfPortParent(edge.DstGuid)) for edge in self.Edges]
 
     def add(self, objType, obj):
@@ -285,10 +285,17 @@ class CommonGraph(object):
 
         return newCG
 
-    def ObjectToCgx(self, filename):
-        print self
-
-
+    def toXML(self):
+        e = E("CommonGraph")
+        nodes = E("Nodes")
+        nodes.extend([n.toXML() for n in self.Nodes])
+        e.append(nodes)
+        edges = E("Edges")
+        edges.extend([f.toXML() for f in self.Edges])
+        e.append(edges)
+        if self.MetaData is not None:
+            e.append(self.MetaData)
+        return e
 
 class Node(object):
     def __init__(self, Type, InstanceGuid, Position, MetaData):
@@ -330,6 +337,22 @@ class Node(object):
     def addPort(self, port):
         self.Ports.append(port)
 
+    def toXML(self):
+        attribs = {}
+        attribs["Type"] = self.Type
+        attribs["InstanceGuid"] = self.InstanceGuid
+        #if self.Name is not None:
+        #    attribs["Name"] = self.Name
+        e = E("Node", attribs)
+        p = E("Ports")
+        p.extend([k.toXML() for k in self.Ports])
+        e.append(p)
+        if self.Position is not None:
+            e.append(self.Position)
+        if self.MetaData is not None:
+            e.append(self.MetaData)
+        return e
+
 class Port(object):
     def __init__(self, InstanceGuid, ParentGuid, MetaData):
         self.InstanceGuid = InstanceGuid
@@ -343,12 +366,17 @@ class Port(object):
     def __repr__(self):
         s =  '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid
         if self.MetaData is not None:
-            s += ' MetaData: ' + etree.tostring(self.MetaData) 
+            s += ' MetaData: ' + etree.tostring(self.MetaData)
         s += ' )'
-        return s 
+        return s
     @classmethod
     def addFromChange(cls, portChange):
         return cls(portChange.InstanceGuid, portChange.ParentGuid, portChange.MetaData)
+    def toXML(self):
+        e = E("Port", {"InstanceGuid":self.InstanceGuid})
+        if self.MetaData is not None:
+            e.append(self.MetaData)
+        return e
 
 class Edge(object):
     def __init__(self, SrcGuid, DstGuid):
@@ -383,8 +411,15 @@ class Edge(object):
 
         if SrcParentGuid == None or DstParentGuid == None:
             return None
-        else: 
+        else:
             return (SrcParentGuid, DstParentGuid)
+    def toXML(self):
+        attribs = {}
+        attribs["InstanceGuid"] = self.InstanceGuid
+        attribs["SrcGuid"] = self.SrcGuid
+        attribs["DstGuid"] = self.DstGuid
+        e = E("Edge", attribs)
+        return e
 
 def recursive_dict(element):
     if element is None:
@@ -409,6 +444,10 @@ def CgxToObject(xmlfile):
         thisCG.add("edge", thisEdge)
 
     return thisCG
+
+def CGToXML(cg, fileName):
+    with open(fileName, "w") as fp:
+        fp.write( prettify(cg.toXML()))
 
 def prettify(elem):
     # Return a pretty-printed XML string for the Element.
