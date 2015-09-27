@@ -5,20 +5,18 @@ from lxml.builder import E
 # TODO: should use import xml.etree.ElementTree
 
 def getMetaXML(metaData):
-    if metaData and metaData.find("Inspect"):
-        return E("MetaData", E("Inspect", metaData.find("Inspect")))
+    if metaData is not None and metaData.find("Inspect") is not None:
+        return E("MetaData", metaData.find("Inspect"))
 
-class DiffSet(object):
-    def __init__(self):
-        self.Changes = []
-                # TODO: This should track overall metadata changes...
-    def addChange(self, Change):
-        self.Changes.append(Change)
-    def toXML(self):
-        return E("DiffSet", getMetaXML(self.MetaData), *[c.toXML() for c in self.Changes])
-    def __repr__(self):
-        return repr(self.Changes)
-
+def buildXML(tag, attributes, metaData):
+    meta = getMetaXML(metaData)
+    print "======================"
+    print "building xml for ", tag
+    print str(attributes)
+    print etree.tostring(meta)
+    if meta is not None:
+        return E(tag, attributes, meta)
+    return E(tag, attributes)
 
 def statusToString(status):
     if status == "added":
@@ -27,6 +25,19 @@ def statusToString(status):
         return "[-]"
     if status == "changed":
         return "[/]"
+
+class DiffSet(object):
+    def __init__(self, MetaData):
+        self.Changes = []
+        self.MetaData = MetaData
+    def addChange(self, Change):
+        self.Changes.append(Change)
+    def toXML(self):
+        changes = [c.toXML() for c in self.Changes]
+        meta = getMetaXML(self.MetaData)
+        if meta is not None:
+            changes.append(meta)
+        return E("DiffSet", *changes)
 
 class NodeChange(object):
     def __init__(self, Status, Node):
@@ -40,8 +51,8 @@ class NodeChange(object):
         attributes["InstanceGuid"] = self.InstanceGuid
         if self.Status != "removed":
             attributes["Type"] = self.Type
-            return E("NodeChange", attributes, getMetaXML(self.MetaData))
-        return E("NodeChange", attributes)
+        return buildXML("NodeChange", attributes, self.MetaData)
+
     def __repr__(self):
         return '\n' + statusToString(self.Status) + ' Node (InstanceGuid: ' + self.InstanceGuid + ')'
 
@@ -57,8 +68,7 @@ class PortChange(object):
         attributes["InstanceGuid"] = self.InstanceGuid
         if self.Status != "removed":
             attributes["ParentGuid"] = self.ParentGuid
-            return E("NodeChange", attributes, getMetaXML(self.MetaData))
-        return E("PortChange", attributes)
+        return buildXML("PortChange", attributes, self.MetaData)
     def __repr__(self):
         return '\n' + statusToString(self.Status) + ' Port (InstanceGuid: ' + self.InstanceGuid + ')'
 
@@ -75,10 +85,9 @@ class EdgeChange(object):
         if self.Status != "removed":
             attributes["SrcGuid"] = self.SrcGuid
             attributes["DstGuid"] = self.DstGuid
-        return E("PortChange", attributes)
+        return E("Edgechange", attributes)
     def __repr__(self):
         return '\n' + statusToString(self.Status) + ' Edge (InstanceGuid: ' + self.InstanceGuid + ')'
-
 
 
 
@@ -123,7 +132,7 @@ class CommonGraph(object):
     def diff(self, other):
         #TODO: Compute diff for top-level MetaData field
 
-        thisDiffSet = DiffSet()
+        thisDiffSet = DiffSet(self.MetaData)
 
         (nodesRemoved, nodesAdded, nodesChanged, nodesSame) = booleanObjectLists("node", self.Nodes, other.Nodes)
         for thisNode in nodesRemoved:
@@ -208,7 +217,7 @@ def CgxToObject(xmlfile):
     return thisCG
 
 def DSToXML(diffSet, fileName):
-    etree.ElementTree(diffSet.toXML()).write(fileName)
+    etree.ElementTree(diffSet.toXML()).write(fileName, standalone=True, pretty_print=True)
 
 def main():
     CGA = CgxToObject("examples/simple_multiply_example.cgx")
@@ -217,7 +226,7 @@ def main():
 
     CGB2 = CGA.applyDiff(ds)
 
-#    DSToXML(ds, "foo.dsx")
+    DSToXML(ds, "foo.dsx")
 
 
 
