@@ -8,7 +8,8 @@ namespace CSharpCommonGraph
 {
     public class Edge
     {
-      public Guid fromId;
-      public Guid toId;
+      public string SrcGuid;
+      public string DestGuid;
+      public string InstanceGuid;
     }
 }

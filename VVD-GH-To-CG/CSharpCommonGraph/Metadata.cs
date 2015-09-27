@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace CSharpCommonGraph
 {
-   public class Port
+    public class MetaData
     {
-       public string InstanceGuid;
-       public MetaData MetaData;
-       public string Name;
-
+        public string Ignore;
+        public string Inspect;
     }
 }

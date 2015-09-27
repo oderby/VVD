@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CSharpCommonGraph;
 using GH_IO.Serialization;
+using GH_IO.Types;
 
 namespace VVD_GH_To_CG
 {
@@ -38,23 +39,120 @@ namespace VVD_GH_To_CG
                 Guid instanceGuid = container.GetGuid("InstanceGuid");
                 string name = singleObjectChunk.GetString("Name");
 
-                //Test if the object has sources (and is therefore an object of interest.)
-                //TODO: improve this method
-                bool isActiveObject = container.ItemExists("SourceCount");
+                IEnumerable<GH_IChunk> inputs;
+                IEnumerable<GH_IChunk> outputs;
+                
+                //Components that implement variable parameters store their inputs/outputs one layer deeper.
+                var parameterData = container.Chunks.Where<GH_IChunk>(C => C.Name == "ParameterData");
+                bool hasParameterData = parameterData.Count() > 0;
 
-                bool hasInputs = container.Chunks.Where(C => C.Name == "param_input").Count() > 0;
-                bool hasOutputs = container.Chunks.Where(C => C.Name == "param_output").Count() > 0;
-                bool isComponent = hasInputs || hasOutputs;
+                bool hasSourceCount = container.ItemExists("SourceCount");
 
-                Console.WriteLine(isComponent.ToString());
+                var paramChunks = container.Chunks;
+                if (hasParameterData)
+                {
+                    paramChunks = parameterData.ToList()[0].Chunks;
+                    inputs = paramChunks.Where(C => C.Name == "InputParam");
+                    outputs = paramChunks.Where(C => C.Name == "OutputParam");
+                }
+                else
+                {
+                    
+                   inputs = paramChunks.Where(C => C.Name == "param_input");
+                    outputs = paramChunks.Where(C => C.Name == "param_output");
+                }
+
+
+             
+              
+
+             
+
+                bool hasInputs = inputs.Count() > 0;
+                bool hasOutputs = outputs.Count() > 0;
+             
+                bool isComponent = hasInputs || hasOutputs || hasParameterData;
+
+                bool isActiveObject = isComponent || hasSourceCount;
+
+
+                
+
+
+                //Debugging 
+                Console.WriteLine(name);
+                Console.WriteLine("Is active object? " + isActiveObject.ToString());
+                Console.WriteLine("Is Component? " + isComponent.ToString());
+
+
+                if (!isActiveObject) continue;
+
+
                 Node node = new Node();
+                //type and instance
                 node.Type = typeGuid.ToString();
                 node.InstanceGuid = instanceGuid;
+                node.Name = name;
+
+                //Metadata 
+                MetaData md = new MetaData();
+                md.Ignore = singleObjectChunk.Archive.Serialize_Xml();
+                //TODO - REMOVE COMPONENTS OF XML THAT SHOULDN'T BE INSPECTED
+                md.Inspect = singleObjectChunk.Archive.Serialize_Xml();
+              //  node.Metadata = md; ****REMEMBER TO REMOVE COMMENT
+
+                List<Port> ports = new List<Port>();
+                List<Edge> edges = new List<Edge>();
+                if (isComponent) //if it's a component
+                {
+                    List<GH_IChunk> portChunks = new List<GH_IChunk>();
+                    portChunks.AddRange(inputs);
+                    portChunks.AddRange(outputs);
+                  
+                 
+                    foreach (var portIChunk in portChunks) // for every port "chunk"
+                    {
+                        Port port = new Port();
+                        GH_Chunk portChunk = portIChunk as GH_Chunk;
+                        Guid portInstanceGuid = portChunk.GetGuid("InstanceGuid");
+                        port.InstanceGuid = portInstanceGuid;
+                        port.Name = portChunk.GetString("Name");
+                        MetaData portMetadata = new MetaData();
+                        portMetadata.Ignore = portChunk.Archive.Serialize_Xml();
+                     //   port.Metadata = portMetadata; //REMEMBER TO UNCOMMENT
+                        ports.Add(port);
+
+                      
+
+                        var sources = portChunk.Items.Where(item => item.Name == "Source");
+                        Console.WriteLine("WE GOT THIS MANY SOURCES:" +sources.Count());
+                        foreach(GH_Item item in sources){
+                            Console.WriteLine("EDGE");
+                             Edge edge = new Edge();
+                            edge.DestGuid = portInstanceGuid;
+                            edge.SrcGuid = item._guid;
+                            edges.Add(edge);
+                        }
 
 
+                    }
 
+                   
+                  
+                   
+                } 
+                else if(!isComponent && isActiveObject) //if it's a param
+                {
+                    Port port = new Port();
+                    //wrapper for object - if it's a param, instance for virtual node and port are the same. 
+                    Guid portInstanceGuid = instanceGuid;
+                    port.InstanceGuid = instanceGuid;
+                    port.Name = name;
+                    ports.Add(port);
+                }
 
-
+                node.Ports = ports;
+                cg.Edges.AddRange(edges);
                 cg.Nodes.Add(node);
             }
 

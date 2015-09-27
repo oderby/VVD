@@ -11,7 +11,6 @@ namespace CSharpCommonGraph
     {
       public List<Edge> Edges;
       public List<Node> Nodes;
-      public List<Port> Ports;
 
       //empty constructor for the purposes of XMLSerializer
       public CommonGraph()
@@ -19,7 +18,6 @@ namespace CSharpCommonGraph
          
           Edges = new List<Edge>();
           Nodes = new List<Node>();
-          Ports = new List<Port>();
       }
 
 
