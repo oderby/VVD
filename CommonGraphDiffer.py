@@ -55,7 +55,7 @@ class NodeChange(object):
         return buildXML("NodeChange", attributes, self.MetaData)
 
     def __repr__(self):
-        return '\n' + statusToString(self.Status) + ' Node (InstanceGuid: ' + self.InstanceGuid + ')'
+        return statusToString(self.Status) + ' Node (InstanceGuid: ' + self.InstanceGuid + ')'
 
 class PortChange(object):
     def __init__(self, Status, InstanceGuid, ParentGuid=None, MetaData=None):
@@ -71,7 +71,7 @@ class PortChange(object):
             attributes["ParentGuid"] = self.ParentGuid
         return buildXML("PortChange", attributes, self.MetaData)
     def __repr__(self):
-        return '\n' + statusToString(self.Status) + ' Port (InstanceGuid: ' + self.InstanceGuid + ')'
+        return statusToString(self.Status) + ' Port (InstanceGuid: ' + self.InstanceGuid + ')'
 
 class EdgeChange(object):
     def __init__(self, Status, InstanceGuid, SrcGuid=None, DstGuid=None):
@@ -88,7 +88,7 @@ class EdgeChange(object):
             attributes["DstGuid"] = self.DstGuid
         return E("Edgechange", attributes)
     def __repr__(self):
-        return '\n' + statusToString(self.Status) + ' Edge (InstanceGuid: ' + self.InstanceGuid + ')'
+        return statusToString(self.Status) + ' Edge (InstanceGuid: ' + self.InstanceGuid + ')'
 
 
 
@@ -160,9 +160,19 @@ class CommonGraph(object):
         return thisDiffSet
 
     def applyDiff(self, diffSet):
-        print diffSet
-        print "yo"
 
+        for thisChange in diffSet.Changes:
+            print thisChange
+            """
+            iterate over node changes, then port changes,
+            if change is an addition
+            then turn a change into a node
+            and add the node.
+
+
+#            if change is ad
+        #print diffSet
+            """
 
 class Node(object):
     def __init__(self, Type, InstanceGuid, MetaData):
