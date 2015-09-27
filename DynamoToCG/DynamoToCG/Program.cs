@@ -1,6 +1,8 @@
 ﻿using System;
+using System.IO;
 using System.Linq;
 using System.Xml;
+using System.Xml.Serialization;
 
 
 namespace DynamoToCG
@@ -36,9 +38,14 @@ namespace DynamoToCG
                 }
 
                 Console.ReadLine();
+
+                System.Xml.Serialization.XmlSerializer xser = new System.Xml.Serialization.XmlSerializer(typeof(CSharpCommonGraph.CommonGraph));
+                TextWriter WriteFileStream = new StreamWriter(@"C:\Users\Mike\Desktop\testOutput.cgx");
+                xser.Serialize(WriteFileStream, NodeGraph.ToCommonCgraph(graph));
+                Console.WriteLine("saved CG to disk");
+                Console.ReadLine();
             }
-
-
+               
               
             catch (Exception e)
             {

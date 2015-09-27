@@ -57,7 +57,15 @@ namespace DynamoToCG
                 commonGraphNode.Type = elNode.GetAttribute("nickname");
             }
 
-            commonGraphNode.Metadata.Inspect = elNode.ToString();
+             var helper = new Dynamo.Utilities.XmlElementHelper(elNode);
+
+            var x = helper.ReadDouble("x",0.0);
+            var y = helper.ReadDouble("y",0.0);
+
+
+            commonGraphNode.Metadata.Inspect = elNode.OuterXml.ToString();
+            commonGraphNode.Position.X = x;
+            commonGraphNode.Position.Y = y;
             //commonGraphNode.Ports = CreatPortsFromNode(commonGraphNode.InstanceGuid, edges);
             return commonGraphNode;
         }
@@ -72,7 +80,7 @@ namespace DynamoToCG
         public static CSharpCommonGraph.Edge LoadConnectorsAndAddPortsFromXml(XmlElement connEl,IDictionary<string, CSharpCommonGraph.Node> nodes)
         {
             var helper = new Dynamo.Utilities.XmlElementHelper(connEl);
-
+            
             var guid = helper.ReadGuid("guid", Guid.NewGuid());
             var guidStart = helper.ReadGuid("start");
             var guidEnd = helper.ReadGuid("end");
@@ -85,10 +93,15 @@ namespace DynamoToCG
             if (nodes.TryGetValue(guidStart.ToString(), out start))
             {
                 var startport = new CSharpCommonGraph.Port();
-                startport.InstanceGuid = start.InstanceGuid.ToString()+"_"+startIndex.ToString();
+                startport.InstanceGuid = start.InstanceGuid.ToString()+"_IN"+ startIndex.ToString();
                 startport.MetaData.Inspect = "start";
                 startport.Name = "a cool port";
-                start.Ports.Add(startport);
+                //if we have not seen this port id before add the port, we dont want to duplicate ports
+                if (start.Ports.All(x=>x.InstanceGuid != startport.InstanceGuid))
+                {
+                      start.Ports.Add(startport);
+                }
+              
 
                 CSharpCommonGraph.Node end;
                 if (nodes.TryGetValue(guidEnd.ToString(), out end))
@@ -96,11 +109,14 @@ namespace DynamoToCG
 
 
                     var endport = new CSharpCommonGraph.Port();
-                    endport.InstanceGuid = end.InstanceGuid.ToString() + "_" + endIndex.ToString();
+                    endport.InstanceGuid = end.InstanceGuid.ToString() + "_OUT" + endIndex.ToString();
                     endport.MetaData.Inspect = "end";
                     endport.Name = "a cool port";
-                    end.Ports.Add(endport);
-
+                    if (end.Ports.All(x => x.InstanceGuid != endport.InstanceGuid))
+                    {
+                        end.Ports.Add(endport);
+                    }
+              
                     var edge = new CSharpCommonGraph.Edge();
                     edge.SrcGuid = startport.InstanceGuid;
                     edge.DestGuid = endport.InstanceGuid;
