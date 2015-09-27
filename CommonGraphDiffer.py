@@ -222,6 +222,7 @@ class CommonGraph(object):
             thisDiffSet.addChange(NodeChange("removed", thisNode.InstanceGuid, thisNode.Position))
         for thisNode in nodesAdded:
             thisDiffSet.addChange(NodeChange("added", thisNode.InstanceGuid, thisNode.Position, thisNode.Type, thisNode.MetaData))
+            #TODO: somehow adding nodes doesn't add position metadata (this is a GHXtoCG thing)
         for thisNode in nodesChanged:
             thisDiffSet.addChange(NodeChange("changed", thisNode.InstanceGuid, thisNode.Position, thisNode.Type, thisNode.MetaData))
 
