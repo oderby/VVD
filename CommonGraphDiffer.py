@@ -12,11 +12,7 @@ def getMetaXML(metaData):
 
 def buildXML(tag, attributes, metaData):
     meta = getMetaXML(metaData)
-    print "======================"
-    print "building xml for ", tag
-    print attributes
     if meta is not None:
-        print etree.tostring(meta)
         return E(tag, attributes, meta)
     return E(tag, attributes)
 
@@ -40,6 +36,8 @@ class DiffSet(object):
         if meta is not None:
             changes.append(meta)
         return E("DiffSet", *changes)
+    def __repr__(self):
+        return '\n'.join([str(c) for c in self.Changes])
 
 class NodeChange(object):
     def __init__(self, Status, InstanceGuid, Type=None, MetaData=None):
@@ -53,7 +51,6 @@ class NodeChange(object):
         attributes["InstanceGuid"] = self.InstanceGuid
         if self.Status != "removed":
             attributes["Type"] = self.Type
-        print self.Status, "fa", type(self.Type), type(self.InstanceGuid)
         return buildXML("NodeChange", attributes, self.MetaData)
 
     def __repr__(self):
@@ -88,7 +85,7 @@ class EdgeChange(object):
         if self.Status != "removed":
             attributes["SrcGuid"] = self.SrcGuid
             attributes["DstGuid"] = self.DstGuid
-        return E("Edgechange", attributes)
+        return E("EdgeChange", attributes)
     def __repr__(self):
         return statusToString(self.Status) + ' Edge (InstanceGuid: ' + self.InstanceGuid + ')'
 
@@ -323,6 +320,7 @@ def DSToXML(diffSet, fileName):
 def XMLToDS(fileName):
     tree = etree.parse(fileName)
     root = tree.getroot()
+    print root.findall("*")
     xmlChanges = [e for e in root.findall("*") if e.tag.find("Change")>=0]
 
     thisDiffSet = DiffSet(root.find("MetaData"))
@@ -333,7 +331,9 @@ def XMLToDS(fileName):
         elif xmlChange.tag == "PortChange":
             change = PortChange(status, xmlChange.get("InstanceGuid"), xmlChange.get("ParentGuid"), xmlChange.find("MetaData"))
         elif xmlChange.tag == "EdgeChange":
-            change = EdgeChange(status, xmlChange.get("SrcGuid"), xmlChange.get("DstGuid"))
+            change = EdgeChange(status, xmlChange.get("InstanceGuid"), xmlChange.get("SrcGuid"), xmlChange.get("DstGuid"))
+        else:
+            print "!!!!!unknown tag", xmlChange.tag
         thisDiffSet.addChange(change)
     return thisDiffSet
 
@@ -344,9 +344,6 @@ def main():
     ds = CGA.diff(CGB)
     DSToXML(ds, "foo.dsx")
     ds2 = XMLToDS("foo.dsx")
-    print ds
-    print "------------fafda-----------"
-    print ds2
     DSToXML(ds2, "foo2.dsx")
 
 
