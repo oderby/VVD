@@ -15,7 +15,7 @@ using System.Xml.Linq;
 
 
 
-namespace VVD_GH_To_CG
+namespace CGToGH
 {
     public class GH_FileComposer
     {
@@ -32,32 +32,10 @@ namespace VVD_GH_To_CG
             File.WriteAllText(@"C:\Users\aheumann\Desktop\xml out test.txt", graph.MetaData.Ignore);
            
 
-            ConstructGH2();
+            ConstructGH();
         }
 
-        private void ConstructGH()
-        {
-            //set up the base file
-            archive.Deserialize_Xml(graph.MetaData.Ignore);
-            var rootNode = archive.GetRootNode;
-            var Definition = rootNode.FindChunk("Definition") as GH_Chunk;
-            var DefinitionObjects = Definition.FindChunk("DefinitionObjects") as GH_Chunk;
-            // Definition.RemoveChunk("DefinitionObjects");
-
-            ClearChunks(DefinitionObjects);
-            foreach (Node n in graph.Nodes)
-            {
-                string objectXML = n.Metadata.Ignore;
-              // archive.ExtractObject()
-              
-            
-
-            }
-
-
-
-        }
-
+ 
 
         XElement findChunk(XElement node, string name)
         {
@@ -79,14 +57,13 @@ namespace VVD_GH_To_CG
         }
 
 
-        private void ConstructGH2()
+        private void ConstructGH()
         {
             var root = doc.Root;
             var definition = findChunk(root, "Definition");
             var definitionObjects = findChunk(definition, "DefinitionObjects");
-
             var objChunks = getChunks(definitionObjects);
-            Console.WriteLine(objChunks.Count());
+           
 
 
 
@@ -95,13 +72,24 @@ namespace VVD_GH_To_CG
             {
                 nodesFromGraph.Add(ElementFromNode(n));
 
-
-
             }
 
-            XElement dummyElement = new XElement(XName.Get("Dummy"));
+            nodesFromGraph.RemoveAt(3);
+            nodesFromGraph.RemoveAt(1);
+            int i=0;
+            foreach (XElement nodeFromGraph in nodesFromGraph)
+            {
+                nodeFromGraph.SetAttributeValue(XName.Get("index"), i);
+                i++;
+            }
 
+            var items = definitionObjects.Elements().Where(elem => elem.Name == "items").First();
 
+            
+            var objectCount = items.Elements().Where(elem => elementName(elem) == "ObjectCount").First();
+
+            int newCount = nodesFromGraph.Count;
+            objectCount.Value = newCount.ToString();
 
             objChunks.First().Parent.ReplaceAll(nodesFromGraph.ToArray());
           //  foreach (XElement objChunk in objChunks)
@@ -109,14 +97,17 @@ namespace VVD_GH_To_CG
            //     objChunk.Parent.ReplaceAll(dummyElement);
               //  objChunk.Remove();
          //   }
-           
 
 
             
 
-            doc.Save(@"C:\users\aheumann\desktop\removedXML.ghx");
-            
+        }
 
+        public void SaveFile(string savePath)
+        {
+
+
+            doc.Save(savePath);
         }
 
         private static XElement ElementFromNode(Node n)
@@ -154,10 +145,7 @@ namespace VVD_GH_To_CG
 
 
 
-        public void saveFile()
-        {
-            archive.WriteToFile(@"C:\users\aheumann\desktop\TestWriteFrom.ghx", true, false);
-        }
+       
 
 
     }
