@@ -175,7 +175,15 @@ namespace VVD_GH_To_CG
                     port.Name = name;
                     ports.Add(port);
 
+                    var sources = container.Items.Where(item => item.Name == "Source");
 
+                    foreach (GH_Item source in sources)
+                    {
+                        Edge edge = new Edge();
+                        edge.DestGuid = portInstanceGuid.ToString();
+                        edge.SrcGuid = source._guid.ToString();
+                        edges.Add(edge);
+                    }
                     
                 }
 
