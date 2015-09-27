@@ -137,30 +137,25 @@ class CommonGraph(object):
             return True
 
     def removeObj(self, objType, objGuid, objParentGuid=None):
+        print "==============="
+        print "-we want to remove a " , objType , " of GUID: ", objGuid
         if(objType == "node"):
             objList = self.Nodes
         if(objType == "edge"):
             objList = self.Edges
         if(objType == "port"):
-            parentNode = [node for node in self.Nodes if objGuid in [p.InstanceGuid for p in node.Ports]]
-            print "parentNode = ", parentNode
-            print "yoyoyo port"
+            print "parentGUIDNode = ", objParentGuid
+            try:
+                parentNode = [node for node in self.Nodes if node.InstanceGuid == objParentGuid][0]
+                objList = parentNode.Ports
+            except Exception, e:
+                # this sometimes doesn't work because parentNode was already deleted - and that's okay!
+                return False
         try:
-            print "---"
-            print "-we want to remove a--" , objType
-            print "---"
-            print objList
-            print objGuid
-            print len([o for o in objList if o.InstanceGuid == objGuid]),
-            print len(objList),
             objList.remove([o for o in objList if o.InstanceGuid == objGuid][0])
-            print len(objList)
-            print "---"
-            print objList
-            print "---"
-            return True
         except:
             return False
+        return True
 
     def changeObj(self, objType, obj):
         if(objType == "node"):
