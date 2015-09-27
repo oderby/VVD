@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace CSharpCommonGraph
 {
    public class Port
     {
+       [XmlAttribute("InstanceGuid")]
        public string InstanceGuid;
-       public MetaData MetaData;
+       [XmlAttribute("Name")]
        public string Name;
+       public MetaData MetaData;
+       
 
     }
 }
