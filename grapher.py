@@ -12,9 +12,10 @@ def parseArgs():
     return parser.parse_args()
 
 
-def graphAddCGX(G, CGX, sameColor ='gray', borderColor='black'):
+def graphAddCGX(G, CGX, sameColor ='gray', sameEdgeColor = 'gray', borderColor='black'):
     # add all nodes from CGA
-    G.edge_attr['color'] = sameColor
+    G.edge_attr['color'] = sameEdgeColor
+    G.edge_attr['penwidth'] = 2
     G.node_attr['color'] = borderColor
     G.node_attr['fillcolor'] = sameColor
     G.node_attr['style'] = 'filled'
@@ -67,10 +68,11 @@ def main():
 
     borderColor = 'black'
     sameColor = '#DDDDDD'
+    sameEdgeColor = '#777777'
 
-    G = graphAddCGX(G, CGA, sameColor=sameColor, borderColor=borderColor)
+    G = graphAddCGX(G, CGA, sameColor=sameColor, sameEdgeColor=sameEdgeColor, borderColor=borderColor)
    
-    G = graphApplyDS(G, CGA, ds, borderColor=borderColor, addedColor='#00CC00', removedColor='#FF0066', changedColor='#FFFFAA')
+    G = graphApplyDS(G, CGA, ds, borderColor=borderColor, addedColor='#339966', removedColor='#FF0066', changedColor='#FFFFAA')
 
     G.layout(prog='neato') # layout with default (neato)
     G.draw(args.png)
