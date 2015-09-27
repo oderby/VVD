@@ -16,6 +16,17 @@ class DiffSet(object):
         self.Changes.append(Change)
     def toXML(self):
         return E("DiffSet", getMetaXML(self.MetaData), *[c.toXML() for c in self.Changes])
+    def __repr__(self):
+        return repr(self.Changes)
+
+
+def statusToString(status):
+    if status == "added":
+        return "[+]"
+    if status == "removed":
+        return "[-]"
+    if status == "changed":
+        return "[/]"
 
 class NodeChange(object):
     def __init__(self, Status, Node):
@@ -31,6 +42,8 @@ class NodeChange(object):
             attributes["Type"] = self.Type
             return E("NodeChange", attributes, getMetaXML(self.MetaData))
         return E("NodeChange", attributes)
+    def __repr__(self):
+        return '\n' + statusToString(self.Status) + ' Node (InstanceGuid: ' + self.InstanceGuid + ')'
 
 class PortChange(object):
     def __init__(self, Status, Port):
@@ -46,6 +59,8 @@ class PortChange(object):
             attributes["ParentGuid"] = self.ParentGuid
             return E("NodeChange", attributes, getMetaXML(self.MetaData))
         return E("PortChange", attributes)
+    def __repr__(self):
+        return '\n' + statusToString(self.Status) + ' Port (InstanceGuid: ' + self.InstanceGuid + ')'
 
 class EdgeChange(object):
     def __init__(self, Status, Edge):
@@ -61,6 +76,8 @@ class EdgeChange(object):
             attributes["SrcGuid"] = self.SrcGuid
             attributes["DstGuid"] = self.DstGuid
         return E("PortChange", attributes)
+    def __repr__(self):
+        return '\n' + statusToString(self.Status) + ' Edge (InstanceGuid: ' + self.InstanceGuid + ')'
 
 
 
@@ -116,26 +133,13 @@ class CommonGraph(object):
         for thisNode in nodesChanged:
             thisDiffSet.addChange(NodeChange("changed", thisNode))
 
-        print "NODES"
-        print "nodesRemoved: ", nodesRemoved
-        print "nodesAdded: ", nodesAdded
-        print "nodesChanged: ", nodesChanged
-
         (edgesRemoved, edgesAdded, edgesChanged, edgesSame) = booleanObjectLists("edge", self.Edges, other.Edges)
         for thisEdge in edgesRemoved:
             thisDiffSet.addChange(EdgeChange("removed", thisEdge))
         for thisEdge in edgesAdded:
             thisDiffSet.addChange(EdgeChange("added", thisEdge))
 
-        print "EDGES"
-        print "edgesRemoved: ", edgesRemoved
-        print "edgesAdded: ",edgesAdded
-
         (portsRemoved, portsAdded, portsChanged, portsSame) = booleanObjectLists("port", self.getAllPorts(), other.getAllPorts())
-        print "PORTS"
-        print "portsRemoved: ", portsRemoved
-        print "portsAdded: " , portsAdded
-        print "portsChanged: ", portsChanged
 
         for thisPort in portsRemoved:
             thisDiffSet.addChange(PortChange("removed", thisPort))
@@ -144,6 +148,10 @@ class CommonGraph(object):
         for thisPort in portsChanged:
             thisDiffSet.addChange(PortChange("changed", thisPort))
         return thisDiffSet
+
+    def applyDiff(self, diffSet):
+        print diffSet
+        print "yo"
 
 
 class Node(object):
@@ -206,7 +214,13 @@ def main():
     CGA = CgxToObject("examples/simple_multiply_example.cgx")
     CGB = CgxToObject("examples/simple_multiply_example_b.cgx")
     ds = CGA.diff(CGB)
-    DSToXML(ds, "foo.dsx")
+
+    CGB2 = CGA.applyDiff(ds)
+
+#    DSToXML(ds, "foo.dsx")
+
+
+
 
 if __name__ == "__main__":
     main()
