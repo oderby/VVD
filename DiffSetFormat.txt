@@ -7,7 +7,7 @@ NodeChange:
 PortChange:
  * Status [String; one of "added", "removed", "changed"]
  * InstanceGuid: [String]
- * ParentGuid: [String; omitted if status is "removed"]
+ * ParentGuid: [String]
  * MetaData [MetaData; just the inspect portion, omitted if status is "removed"]
 
 EdgeChange:
