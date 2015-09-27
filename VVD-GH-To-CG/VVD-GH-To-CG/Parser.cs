@@ -7,6 +7,8 @@ using CSharpCommonGraph;
 using GH_IO.Serialization;
 using GH_IO.Types;
 using System.Drawing;
+using System.Xml;
+using System.IO;
 
 namespace VVD_GH_To_CG
 {
@@ -18,16 +20,22 @@ namespace VVD_GH_To_CG
         {
             CommonGraph cg = new CommonGraph();
 
+           
 
             //construct GH Archive object for XML Traversal
             GH_Archive archive = new GH_Archive();
             archive.ReadFromFile(file);
+
+            MetaData graphMetaData = new MetaData();
+            graphMetaData.Ignore = archive.Serialize_Xml();
+            cg.MetaData = graphMetaData;
 
             //traverse GH file tree
             var rootNode = archive.GetRootNode;
             var definition = rootNode.FindChunk("Definition");
             var defObjects = definition.FindChunk("DefinitionObjects");
             int objCount = defObjects.GetInt32("ObjectCount");
+            
 
             //for every object in the definition object list:
             for (int i = 0; i < objCount; i++)
@@ -40,7 +48,7 @@ namespace VVD_GH_To_CG
 
                 var attributes = container.FindChunk("Attributes");
 
-                var locPoint = attributes.GetDrawingPointF("Pivot");
+          
              
 
 
@@ -88,9 +96,9 @@ namespace VVD_GH_To_CG
 
 
                 //Debugging 
-                Console.WriteLine(name);
-                Console.WriteLine("Is active object? " + isActiveObject.ToString());
-                Console.WriteLine("Is Component? " + isComponent.ToString());
+                //Console.WriteLine(name);
+                //Console.WriteLine("Is active object? " + isActiveObject.ToString());
+                //Console.WriteLine("Is Component? " + isComponent.ToString());
 
 
                 if (!isActiveObject) continue;
@@ -102,15 +110,20 @@ namespace VVD_GH_To_CG
                 node.InstanceGuid = instanceGuid.ToString();
                 node.Name = name;
                 Position pos = new Position();
-                pos.X = locPoint.X;
-                pos.Y = locPoint.Y;
+                try
+                {
+                    var locPoint = attributes.GetDrawingPointF("Pivot");
+                    pos.X = locPoint.X;
+                    pos.Y = locPoint.Y;
+                }
+                catch { }
                 node.Position = pos;
 
                 //Metadata 
                 MetaData md = new MetaData();
-                md.Ignore = singleObjectChunk.Archive.Serialize_Xml();
+                md.Ignore = chunkToXmlString(singleObjectChunk);
                 //TODO - REMOVE COMPONENTS OF XML THAT SHOULDN'T BE INSPECTED
-                md.Inspect = singleObjectChunk.Archive.Serialize_Xml();
+                md.Inspect = chunkToXmlString(singleObjectChunk);
                node.Metadata = md; 
 
                 List<Port> ports = new List<Port>();
@@ -130,16 +143,16 @@ namespace VVD_GH_To_CG
                         port.InstanceGuid = portInstanceGuid.ToString();
                         port.Name = portChunk.GetString("Name");
                         MetaData portMetadata = new MetaData();
-                        portMetadata.Ignore = portChunk.Archive.Serialize_Xml();
+                       portMetadata.Ignore = chunkToXmlString(portChunk);
                         port.MetaData = portMetadata; //REMEMBER TO UNCOMMENT
                         ports.Add(port);
 
                       
 
                         var sources = portChunk.Items.Where(item => item.Name == "Source");
-                        Console.WriteLine("WE GOT THIS MANY SOURCES:" +sources.Count());
+                        //Console.WriteLine("WE GOT THIS MANY SOURCES:" +sources.Count());
                         foreach(GH_Item item in sources){
-                            Console.WriteLine("EDGE");
+                            //Console.WriteLine("EDGE");
                              Edge edge = new Edge();
                             edge.DestGuid = portInstanceGuid.ToString();
                             edge.SrcGuid = item._guid.ToString();
@@ -161,14 +174,41 @@ namespace VVD_GH_To_CG
                     port.InstanceGuid = instanceGuid.ToString();
                     port.Name = name;
                     ports.Add(port);
+
+
+                    
                 }
 
                 node.Ports = ports;
                 cg.Edges.AddRange(edges);
                 cg.Nodes.Add(node);
             }
-
+            
             return cg;
         }
+
+
+       public static string chunkToXmlString(GH_IChunk chunk)
+        {
+            StringBuilder output = new StringBuilder();
+            XmlWriterSettings settings = new XmlWriterSettings();
+            settings.OmitXmlDeclaration = true;
+            settings.ConformanceLevel = ConformanceLevel.Fragment;
+            settings.CheckCharacters = false;
+
+       
+            XmlWriter writer = XmlWriter.Create(output, settings);
+           
+            writer.WriteStartElement("chunk");
+           
+            chunk.Write(writer);
+            writer.WriteEndElement();
+
+          
+            return output.ToString();
+            
+        }
+
+      
     }
 }
