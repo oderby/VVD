@@ -1,19 +1,21 @@
 #!/usr/local/bin/python
 
-from lxml import etree
-from lxml.builder import E
+import xml.etree.ElementTree as etree
+E = etree.Element
 import copy
-
-# TODO: should use import xml.etree.ElementTree
 
 def getMetaXML(metaData):
     if metaData is not None and metaData.find("Inspect") is not None:
-        return E("MetaData", metaData.find("Inspect"))
+        e = E("MetaData")
+        e.append(metaData.find("Inspect"))
+        return e
 
 def buildXML(tag, attributes, metaData):
     meta = getMetaXML(metaData)
     if meta is not None:
-        return E(tag, attributes, meta)
+        e = E(tag, attributes)
+        e.append(meta)
+        return e
     return E(tag, attributes)
 
 def statusToString(status):
@@ -35,7 +37,9 @@ class DiffSet(object):
         meta = getMetaXML(self.MetaData)
         if meta is not None:
             changes.append(meta)
-        return E("DiffSet", *changes)
+        e = E("DiffSet")
+        e.extend(changes)
+        return e
     def __repr__(self):
         return '\n'.join([str(c) for c in self.Changes])
 
@@ -316,13 +320,11 @@ def CgxToObject(xmlfile):
     for xmlEdge in root.findall(".//Edge"):
         thisEdge = Edge(xmlEdge.get('SrcGuid'), xmlEdge.get('DstGuid'))
         thisCG.add("edge", thisEdge)
-#	print thisCG.Nodes
-#	print thisCG.Edges
 
     return thisCG
 
 def DSToXML(diffSet, fileName):
-    etree.ElementTree(diffSet.toXML()).write(fileName, standalone=True, pretty_print=True)
+    etree.ElementTree(diffSet.toXML()).write(fileName)
 
 def XMLToDS(fileName):
     tree = etree.parse(fileName)
