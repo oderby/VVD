@@ -5,7 +5,7 @@ from lxml.builder import E
 # TODO: should use import xml.etree.ElementTree 
 
 def getMetaXML(change):
-	return E("MetaData", E("Inspect", change.find("Inspect")))
+       return E("MetaData", E("Inspect", change.find("Inspect")))
 
 class DiffSet(object):
 	def __init__(self):
@@ -128,12 +128,12 @@ class CommonGraph(object):
 
 		print "EDGES"
 		print "edgesRemoved: ", edgesRemoved
-		print "edgesAdded: ", edgesAdded
+		print "edgesAdded: ",edgesAdded
 
 		(portsRemoved, portsAdded, portsChanged, portsSame) = booleanObjectLists("port", self.getAllPorts(), other.getAllPorts())
 		print "PORTS"
 		print "portsRemoved: ", portsRemoved
-		print "portsAdded: ", portsAdded
+		print "portsAdded: " , portsAdded
 		print "portsChanged: ", portsChanged
 
 		for thisPort in portsRemoved:
@@ -151,7 +151,7 @@ class Node(object):
 		self.MetaData = MetaData
 		self.Ports = []
 	def __repr__(self):
-		return '\n=== Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ') \n' +\
+		return '\n(   ) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ') \n' +\
 				'\n'.join([str(p) for p in self.Ports])
 	def addPort(self, port):
 		self.Ports.append(port)
@@ -162,7 +162,7 @@ class Port(object):
 		self.ParentGuid = ParentGuid
 		self.MetaData = MetaData
 	def __repr__(self):
-		return 'Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ')'
+		return '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ')'
 
 class Edge(object):
 	def __init__(self, SrcGuid, DstGuid):
@@ -170,7 +170,7 @@ class Edge(object):
 		self.DstGuid = DstGuid
 		self.InstanceGuid = self.SrcGuid + "|" + self.DstGuid
 	def __repr__(self):
-		return 'Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
+		return '\n  == Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
 
 
 def recursive_dict(element):
