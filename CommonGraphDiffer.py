@@ -137,14 +137,11 @@ class CommonGraph(object):
             return True
 
     def removeObj(self, objType, objGuid, objParentGuid=None):
-        print "==============="
-        print "-we want to remove a " , objType , " of GUID: ", objGuid
         if(objType == "node"):
             objList = self.Nodes
         if(objType == "edge"):
             objList = self.Edges
         if(objType == "port"):
-            print "parentGUIDNode = ", objParentGuid
             try:
                 parentNode = [node for node in self.Nodes if node.InstanceGuid == objParentGuid][0]
                 objList = parentNode.Ports
