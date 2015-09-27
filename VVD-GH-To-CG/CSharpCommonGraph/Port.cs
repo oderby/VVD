@@ -13,7 +13,7 @@ namespace CSharpCommonGraph
        public string InstanceGuid;
        [XmlAttribute("Name")]
        public string Name;
-       public MetaData MetaData;
+       public MetaData MetaData = new MetaData();
        
 
     }

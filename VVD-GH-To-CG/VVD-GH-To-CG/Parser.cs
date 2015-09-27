@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using CSharpCommonGraph;
 using GH_IO.Serialization;
 using GH_IO.Types;
+using System.Drawing;
 
 namespace VVD_GH_To_CG
 {
@@ -38,8 +39,9 @@ namespace VVD_GH_To_CG
                 var container = singleObjectChunk.FindChunk("Container");
 
                 var attributes = container.FindChunk("Attributes");
-              //  GH_Point2D locPoint = attributes.GetPoint2D("Pivot");
-                
+
+                var locPoint = attributes.GetDrawingPointF("Pivot");
+             
 
 
                 Guid instanceGuid = container.GetGuid("InstanceGuid");
@@ -100,8 +102,8 @@ namespace VVD_GH_To_CG
                 node.InstanceGuid = instanceGuid.ToString();
                 node.Name = name;
                 Position pos = new Position();
-               // pos.X = locPoint.x;
-               // pos.Y = locPoint.y;
+                pos.X = locPoint.X;
+                pos.Y = locPoint.Y;
                 node.Position = pos;
 
                 //Metadata 
@@ -109,7 +111,7 @@ namespace VVD_GH_To_CG
                 md.Ignore = singleObjectChunk.Archive.Serialize_Xml();
                 //TODO - REMOVE COMPONENTS OF XML THAT SHOULDN'T BE INSPECTED
                 md.Inspect = singleObjectChunk.Archive.Serialize_Xml();
-              //  node.Metadata = md; ****REMEMBER TO REMOVE COMMENT
+               node.Metadata = md; 
 
                 List<Port> ports = new List<Port>();
                 List<Edge> edges = new List<Edge>();
@@ -129,7 +131,7 @@ namespace VVD_GH_To_CG
                         port.Name = portChunk.GetString("Name");
                         MetaData portMetadata = new MetaData();
                         portMetadata.Ignore = portChunk.Archive.Serialize_Xml();
-                     //   port.Metadata = portMetadata; //REMEMBER TO UNCOMMENT
+                        port.MetaData = portMetadata; //REMEMBER TO UNCOMMENT
                         ports.Add(port);
 
                       
