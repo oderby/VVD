@@ -2,12 +2,13 @@ NodeChange:
  * Status [String; one of "added", "removed", "changed"]
  * InstanceGuid: [String]
  * Type: [String; omitted if status is "removed"]
+ * Location: [Location; omitted if status is "removed"]
  * MetaData [MetaData; just the inspect portion, omitted if status is "removed"]
 
 PortChange:
  * Status [String; one of "added", "removed", "changed"]
  * InstanceGuid: [String]
- * ParentGuid: [String; omitted if status is "removed"]
+ * ParentGuid: [String]
  * MetaData [MetaData; just the inspect portion, omitted if status is "removed"]
 
 EdgeChange:
@@ -18,6 +19,10 @@ EdgeChange:
 
 <DiffSet>
  <NodeChange Status="" InstanceGuid="" Type="">
+  <Location>
+   <X>34</X>
+   <Y>11</Y>
+  </Location>
   <MetaData>
    <Inspect>...</Inspect>
   </MetaData>
