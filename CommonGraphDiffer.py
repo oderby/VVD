@@ -130,32 +130,45 @@ class CommonGraph(object):
 
     def add(self, objType, obj):
         if(objType == "node"):
-            self.Nodes.append(obj)
+            objList = self.Nodes
         if(objType == "edge"):
-            self.Edges.append(obj)
+            objList = self.Edges
+        if(objType == "port"):
+            return False
+            # TODO: implement add Port
 
-    def removeObj(self, objType, obj):
+        objList.append(obj)
+
+    def removeObj(self, objType, objGuid):
         if(objType == "node"):
             objList = self.Nodes
         if(objType == "edge"):
             objList = self.Edges
+        if(objType == "port"):
+            return False
+            # TODO: implement remove Port
         try:
-            objList.remove(obj)
+            objList.remove([o for o in objList if o.InstanceGuid == objGuid][0])
             return True
         except:
             return False
+
     def changeObj(self, objType, obj):
         if(objType == "node"):
             objList = self.Nodes
         if(objType == "edge"):
             objList = self.Edges
+        if(objType == "port"):
+            return False
+            # TODO: implement chnage Port
         try:
             for idx, thisN in enumerate(objList):
-                if node == thisN:
-                    objList[idx].MetaData = node.MetaData
+                if obj == thisN:
+                    objList[idx].MetaData = obj.MetaData
             return True
-        except:
+        except Exception, e:
             return False
+
     def getAllPorts(self):
         return [port for node in self.Nodes for port in node.Ports]
 
@@ -206,7 +219,6 @@ class CommonGraph(object):
             if change is an removal then TRY removing edge  (otherwise failure)
         """
 
-
         newCG = copy.deepcopy(self)
 
         for thisNodeChange in [change for change in diffSet.Changes if change.__class__.__name__ == "NodeChange"]:
@@ -214,7 +226,7 @@ class CommonGraph(object):
             if(thisNodeChange.Status == "added"):
                 newCG.add("node", Node.addFromChange(thisNodeChange))
             if(thisNodeChange.Status == "removed"):
-                newCG.removeObj("node", Node.addFromChange(thisNodeChange))
+                newCG.removeObj("node", thisNodeChange.InstanceGuid)
             if(thisNodeChange.Status == "changed"):
                 newCG.changeObj("node", Node.addFromChange(thisNodeChange))
 
@@ -223,7 +235,7 @@ class CommonGraph(object):
             if(thisPortChange.Status == "added"):
                 newCG.add("port", Port.addFromChange(thisPortChange))
             if(thisPortChange.Status == "removed"):
-                newCG.removeObj("port", Port.addFromChange(thisPortChange))
+                newCG.removeObj("port", thisPortChange.InstanceGuid)
             if(thisPortChange.Status == "changed"):
                 newCG.changeObj("port", Port.addFromChange(thisPortChange))
 
@@ -232,10 +244,7 @@ class CommonGraph(object):
             if(thisEdgeChange.Status == "added"):
                 newCG.add("edge", Edge.addFromChange(thisEdgeChange))
             if(thisEdgeChange.Status == "removed"):
-                newCG.removeObj("edge", Edge.addFromChange(thisEdgeChange))
-            if(thisEdgeChange.Status == "changed"):
-                newCG.changeObj("edge", Edge.addFromChange(thisEdgeChange))
-
+                newCG.removeObj("edge", thisEdgeChange.InstanceGuid)
 
         return newCG
 
@@ -346,7 +355,10 @@ def main():
     CGB2 = CGA.applyDiff(ds)
 
     print "========================="
-#    print CGB2
+    print CGB
+    print "========================="
+    print CGB2
+    print "========================="
 
 
 if __name__ == "__main__":
