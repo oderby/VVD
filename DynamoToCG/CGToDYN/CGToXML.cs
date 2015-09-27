@@ -32,7 +32,7 @@ namespace DynamoToCG
                 //write the root element
                 root.AppendChild(elementList);
                               
-                foreach (var dynEl in cg.Nodes.Select(el =>  el.Metadata.Inspect)){
+                foreach (var dynEl in cg.Nodes.Select(el =>  el.MetaData.Inspect)){
                     var doc = new XmlDocument();
                     doc.LoadXml(dynEl);
 
