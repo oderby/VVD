@@ -41,9 +41,9 @@ namespace VVD_GH_To_CG
             for (int i = 0; i < objCount; i++)
             {
                 var singleObjectChunk = defObjects.Chunks[i] as GH_Chunk;
-
+                
                 Guid typeGuid = singleObjectChunk.GetGuid("GUID");
-
+                
                 var container = singleObjectChunk.FindChunk("Container");
 
                 var attributes = container.FindChunk("Attributes");
@@ -204,15 +204,15 @@ namespace VVD_GH_To_CG
             settings.ConformanceLevel = ConformanceLevel.Fragment;
             settings.CheckCharacters = false;
 
-       
-            XmlWriter writer = XmlWriter.Create(output, settings);
-           
-            writer.WriteStartElement("chunk");
-           
-            chunk.Write(writer);
-            writer.WriteEndElement();
+            using (XmlWriter writer = XmlWriter.Create(output, settings))
+            {
 
-          
+                writer.WriteStartElement("chunk");
+
+                chunk.Write(writer);
+
+                writer.WriteEndElement();
+            }
             return output.ToString();
             
         }

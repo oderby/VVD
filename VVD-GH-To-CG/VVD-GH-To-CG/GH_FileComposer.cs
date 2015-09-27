@@ -67,16 +67,73 @@ namespace VVD_GH_To_CG
             
         }
 
+        IEnumerable<XElement> getChunks(XElement node)
+        {
+            var Chunks = node.Elements().Where(elem => elem.Name == "chunks").First();
+            return Chunks.Elements();
+        }
+
+        string elementName(XElement elem)
+        {
+            return elem.FirstAttribute.Value;
+        }
+
 
         private void ConstructGH2()
         {
             var root = doc.Root;
             var definition = findChunk(root, "Definition");
             var definitionObjects = findChunk(definition, "DefinitionObjects");
-            Console.WriteLine(definitionObjects.Name.ToString());
+
+            var objChunks = getChunks(definitionObjects);
+            Console.WriteLine(objChunks.Count());
 
 
 
+            List<XElement> nodesFromGraph = new List<XElement>();
+            foreach (Node n in graph.Nodes)
+            {
+                nodesFromGraph.Add(ElementFromNode(n));
+
+
+
+            }
+
+            XElement dummyElement = new XElement(XName.Get("Dummy"));
+
+
+
+            objChunks.First().Parent.ReplaceAll(nodesFromGraph.ToArray());
+          //  foreach (XElement objChunk in objChunks)
+          //  {
+           //     objChunk.Parent.ReplaceAll(dummyElement);
+              //  objChunk.Remove();
+         //   }
+           
+
+
+            
+
+            doc.Save(@"C:\users\aheumann\desktop\removedXML.ghx");
+            
+
+        }
+
+        private static XElement ElementFromNode(Node n)
+        {
+            XElement testElem = null;
+            string objectXML = n.Metadata.Ignore;
+
+            try
+            {
+                testElem = XElement.Parse(objectXML);
+                Console.WriteLine(testElem.Name);
+            }
+            catch (Exception e)
+            {
+             
+            }
+            return testElem;
         }
 
         private static void ClearChunks(GH_Chunk ParentChunk)
