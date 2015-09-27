@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonGraph.cs" />
+    <Compile Include="DiffSet.cs" />
     <Compile Include="Edge.cs" />
     <Compile Include="MetaData.cs" />
     <Compile Include="Node.cs" />

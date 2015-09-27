@@ -30,7 +30,7 @@ namespace VVD_GH_To_CG
             SerializerObj.Serialize(WriteFileStream, dg);
 
            
-         Console.ReadKey();
+         //Console.ReadKey();
 
         }
 

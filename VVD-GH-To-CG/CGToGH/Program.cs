@@ -24,23 +24,13 @@ namespace CGToGH
                     dest = args[1];
                 }
 
-                CSharpCommonGraph.CommonGraph graphFromFile;
-                // Construct an instance of the XmlSerializer with the type
-                // of object that is being deserialized.
-                XmlSerializer mySerializer =
-                new XmlSerializer(typeof(CSharpCommonGraph.CommonGraph));
-                // To read the file, create a FileStream.
-                FileStream myFileStream =
-                new FileStream(path, FileMode.Open);
-                // Call the Deserialize method and cast to the object type.
-                graphFromFile = (CSharpCommonGraph.CommonGraph)
-                mySerializer.Deserialize(myFileStream);
+                CSharpCommonGraph.CommonGraph graphFromFile = DeserializeCG(path);
 
                 Console.WriteLine("now attempting to convert back to a new .gh");
 
                 GH_FileComposer composer = new GH_FileComposer(graphFromFile);
                 composer.SaveFile(dest);
-                Console.ReadKey();
+               // Console.ReadKey();
 
             }
 
@@ -52,6 +42,22 @@ namespace CGToGH
                 Console.WriteLine(e.StackTrace);
             }
 
+        }
+
+        private static CSharpCommonGraph.CommonGraph DeserializeCG(string path)
+        {
+            CSharpCommonGraph.CommonGraph graphFromFile;
+            // Construct an instance of the XmlSerializer with the type
+            // of object that is being deserialized.
+            XmlSerializer mySerializer =
+            new XmlSerializer(typeof(CSharpCommonGraph.CommonGraph));
+            // To read the file, create a FileStream.
+            FileStream myFileStream =
+            new FileStream(path, FileMode.Open);
+            // Call the Deserialize method and cast to the object type.
+            graphFromFile = (CSharpCommonGraph.CommonGraph)
+            mySerializer.Deserialize(myFileStream);
+            return graphFromFile;
         }
     }
 }

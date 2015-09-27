@@ -12,6 +12,7 @@ using System.Xml;
 using System.IO;
 using System.Xml.Serialization;
 using System.Xml.Linq;
+using System.Diagnostics;
 
 
 
@@ -70,16 +71,17 @@ namespace CGToGH
             foreach (Node n in graph.Nodes)
             {
                 nodesFromGraph.Add(ElementFromNode(n));
-
+               
             }
 
    
             int i=0;
             foreach (XElement nodeFromGraph in nodesFromGraph)
             {
+               
                 try
                 {
-                  // Console.WriteLine(elementName(nodeFromGraph));
+                
                     nodeFromGraph.SetAttributeValue(XName.Get("index"), i);
                     i++;
                 }
@@ -117,7 +119,9 @@ namespace CGToGH
         private static XElement ElementFromNode(Node n)
         {
             XElement testElem = null;
-            string objectXML = n.MetaData.Ignore;
+            string objectXML = n.MetaData.Inspect;
+   
+            Debug.WriteLine(n.InstanceGuid + " YAY " + objectXML);
             try
             {
                 testElem = XElement.Parse(objectXML);
