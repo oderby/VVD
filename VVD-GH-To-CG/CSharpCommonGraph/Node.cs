@@ -8,16 +8,13 @@ namespace CSharpCommonGraph
 {
     public class Node
     {
-        public String Type;
+        public string Type;
         public Guid InstanceGuid;
+        public string Name;
         public List<Port> Ports;
-        public Metadata Metadata;
+        public MetaData Metadata;
 
     }
 
-    public class Metadata
-    {
-      public string Ignore;
-      public string Inspect;
-    }
+   
 }
