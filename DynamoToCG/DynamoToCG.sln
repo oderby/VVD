@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamoToCG", "DynamoToCG\DynamoToCG.csproj", "{0A09E4FB-9FBC-47E3-849A-BE3FB86ED52D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGToDYN", "CGToDYN\CGToDYN.csproj", "{AA7A63C9-F5C1-4F11-A676-74CEE4DB7246}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0A09E4FB-9FBC-47E3-849A-BE3FB86ED52D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A09E4FB-9FBC-47E3-849A-BE3FB86ED52D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A09E4FB-9FBC-47E3-849A-BE3FB86ED52D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA7A63C9-F5C1-4F11-A676-74CEE4DB7246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA7A63C9-F5C1-4F11-A676-74CEE4DB7246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA7A63C9-F5C1-4F11-A676-74CEE4DB7246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA7A63C9-F5C1-4F11-A676-74CEE4DB7246}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
