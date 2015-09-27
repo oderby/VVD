@@ -46,10 +46,10 @@ class DiffSet(object):
         return '\n'.join([str(c) for c in self.Changes])
 
 class NodeChange(object):
-    def __init__(self, Status, InstanceGuid, Location=None, Type=None, MetaData=None):
+    def __init__(self, Status, InstanceGuid, Position=None, Type=None, MetaData=None):
         self.Status = Status
         self.InstanceGuid = InstanceGuid
-        self.Location = Location
+        self.Position = Position
         self.Type = Type
         self.MetaData = MetaData
     def toXML(self):
@@ -59,8 +59,8 @@ class NodeChange(object):
         if self.Status != "removed":
             attributes["Type"] = self.Type
         e = buildXML("NodeChange", attributes, self.MetaData)
-        if self.Location is not None:
-            e.append(self.Location)
+        if self.Position is not None:
+            e.append(self.Position)
         return e
 
     def __repr__(self):
@@ -198,9 +198,9 @@ class CommonGraph(object):
         for thisNode in nodesRemoved:
             thisDiffSet.addChange(NodeChange("removed", thisNode.InstanceGuid))
         for thisNode in nodesAdded:
-            thisDiffSet.addChange(NodeChange("added", thisNode.InstanceGuid, thisNode.Location, thisNode.Type, thisNode.MetaData))
+            thisDiffSet.addChange(NodeChange("added", thisNode.InstanceGuid, thisNode.Position, thisNode.Type, thisNode.MetaData))
         for thisNode in nodesChanged:
-            thisDiffSet.addChange(NodeChange("changed", thisNode.InstanceGuid, thisNode.Location, thisNode.Type, thisNode.MetaData))
+            thisDiffSet.addChange(NodeChange("changed", thisNode.InstanceGuid, thisNode.Position, thisNode.Type, thisNode.MetaData))
 
         (edgesRemoved, edgesAdded, edgesChanged, edgesSame) = booleanObjectLists("edge", self.Edges, other.Edges)
         for thisEdge in edgesRemoved:
@@ -266,10 +266,10 @@ class CommonGraph(object):
         return newCG
 
 class Node(object):
-    def __init__(self, Type, InstanceGuid, Location, MetaData):
+    def __init__(self, Type, InstanceGuid, Position, MetaData):
         self.Type = Type
         self.InstanceGuid = InstanceGuid
-        self.Location = Location
+        self.Position = Position
         self.MetaData = MetaData
         self.Ports = []
     def __eq__(self, other):
@@ -279,12 +279,12 @@ class Node(object):
             return False
     @classmethod
     def addFromChange(cls, nodeChange):
-        return cls(nodeChange.Type, nodeChange.Location, nodeChange.InstanceGuid, nodeChange.MetaData)
+        return cls(nodeChange.Type, nodeChange.Position, nodeChange.InstanceGuid, nodeChange.MetaData)
 
     def __repr__(self):
         s = '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type
-        if self.Location is not None:
-            s += 'Location:' + etree.tostring(self.Location)
+        if self.Position is not None:
+            s += 'Position:' + etree.tostring(self.Position)
         if self.MetaData is not None:
             s += ' MetaData: ' + etree.tostring(self.MetaData)
         s += ' ) \n' + '\n'.join([str(p) for p in self.Ports])
@@ -339,7 +339,7 @@ def CgxToObject(xmlfile):
     thisCG = CommonGraph(root.find("MetaData"))
     for xmlNode in root.findall(".//Node"):
         xmlNodeAsDict = recursive_dict(xmlNode)[1]
-        thisNode = Node(xmlNode.get('Type'), xmlNode.get('InstanceGuid'), xmlNode.find('Location'), xmlNode.find('MetaData'))
+        thisNode = Node(xmlNode.get('Type'), xmlNode.get('InstanceGuid'), xmlNode.find('Position'), xmlNode.find('MetaData'))
         for xmlPort in xmlNode.findall(".//Port"):
             xmlPortAsDict = recursive_dict(xmlPort)[1]
             thisNode.addPort(Port(xmlPort.get('InstanceGuid'), thisNode.InstanceGuid, xmlPort.find('MetaData')))
@@ -364,14 +364,13 @@ def DSToXML(diffSet, fileName):
 def XMLToDS(fileName):
     tree = etree.parse(fileName)
     root = tree.getroot()
-    #print root.findall("*")
     xmlChanges = [e for e in root.findall("*") if e.tag.find("Change")>=0]
 
     thisDiffSet = DiffSet(root.find("MetaData"))
     for xmlChange in xmlChanges:
         status = xmlChange.get("Status")
         if xmlChange.tag == "NodeChange":
-            change = NodeChange(status,xmlChange.get("InstanceGuid"), xmlChange.find("Location"), xmlChange.get("Type"), xmlChange.find("MetaData"))
+            change = NodeChange(status,xmlChange.get("InstanceGuid"), xmlChange.find("Position"), xmlChange.get("Type"), xmlChange.find("MetaData"))
         elif xmlChange.tag == "PortChange":
             change = PortChange(status, xmlChange.get("InstanceGuid"), xmlChange.get("ParentGuid"), xmlChange.find("MetaData"))
         elif xmlChange.tag == "EdgeChange":
