@@ -11,39 +11,26 @@ def parseArgs():
     parser.add_argument("out")
     return parser.parse_args()
 
-def main():
-    args = parseArgs()
-    CGA = cgd.CgxToObject(args.cg1)
-    CGB = cgd.CgxToObject(args.cg2)
-    ds = CGA.diff(CGB)
 
-    G = pgv.AGraph()
-
-    sameColor = 'grey'
-    addedColor = 'green'
-    removedColor = 'red'
-    changedColor = 'orange'
-    G.node_attr['fontsize'] =  4.0
-
+def graphAddCGX(G, CGX, col='black'):
     # add all nodes from CGA
-    G.edge_attr['color'] = sameColor
-    G.node_attr['color'] = sameColor
-    for (nodeid, name) in CGA.getNodesAndNames():
-        G.add_node(nodeid, color=sameColor, label=name, pin="true") # pos="4,4!")
-        print nodeid
-    for (src, dst) in CGA.getEdgePairs():
-        print src,dst
+    G.edge_attr['color'] = col
+    G.node_attr['color'] = col
+    for (nodeid, name, position) in CGX.getNodesForGraphviz():
+        print (nodeid, name, position) 
+        G.add_node(nodeid, color=col, label=name, pin="true", pos=position + "!")
+    for (src, dst) in CGX.getEdgePairs():
+        print (src, dst)
         G.add_edge(src,dst)
+    return G
 
 
-       
-    G.edge_attr['color'] = sameColor
-    G.node_attr['color'] = sameColor
-
+def graphApplyDS(G, CGX,  ds, addedColor, removedColor, changedColor):
     for thisNodeChange in [change for change in ds.Changes if change.__class__.__name__ == "NodeChange"]:
         print thisNodeChange
         if(thisNodeChange.Status == "added"):
-            G.add_node(cgd.Node.addFromChange(thisNodeChange).getLabel(), color=addedColor)
+            (nodeid, name, position) = cgd.Node.getGraphVizRep(thisNodeChange)
+            G.add_node(nodeid, color=addedColor, label=name, pin="true", pos=position + "!")
         if(thisNodeChange.Status == "removed"):
             G.get_node(thisNodeChange.InstanceGuid).attr['color']=removedColor
         if(thisNodeChange.Status == "changed"):
@@ -52,12 +39,31 @@ def main():
     for thisEdgeChange in [change for change in ds.Changes if change.__class__.__name__ == "EdgeChange"]:
         print thisEdgeChange
         if(thisEdgeChange.Status == "added"):
-            G.add_edge(*cgd.Edge.addFromChange(thisEdgeChange).getEdgeLabelPairs(), color=addedColor)
+            # try to find parentEdge from CGX
+            parentEdge = cgd.Edge.parentEdge(CGX, thisEdgeChange, ds)
+            G.add_edge(*parentEdge, color=addedColor)
         if(thisEdgeChange.Status == "removed"):
-            thisEdge = [ed for ed in CGA.Edges if ed.InstanceGuid == thisEdgeChange.InstanceGuid][0]
-            G.get_edge(*thisEdge.getEdgeLabelPairs()).attr['color']= removedColor
+            thisEdge = [ed for ed in CGX.Edges if ed.InstanceGuid == thisEdgeChange.InstanceGuid][0]
+            G.get_edge(*cgd.Edge.parentEdge(CGX, thisEdge)).attr['color']= removedColor
+    return G
 
-    print(G.string())
+
+
+def main():
+    args = parseArgs()
+    CGA = cgd.CgxToObject(args.cg1)
+    CGB = cgd.CgxToObject(args.cg2)
+    ds = CGA.diff(CGB)
+
+    G = pgv.AGraph()
+    
+    G.node_attr['fontsize'] =  8.0
+
+    G = graphAddCGX(G, CGA, 'grey')
+   
+    G = graphApplyDS(G, CGA, ds, addedColor='blue', removedColor='red', changedColor='orange')
+
+    print G.string()
     G.layout() # layout with default (neato)
     G.draw(args.out)
 

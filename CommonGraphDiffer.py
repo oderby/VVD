@@ -134,12 +134,20 @@ class CommonGraph(object):
     def __repr__(self):
         return repr(self.Nodes) + repr(self.Edges)
 
-    def getNodesAndNames(self):
-        return [(n.InstanceGuid, n.getLabel()) for n in self.Nodes]
+    def getNodesForGraphviz(self):
+        return [Node.getGraphVizRep(n) for n in self.Nodes]
+        # return [(n.InstanceGuid, Node.getLabel(n), Node.getXY(n)) for n in self.Nodes]
         # TODO: use name from metadata
 
     def getEdgePairs(self):
-        return [n.getEdgeLabelPairs() for n in self.Edges]
+           
+        def idOfPortParent(id):
+            try:
+                return [n.InstanceGuid for n in self.Nodes for port in n.Ports if port.InstanceGuid == id][0]
+            except:
+                return None 
+       
+        return [(idOfPortParent(edge.SrcGuid), idOfPortParent(edge.DstGuid)) for edge in self.Edges]
 
     def add(self, objType, obj):
         if(objType == "node"):
@@ -284,11 +292,21 @@ class Node(object):
             return True
         else:
             return False
-    def getLabel(self):
-        return self.InstanceGuid[:5]
     @classmethod
     def addFromChange(cls, nodeChange):
         return cls(nodeChange.Type, nodeChange.Position, nodeChange.InstanceGuid, nodeChange.MetaData)
+    @staticmethod
+    def getLabel(obj):
+        return obj.InstanceGuid
+
+    @staticmethod
+    def getXY(obj):
+        factor = 0.01
+        return str(factor * float(obj.Position.find('X').text)) + "," + str(-1 * factor * float(obj.Position.find('Y').text))
+
+    @staticmethod
+    def getGraphVizRep(node):
+        return (node.InstanceGuid, Node.getLabel(node), Node.getXY(node))
 
     def __repr__(self):
         s = '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type
@@ -329,9 +347,6 @@ class Edge(object):
         else:
             return False
 
-    def getEdgeLabelPairs(self):
-        # (guid, guid)
-        return (self.SrcGuid, self.DstGuid)
 
     def __repr__(self):
         return '\n  == Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
@@ -339,7 +354,24 @@ class Edge(object):
     def addFromChange(cls, edgeChange):
         return cls(edgeChange.SrcGuid, edgeChange.DstGuid)
 
+    @staticmethod
+    def idOfPortParent(cgx, guid, ds=None):
+        try:
+            return [n.InstanceGuid for n in cgx.Nodes for port in n.Ports if port.InstanceGuid == guid][0]
+        except:
+            if ds != None:
+                return [tpc for tpc in [change for change in ds.Changes if change.__class__.__name__ == "PortChange"] if tpc.InstanceGuid == guid][0].ParentGuid
 
+    @staticmethod
+    def parentEdge(cgx, edge, ds=None):
+        SrcParentGuid = Edge.idOfPortParent(cgx, edge.SrcGuid, ds=ds)
+        DstParentGuid = Edge.idOfPortParent(cgx, edge.DstGuid, ds=ds)
+
+        if SrcParentGuid == None or DstParentGuid == None:
+            return None
+        else: 
+            print "PARENTEDGE -> ", (SrcParentGuid, DstParentGuid)
+            return (SrcParentGuid, DstParentGuid)
 
 def recursive_dict(element):
     if element is None:
