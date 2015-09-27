@@ -83,6 +83,20 @@
       <Inspect>"I'm a Cloud"</Inspect>
     </MetaData>
    </Node>
+   <Node Type="3e8ca6be-fda8-4aaf-b5c0-3c54c8bb7312" InstanceGuid="FUNKYFRESHa0f78302-d79e-46b2-af23-b959da359475">
+    <Ports>
+     <Port InstanceGuid="FUNKYFRESHa0f78302-d79e-46b2-af23-b959da359475">
+          <MetaData>
+            <Ignore></Ignore>
+            <Inspect>"I'm a cold bottle of beer"</Inspect>
+          </MetaData>
+     </Port>
+    </Ports>
+    <MetaData>
+      <Ignore></Ignore>
+      <Inspect>"I'm a glowing crystal"</Inspect>
+    </MetaData>
+   </Node>
   </Nodes>
  <Edges>
   <Edge SrcGuid="3ab31f8-b018-469a-b175-391d5dd9a769" DstGuid="7b52c449-1c50-4675-b009-ed74c6dd703a"></Edge>

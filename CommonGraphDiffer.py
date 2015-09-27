@@ -130,6 +130,13 @@ class CommonGraph(object):
     def __repr__(self):
         return repr(self.Nodes) + repr(self.Edges)
 
+    def getNodesAndNames(self):
+        return [(n.InstanceGuid, n.getLabel()) for n in self.Nodes]
+        # TODO: use name from metadata
+
+    def getEdgePairs(self):
+        return [n.getEdgeLabelPairs() for n in self.Edges]
+
     def add(self, objType, obj):
         if(objType == "node"):
             self.Nodes.append(obj)
@@ -272,6 +279,8 @@ class Node(object):
             return True
         else:
             return False
+    def getLabel(self):
+        return self.InstanceGuid[:5]
     @classmethod
     def addFromChange(cls, nodeChange):
         return cls(nodeChange.Type, nodeChange.InstanceGuid, nodeChange.MetaData)
@@ -308,6 +317,11 @@ class Edge(object):
             return True
         else:
             return False
+
+    def getEdgeLabelPairs(self):
+        # (guid, guid)
+        return (self.SrcGuid, self.DstGuid)
+
     def __repr__(self):
         return '\n  == Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
     @classmethod
