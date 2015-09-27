@@ -35,7 +35,7 @@ class PortChange(object):
 	def __init__(self, Status, Port):
 		self.Status = Status
 		self.InstanceGuid = Port.InstanceGuid
-#		self.ParentGuid = Port.ParentGuid
+		self.ParentGuid = Port.ParentGuid
 		self.MetaData = Port.MetaData
 	def toXML(self):
 		attributes = {}
@@ -157,11 +157,12 @@ class Node(object):
 		self.Ports.append(port)
 
 class Port(object):
-	def __init__(self, InstanceGuid, MetaData):
+	def __init__(self, InstanceGuid, ParentGuid, MetaData):
 		self.InstanceGuid = InstanceGuid
+		self.ParentGuid = ParentGuid
 		self.MetaData = MetaData
 	def __repr__(self):
-		return 'Port (InstanceGuid: ' + self.InstanceGuid + ')'
+		return 'Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ')'
 
 class Edge(object):
 	def __init__(self, SrcGuid, DstGuid):
@@ -185,7 +186,7 @@ def CgxToObject(xmlfile):
 		thisNode = Node(xmlNode.get('Type'), xmlNode.get('InstanceGuid'), xmlNode.find('MetaData'))
 		for xmlPort in xmlNode.findall(".//Port"):
 			xmlPortAsDict = recursive_dict(xmlPort)[1]
-			thisNode.addPort(Port(xmlPort.get('InstanceGuid'), xmlPort.find('MetaData')))
+			thisNode.addPort(Port(xmlPort.get('InstanceGuid'), thisNode.InstanceGuid, xmlPort.find('MetaData')))
 		thisCG.addNode(thisNode)
 
 	for xmlEdge in root.findall(".//Edge"):
