@@ -2,10 +2,11 @@
 
 from lxml import etree
 from lxml.builder import E
-# TODO: should use import xml.etree.ElementTree 
+# TODO: should use import xml.etree.ElementTree
 
-def getMetaXML(change):
-       return E("MetaData", E("Inspect", change.find("Inspect")))
+def getMetaXML(metaData):
+        if metaData and metaData.find("Inspect"):
+                return E("MetaData", E("Inspect", metaData.find("Inspect")))
 
 class DiffSet(object):
 	def __init__(self):
@@ -142,6 +143,7 @@ class CommonGraph(object):
 			thisDiffSet.addChange(PortChange("added", thisPort))
 		for thisPort in portsChanged:
 			thisDiffSet.addChange(PortChange("changed", thisPort))
+                return thisDiffSet
 
 
 class Node(object):
@@ -203,8 +205,8 @@ def DSToXML(diffSet, fileName):
 def main():
 	CGA = CgxToObject("examples/simple_multiply_example.cgx")
 	CGB = CgxToObject("examples/simple_multiply_example_b.cgx")
-	CGA.diff(CGB)
-
+	ds = CGA.diff(CGB)
+        DSToXML(ds, "foo.dsx")
 
 if __name__ == "__main__":
 	main()
