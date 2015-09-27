@@ -42,7 +42,8 @@ namespace DiffOnDyn
 
                 Console.WriteLine("now attempting to generate annotations ");
 
-                 
+                var annotationList = doc.CreateElement("Annotations");
+                doc.DocumentElement.AppendChild(annotationList);
                 foreach (var change in diffFromFile.NodeChanges)
                 {
                     if (change is NodeChange)
@@ -51,15 +52,15 @@ namespace DiffOnDyn
                         {
                              var tempdoc = new XmlDocument();
                             tempdoc.LoadXml(change.MetaData.Inspect);
-                            var elementsList = doc.GetElementById("Elements");
+                            var elementsList = doc.GetElementsByTagName("Elements")[0];
                             //necessary for crossing XmlDocument contexts
-                            XmlNode importNode = elementsList.OwnerDocument.ImportNode(doc.DocumentElement, true);
+                            XmlNode importNode = elementsList.OwnerDocument.ImportNode(tempdoc.DocumentElement, true);
                             //now the node is added...
                             //lets add it to an annoation by its guid
                            elementsList.AppendChild(importNode);
                             
                             //add a new node... we have to create the node from the change issues
-                             var annotationList = doc.CreateElement("Annotations");
+                             
 
                              var element = doc.CreateElement("Dynamo.Models.AnnotationModel");
 
@@ -70,13 +71,17 @@ namespace DiffOnDyn
                              helper.SetAttribute("top", 1);
                              helper.SetAttribute("width", 100);
                              helper.SetAttribute("height", 100);
-                             helper.SetAttribute("fontSize", 100);
+                             helper.SetAttribute("fontSize", 20);
                              helper.SetAttribute("InitialTop", 100);
                              helper.SetAttribute("InitialHeight", 100);
                              helper.SetAttribute("TextblockHeight",100);
-                             helper.SetAttribute("backgrouund", ("#00FF00"));    
-                          
+                             helper.SetAttribute("backgrouund", ("#00FF00"));
 
+                             var groupedElement = doc.CreateElement("Models");
+                            groupedElement.SetAttribute("ModelGuid",change.InstanceGuid);
+                             element.AppendChild(groupedElement);
+                            
+                             annotationList.AppendChild(element);
 
 
                             //add a new node and color it green...#00FF00
@@ -85,12 +90,34 @@ namespace DiffOnDyn
                         if (change.Status == "removed")
                         {
                            //color an existing node red by adding to red group 
+
+                          
+                            var element = doc.CreateElement("Dynamo.Models.AnnotationModel");
+
+                            XmlElementHelper helper = new XmlElementHelper(element);
+                            helper.SetAttribute("guid", Guid.NewGuid());
+                            helper.SetAttribute("annotationText", "a deletion");
+                            helper.SetAttribute("left", 1);
+                            helper.SetAttribute("top", 1);
+                            helper.SetAttribute("width", 100);
+                            helper.SetAttribute("height", 100);
+                            helper.SetAttribute("fontSize", 20);
+                            helper.SetAttribute("InitialTop", 100);
+                            helper.SetAttribute("InitialHeight", 100);
+                            helper.SetAttribute("TextblockHeight", 100);
+                            helper.SetAttribute("backgrouund", ("#FF0000"));
+
+                            var groupedElement = doc.CreateElement("Models");
+                            groupedElement.SetAttribute("ModelGuid", change.InstanceGuid);
+                            element.AppendChild(groupedElement);
+
+                            annotationList.AppendChild(element);
                         }
                     }
                 }
 
                 var outdoc = new XmlDocument();
-                doc.Save(Path.GetFileName(dynpath) + "diffview"+".dyn");
+                doc.Save(dynpath + "diffview"+".dyn");
 
 
                   //now apply the diff, this will create some groups for now
