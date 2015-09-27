@@ -93,7 +93,7 @@ namespace DynamoToCG
             if (nodes.TryGetValue(guidStart.ToString(), out start))
             {
                 var startport = new CSharpCommonGraph.Port();
-                startport.InstanceGuid = start.InstanceGuid.ToString()+"_IN"+ startIndex.ToString();
+                startport.InstanceGuid = start.InstanceGuid.ToString()+"_OUT"+ startIndex.ToString();
                 startport.MetaData.Inspect = "start";
                 startport.Name = "a cool port";
                 //if we have not seen this port id before add the port, we dont want to duplicate ports
@@ -109,7 +109,7 @@ namespace DynamoToCG
 
 
                     var endport = new CSharpCommonGraph.Port();
-                    endport.InstanceGuid = end.InstanceGuid.ToString() + "_OUT" + endIndex.ToString();
+                    endport.InstanceGuid = end.InstanceGuid.ToString() + "_IN" + endIndex.ToString();
                     endport.MetaData.Inspect = "end";
                     endport.Name = "a cool port";
                     if (end.Ports.All(x => x.InstanceGuid != endport.InstanceGuid))
@@ -120,6 +120,7 @@ namespace DynamoToCG
                     var edge = new CSharpCommonGraph.Edge();
                     edge.SrcGuid = startport.InstanceGuid;
                     edge.DestGuid = endport.InstanceGuid;
+                    edge.InstanceGuid = guid.ToString();
                     return edge;
                 }
             }

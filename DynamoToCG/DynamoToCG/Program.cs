@@ -34,7 +34,6 @@ namespace DynamoToCG
                 {
                     Console.WriteLine("edge from "+(graph.Nodes.Where(x=>x.Ports.Select(port=>port.InstanceGuid).ToList().Contains(connector.SrcGuid)).First().Type));
                     Console.WriteLine(" to"+(graph.Nodes.Where(x=>x.Ports.Select(port=>port.InstanceGuid).ToList().Contains(connector.DestGuid)).First().Type));
-                
                 }
 
                 Console.ReadLine();
@@ -44,6 +43,27 @@ namespace DynamoToCG
                 xser.Serialize(WriteFileStream, NodeGraph.ToCommonCgraph(graph));
                 Console.WriteLine("saved CG to disk");
                 Console.ReadLine();
+                WriteFileStream.Close();
+
+                CSharpCommonGraph.CommonGraph graphFromFile;
+                // Construct an instance of the XmlSerializer with the type
+                // of object that is being deserialized.
+                XmlSerializer mySerializer = 
+                new XmlSerializer(typeof( CSharpCommonGraph.CommonGraph));
+                // To read the file, create a FileStream.
+                FileStream myFileStream = 
+                new FileStream("C:\\Users\\Mike\\Desktop\\testOutput.cgx", FileMode.Open);
+                // Call the Deserialize method and cast to the object type.
+                graphFromFile = (CSharpCommonGraph.CommonGraph)
+                mySerializer.Deserialize(myFileStream);
+
+                Console.WriteLine("now attempting to convert back to a new .dyn");
+
+                var outdoc = new XmlDocument();
+                CGToXML.SaveInternal("C:\\Users\\Mike\\Desktop\\testOutput.dyn",graphFromFile);
+               
+               
+
             }
                
               
