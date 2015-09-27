@@ -22,6 +22,10 @@
           </MetaData>
         </Port>
       </Ports>
+      <Location>
+        <X>23</X>
+        <Y>33</Y>
+      </Location>
       <MetaData>
         <Ignore></Ignore>
         <Inspect>"I'm a Horse"</Inspect>

@@ -36,6 +36,10 @@
           </MetaData>
      </Port>
     </Ports>
+    <Location>
+      <X>10</X>
+      <Y>33</Y>
+    </Location>
     <MetaData>
       <Ignore></Ignore>
       <Inspect>"I'm a Cloud"</Inspect>
