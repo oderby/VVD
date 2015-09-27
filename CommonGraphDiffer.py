@@ -1,13 +1,19 @@
 #!/usr/local/bin/python
 
 from lxml import etree
+from lxml.builder import E
 
+def getMetaXML(change):
+        return E("MetaData", E("Inspect", change.find("Inspect")))
 
 class DiffSet(object):
 	def __init__(self):
 		self.Changes = []
+                # TODO: This should track overall metadata changes...
 	def addChange(self, Change):
 		self.Changes.append(Change)
+        def toXML(self):
+                return E("DiffSet", getMetaXML(self.MetaData), *[c.toXML() for c in self.Changes])
 
 class NodeChange(object):
 	def __init__(self, Status, Node):
@@ -15,6 +21,14 @@ class NodeChange(object):
 		self.InstanceGuid = Node.InstanceGuid
 		self.Type = Node.Type
 		self.MetaData = Node.MetaData
+        def toXML(self):
+                attributes = {}
+                attributes["Status"] = self.Status
+                attributes["InstanceGuid"] = self.InstanceGuid
+                if self.Status != "removed":
+                        attributes["Type"] = self.Type
+                        return E("NodeChange", attributes, getMetaXML(self.MetaData))
+                return E("NodeChange", attributes)
 
 class PortChange(object):
 	def __init__(self, Status, Port):
@@ -22,6 +36,14 @@ class PortChange(object):
 		self.InstanceGuid = Port.InstanceGuid
 #		self.ParentGuid = Port.ParentGuid
 		self.MetaData = Port.MetaData
+        def toXML(self):
+                attributes = {}
+                attributes["Status"] = self.Status
+                attributes["InstanceGuid"] = self.InstanceGuid
+                if self.Status != "removed":
+                        attributes["ParentGuid"] = self.ParentGuid
+                        return E("NodeChange", attributes, getMetaXML(self.MetaData))
+                return E("PortChange", attributes)
 
 class EdgeChange(object):
 	def __init__(self, Status, Edge):
@@ -29,6 +51,16 @@ class EdgeChange(object):
 		self.InstanceGuid = Edge.InstanceGuid
 		self.SrcGuid = Edge.SrcGuid
 		self.DstGuid = Edge.DstGuid
+        def toXML(self):
+                attributes = {}
+                attributes["Status"] = self.Status
+                attributes["InstanceGuid"] = self.InstanceGuid
+                if self.Status != "removed":
+                        attributes["SrcGuid"] = self.SrcGuid
+                        attributes["DstGuid"] = self.DstGuid
+                return E("PortChange", attributes)
+
+
 
 
 def booleanObjectLists(objType, selfObjs, otherObjs):
@@ -36,9 +68,9 @@ def booleanObjectLists(objType, selfObjs, otherObjs):
 	selfIGs = set(x.InstanceGuid for x in selfObjs)  # All ids in list 1
 	otherIGs = set(x.InstanceGuid for x in otherObjs)  # All ids in list 1
 
-	objsRemoved = [item for item in selfObjs if item.InstanceGuid not in otherIGs] 
-	objsAdded = [item for item in otherObjs if item.InstanceGuid not in selfIGs] 
-	objsIntersection = [item for item in selfObjs if item.InstanceGuid in otherIGs] 
+	objsRemoved = [item for item in selfObjs if item.InstanceGuid not in otherIGs]
+	objsAdded = [item for item in otherObjs if item.InstanceGuid not in selfIGs]
+	objsIntersection = [item for item in selfObjs if item.InstanceGuid in otherIGs]
 
 	objsSame = []
 	objsChanged = []
@@ -49,7 +81,7 @@ def booleanObjectLists(objType, selfObjs, otherObjs):
 			if( cmp(otherObj.MetaData, selfObj.MetaData) == 0): #it's the samE!
 				objsSame.append(otherObj)
 			else:
-				objsChanged.append(otherObj)	
+				objsChanged.append(otherObj)
 
 	if objType == "edge":
 		objsSame = objsIntersection
@@ -58,7 +90,8 @@ def booleanObjectLists(objType, selfObjs, otherObjs):
 
 
 class CommonGraph(object):
-	def __init__(self):
+	def __init__(self, MetaData):
+                self.MetaData = MetaData
 		self.Nodes = []
 		self.Edges = []
 	def addNode(self, node):
@@ -69,6 +102,7 @@ class CommonGraph(object):
 		return [port for node in self.Nodes for port in node.Ports]
 
 	def diff(self, other):
+                #TODO: Compute diff for top-level MetaData field
 
 		thisDiffSet = DiffSet()
 
@@ -108,8 +142,6 @@ class CommonGraph(object):
 		for thisPort in portsChanged:
 			thisDiffSet.addChange(PortChange("changed", thisPort))
 
-	
-
 
 class Node(object):
 	def __init__(self, Type, InstanceGuid, MetaData):
@@ -134,10 +166,10 @@ class Edge(object):
 	def __init__(self, SrcGuid, DstGuid):
 		self.SrcGuid = SrcGuid
 		self.DstGuid = DstGuid
-		self.InstanceGuid = self.SrcGuid + "|" + self.DstGuid 
+		self.InstanceGuid = self.SrcGuid + "|" + self.DstGuid
 	def __repr__(self):
 		return 'Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
-	
+
 
 def recursive_dict(element):
 	return element.tag, dict(map(recursive_dict, element)) or element.text
@@ -146,23 +178,25 @@ def CgxToObject(xmlfile):
 	tree = etree.parse(xmlfile)
 	root = tree.getroot()
 
-	thisCG = CommonGraph()
+	thisCG = CommonGraph(root.find("MetaData"))
 	for xmlNode in root.findall(".//Node"):
 		xmlNodeAsDict = recursive_dict(xmlNode)[1]
-		thisNode = Node(xmlNode.get('Type'), xmlNode.get('InstanceGuid'), xmlNodeAsDict['MetaData'])
+		thisNode = Node(xmlNode.get('Type'), xmlNode.get('InstanceGuid'), xmlNode.find('MetaData'))
 		for xmlPort in xmlNode.findall(".//Port"):
 			xmlPortAsDict = recursive_dict(xmlPort)[1]
-			thisNode.addPort(Port(xmlPort.get('InstanceGuid'), xmlPortAsDict['MetaData']))
+			thisNode.addPort(Port(xmlPort.get('InstanceGuid'), xmlPort.find('MetaData')))
 		thisCG.addNode(thisNode)
 
 	for xmlEdge in root.findall(".//Edge"):
 		thisEdge = Edge(xmlEdge.get('SrcGuid'), xmlEdge.get('DstGuid'))
 		thisCG.addEdge(thisEdge)
-
 #	print thisCG.Nodes
 #	print thisCG.Edges
 
 	return thisCG
+
+def DSToXML(diffSet, fileName):
+        etree.ElementTree(diffSet.toXML()).write(fileName)
 
 def main():
 	CGA = CgxToObject("examples/simple_multiply_example.cgx")
@@ -172,4 +206,3 @@ def main():
 
 if __name__ == "__main__":
 	main()
-

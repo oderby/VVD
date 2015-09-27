@@ -11,7 +11,7 @@ PortChange:
  * MetaData [MetaData; just the inspect portion, omitted if status is "removed"]
 
 EdgeChange:
- * Status [String; one of "added", "removed", "changed"]
+ * Status [String; one of "added", "removed"]
  * InstanceGuid: [String]
  * SrcGuid: [String; omitted if status is "removed"]
  * DstGuid: [String; omitted if status is "removed"]
@@ -30,4 +30,7 @@ EdgeChange:
  <EdgeChange Status="" InstanceGuid="" SrcGuid="" DstGuid="">
  </EdgeChange>
  ...
+ <MetaData>
+  <Inspect>...</Inspect>
+ </MetaData>
 </DiffSet>
