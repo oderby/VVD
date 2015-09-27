@@ -63,7 +63,7 @@ namespace DynamoToCG
             var y = helper.ReadDouble("y",0.0);
 
 
-            commonGraphNode.Metadata.Inspect = elNode.OuterXml.ToString();
+            commonGraphNode.MetaData.Inspect = elNode.OuterXml.ToString();
             commonGraphNode.Position.X = x;
             commonGraphNode.Position.Y = y;
             //commonGraphNode.Ports = CreatPortsFromNode(commonGraphNode.InstanceGuid, edges);
