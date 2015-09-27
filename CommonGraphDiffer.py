@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+﻿#!/usr/local/bin/python
 
 import xml.etree.ElementTree as etree
 E = etree.Element
@@ -385,5 +385,4 @@ def main():
     print CGB3
     print "========================="
 
-if __name__ == "__main__":
-    main()
+main()
