@@ -266,7 +266,7 @@ class Node(object):
         return cls(nodeChange.Type, nodeChange.InstanceGuid, nodeChange.MetaData)
 
     def __repr__(self):
-        return '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ') \n' +\
+        return '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type + ' MetaData: ' + etree.tostring(self.MetaData) + ' ) \n' +\
                 '\n'.join([str(p) for p in self.Ports])
     def addPort(self, port):
         self.Ports.append(port)
@@ -277,7 +277,7 @@ class Port(object):
         self.ParentGuid = ParentGuid
         self.MetaData = MetaData
     def __repr__(self):
-        return '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ')'
+        return '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid + ' MetaData: ' + etree.tostring(self.MetaData) + ' )'
     @classmethod
     def addFromChange(cls, portChange):
         return cls(portChange.InstanceGuid, portChange.ParentGuid, portChange.MetaData)
@@ -356,11 +356,13 @@ def main():
     CGB2 = CGA.applyDiff(ds)
     CGB3 = CGA.applyDiff(ds2)
 
-    print "========================="
+    print "=CGA========================"
+    print CGA
+    print "=CGB========================"
     print CGB
-    print "========================="
+    print "=CGB2========================"
     print CGB2
-    print "========================="
+    print "=CGB3========================"
     print CGB3
     print "========================="
 
