@@ -1,7 +1,46 @@
 #!/usr/local/bin/python
 
 from lxml import etree
-from lxml import objectify
+
+
+class DiffSet(object):
+	def __init__(self):
+		self.Changes = []
+	def addChange(self, Change):
+		self.Changes.append(Change)
+
+class NodeChange(object):
+	def __init__(self, Status, Node):
+		self.Status = Status
+		self.InstanceGuid = Node.InstanceGuid
+		self.Type = Node.Type
+		self.MetaData = Node.MetaData
+
+class PortChange(object):
+	def __init__(self, Status, Port):
+		self.Status = Status
+		self.InstanceGuid = Port.InstanceGuid
+		self.ParentGuid = Port.ParentGuid
+		self.MetaData = Port.MetaData
+
+class EdgeChange(object):
+	def __init__(self, Status, Edge):
+		self.Status = Status
+		self.InstanceGuid = Edge.InstanceGuid
+		self.SrcGuid = Edge.SrcGuid
+		self.DstGuid = Edge.DstGuid
+
+
+def booleanObjectLists(selfObjs, otherObjs):
+
+	selfIGs = set(x.InstanceGuid for x in selfObjs)  # All ids in list 1
+	otherIGs = set(x.InstanceGuid for x in selfObjs)  # All ids in list 1
+
+	objsRemoved = [item for item in selfObjs if item.InstanceGuid not in otherIGs] 
+	objsAdded = [item for item in otherObjs if item.InstanceGuid not in selfIGs] 
+	objsIntersection = [item for item in otherObjs if item.InstanceGuid in selfIGs] 
+
+	return (objsRemoved, objsAdded, objsIntersection)
 
 
 class CommonGraph(object):
@@ -15,47 +54,67 @@ class CommonGraph(object):
 
 	def diff(self, other):
 
+		thisDiffSet = DiffSet()
+
 		## NODES 
 
-		selfNodeIGs = set([node.InstanceGuid for node in self.Nodes])
-		otherNodeIGs = set([node.InstanceGuid for node in other.Nodes])
 
-		nodeRemovedGuids = list(selfNodeIGs - otherNodeIGs)
-		nodeAddedGuids = list(otherNodeIGs - selfNodeIGs)
-		nodeIntersectingGuids = list(otherNodeIGs.intersection(selfNodeIGs))
+		# compare self and other nodes, and get three different sets
+		# using those three different sets, write node changes
+		# but - if the nodes are the same, scan for ports
+		
 
+		(nodesRemoved, nodesAdded, nodesIntersecting) = booleanObjectLists(self.Nodes, other.Nodes)
+
+		print nodesRemoved
+		for thisNode in nodesRemoved:
+			print thisNode
+			thisDiffSet.addChange(NodeChange("removed", thisNode))
+		for thisNode in nodesAdded:
+			print thisNode
+			thisDiffSet.addChange(NodeChange("added", thisNode))
+		for thisNode in nodesIntersecting:
+			print thisNode
+		print thisDiffSet.Changes
+		"""
 		nodeSameGuids = []
 		nodeChangedGuids = []
 
+		# if the node is intersecting, node is either same or modified
 		for thisGuid in nodeIntersectingGuids:
 			selfNode = [node for node in self.Nodes if node.InstanceGuid == thisGuid][0] 
 			otherNode = [node for node in other.Nodes if node.InstanceGuid == thisGuid][0]
-			if(cmp(selfNode.MetaData, otherNode.MetaData) == 0):
+
+			(portRemovedGuids, portAddedGuids, portSameGuids) = booleanObjectLists([obj.InstanceGuid for obj in selfNode.Ports], [obj.InstanceGuid for obj in otherNode.Ports])
+
+			print "---PORTS--"
+			print "removed ports" , portRemovedGuids 
+			print "added porst", portAddedGuids  
+			print "same ports", portSameGuids 
+
+
+			#metadata is different
+			if(cmp(selfNode.MetaData['Inspect'], otherNode.MetaData['Inspect']) == 0):
 				nodeSameGuids.append(thisGuid)
 			else:
 				nodeChangedGuids.append(thisGuid)
 			
+		print "---NODES--"
 		print "removed node: ", nodeRemovedGuids
 		print "added node: ", nodeAddedGuids
 		print "same node: ", nodeSameGuids
 		print "changed node: ", nodeChangedGuids
 
-		print "---"
-
 		## EDGES
 
 		#IGP stands for Instance Guid Pairs
-		selfEdgeIGPs = set([edge.pairStr() for edge in self.Edges])
-		otherEdgeIGPs = set([edge.pairStr() for edge in other.Edges])
+		(edgeRemovedIGPs, edgeAddedIGPs, edgeSameIGPs) = booleanObjectLists([edge.InstanceGuid for edge in self.Edges], [edge.InstanceGuid for edge in other.Edges])
 
-		edgeRemovedIGPs = list(selfEdgeIGPs - otherEdgeIGPs)
-		edgeAddedIGPs = list(otherEdgeIGPs - selfEdgeIGPs)
-		edgeSameIGPs = list(otherEdgeIGPs.intersection(selfEdgeIGPs))
-
-			
+		print "---EDGES--"
 		print "removed edge: ", edgeRemovedIGPs
 		print "added edge: ", edgeAddedIGPs
 		print "same edge: ", edgeSameIGPs
+		"""
 
 		
 
@@ -85,10 +144,9 @@ class Edge(object):
 	def __init__(self, SrcGuid, DstGuid):
 		self.SrcGuid = SrcGuid
 		self.DstGuid = DstGuid
+		self.InstanceGuid = self.SrcGuid + "|" + self.DstGuid 
 	def __repr__(self):
 		return 'Edge (SrcGuid: ' + self.SrcGuid + ' DstGuid: ' + self.DstGuid + ')'
-	def pairStr(self):
-		return self.SrcGuid + "|" + self.DstGuid 
 	
 
 def recursive_dict(element):
@@ -111,8 +169,8 @@ def CgxToObject(xmlfile):
 		thisEdge = Edge(xmlEdge.get('SrcGuid'), xmlEdge.get('DstGuid'))
 		thisCG.addEdge(thisEdge)
 
-	print thisCG.Nodes
-	print thisCG.Edges
+#	print thisCG.Nodes
+#	print thisCG.Edges
 
 	return thisCG
 
