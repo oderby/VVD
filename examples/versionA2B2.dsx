@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<DiffSet>
+	<NodeChange InstanceGuid="b569714b-4819-4ae9-a7af-f7703b656af6" Status="added" Type="59e0b89a-e487-49f8-bab8-b5bab16be14c">
+		<Position>
+			
+        
+			<X>720</X>
+			
+        
+			<Y>188.39999389648438</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<NodeChange InstanceGuid="ff69361f-e41b-4ec2-bef8-14d1d4ef31fd" Status="added" Type="3cadddef-1e2b-4c09-9390-0e8f78f7609f">
+		<Position>
+			
+        
+			<X>808</X>
+			
+        
+			<Y>399</Y>
+			
+      
+		</Position>
+		
+    
+	</NodeChange>
+	<EdgeChange DstGuid="b569714b-4819-4ae9-a7af-f7703b656af6" InstanceGuid="458ec694-e405-4d84-ae39-8f8f7c796d39|b569714b-4819-4ae9-a7af-f7703b656af6" SrcGuid="458ec694-e405-4d84-ae39-8f8f7c796d39" Status="added"/>
+	<EdgeChange DstGuid="82c47b6b-d3f8-497d-a96c-6876e36af6cc" InstanceGuid="08ef4060-b052-4dc5-92cf-2a4ef5ca4a6d|82c47b6b-d3f8-497d-a96c-6876e36af6cc" SrcGuid="08ef4060-b052-4dc5-92cf-2a4ef5ca4a6d" Status="added"/>
+	<EdgeChange DstGuid="66fd170c-097d-4e8a-b32d-fb76fe55ea8a" InstanceGuid="89341dd1-b16e-47d3-8fc5-81eb0dedbe7d|66fd170c-097d-4e8a-b32d-fb76fe55ea8a" SrcGuid="89341dd1-b16e-47d3-8fc5-81eb0dedbe7d" Status="added"/>
+	<PortChange InstanceGuid="b569714b-4819-4ae9-a7af-f7703b656af6" ParentGuid="b569714b-4819-4ae9-a7af-f7703b656af6" Status="added"/>
+	<PortChange InstanceGuid="82c47b6b-d3f8-497d-a96c-6876e36af6cc" ParentGuid="ff69361f-e41b-4ec2-bef8-14d1d4ef31fd" Status="added"/>
+	<PortChange InstanceGuid="66fd170c-097d-4e8a-b32d-fb76fe55ea8a" ParentGuid="ff69361f-e41b-4ec2-bef8-14d1d4ef31fd" Status="added"/>
+	<PortChange InstanceGuid="ef065c94-2969-41c5-958c-1d9a4f8a9e9d" ParentGuid="ff69361f-e41b-4ec2-bef8-14d1d4ef31fd" Status="added"/>
+	<PortChange InstanceGuid="fe2ce345-4587-489f-b6f5-5b8cd8edd3d8" ParentGuid="ff69361f-e41b-4ec2-bef8-14d1d4ef31fd" Status="added"/>
+	<PortChange InstanceGuid="4fc69e30-a5a1-4d6a-8474-8ba8f5940b8e" ParentGuid="4fc69e30-a5a1-4d6a-8474-8ba8f5940b8e" Status="changed"/>
+	<PortChange InstanceGuid="807dab39-be20-4ca3-8dc1-7c3b23b5c0ad" ParentGuid="807dab39-be20-4ca3-8dc1-7c3b23b5c0ad" Status="changed"/>
+	<PortChange InstanceGuid="458ec694-e405-4d84-ae39-8f8f7c796d39" ParentGuid="458ec694-e405-4d84-ae39-8f8f7c796d39" Status="changed"/>
+	<PortChange InstanceGuid="4718a00d-26af-4f43-8a9e-25b6ca9f02c2" ParentGuid="c3ef7cee-b00f-4547-9171-037cfa7029a1" Status="changed"/>
+	<PortChange InstanceGuid="43875395-68b4-4230-b3a4-2ed0d03ec180" ParentGuid="c3ef7cee-b00f-4547-9171-037cfa7029a1" Status="changed"/>
+	<PortChange InstanceGuid="bd0454ef-4ba1-480f-a87f-a23e245486b5" ParentGuid="c3ef7cee-b00f-4547-9171-037cfa7029a1" Status="changed"/>
+	<PortChange InstanceGuid="6290fee2-f20f-4cde-a8d4-65cede566b63" ParentGuid="81189ce8-9ef7-4a8b-85b3-670bb4870ca4" Status="changed"/>
+	<PortChange InstanceGuid="49075502-2bb5-4e42-8c25-bb80c40c53c4" ParentGuid="81189ce8-9ef7-4a8b-85b3-670bb4870ca4" Status="changed"/>
+	<PortChange InstanceGuid="08ef4060-b052-4dc5-92cf-2a4ef5ca4a6d" ParentGuid="81189ce8-9ef7-4a8b-85b3-670bb4870ca4" Status="changed"/>
+	<PortChange InstanceGuid="89341dd1-b16e-47d3-8fc5-81eb0dedbe7d" ParentGuid="81189ce8-9ef7-4a8b-85b3-670bb4870ca4" Status="changed"/>
+</DiffSet>
