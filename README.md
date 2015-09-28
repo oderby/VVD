@@ -12,8 +12,15 @@ These tools are built using a combination of C# and IronPython, as well as the o
 
 To fully utilize VVD, you will need to have the following software installed:
 * Python 2.7 or greater (does not work with Python 3)
-* graphviz and pygraphviz
 * .Net 4.0 or greater (to compute and apply diffs)
+* graphviz and pygraphviz
+
+### Tips for installing graphviz and pygraphviz library on Windwows
+http://www.graphviz.org/Download_windows.php
+http://aka.ms/vcpython27
+http://stackoverflow.com/questions/22722730/installing-pygraphviz-on-windows-python-2-7-graphviz-2-36
+http://www.lfd.uci.edu/~gohlke/pythonlibs/
+Set your PATH to include pointer to graphviz library
 
 ## Usage
 
