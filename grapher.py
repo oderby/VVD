@@ -31,10 +31,10 @@ def graphAddCGX(G, CGX, sameColor ='gray', sameEdgeColor = 'gray', borderColor='
 def graphApplyDS(G, CGX,  ds, borderColor, addedColor, removedColor, changedColor):
     G.node_attr['style'] = 'filled'
     for thisNodeChange in [change for change in ds.Changes if change.__class__.__name__ == "NodeChange"]:
-        print thisNodeChange
+        print(thisNodeChange)
         if(thisNodeChange.Status == "added"):
             (nodeid, name, position) = cgd.Node.getGraphVizRep(thisNodeChange)
-	    G.node_attr['style'] = 'filled'
+            G.node_attr['style'] = 'filled'
             G.add_node(nodeid, color=borderColor, fillcolor=addedColor, label=name, pin="true", pos=position + "!")
         if(thisNodeChange.Status == "removed"):
             G.get_node(thisNodeChange.InstanceGuid).attr['fillcolor']=removedColor
@@ -42,7 +42,7 @@ def graphApplyDS(G, CGX,  ds, borderColor, addedColor, removedColor, changedColo
             G.get_node(thisNodeChange.InstanceGuid).attr['fillcolor']=changedColor
 
     for thisEdgeChange in [change for change in ds.Changes if change.__class__.__name__ == "EdgeChange"]:
-        print thisEdgeChange
+        print(thisEdgeChange)
         if(thisEdgeChange.Status == "added"):
             # try to find parentEdge from CGX
             parentEdge = cgd.Edge.parentEdge(CGX, thisEdgeChange, ds)
@@ -64,7 +64,7 @@ def main():
     G.node_attr['fontsize'] =  10.0
     G.node_attr['shape'] = 'rectangle'
 
-    print "## generating graph from", args.cg1, "and", args.ds
+    print("## generating graph from {} and {}".format(args.cg1, args.ds))
 
     borderColor = 'black'
     sameColor = '#DDDDDD'
@@ -77,7 +77,7 @@ def main():
     G.layout(prog='neato') # layout with default (neato)
     G.draw(args.png)
 
-    print "## wrote", args.png
+    print("## wrote {}".format(args.png))
 
 if __name__ == "__main__":
     main()
