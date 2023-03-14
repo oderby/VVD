@@ -13,7 +13,7 @@ def main():
     CGA = cgd.CgxToObject(args.cg1)
     CGB = cgd.CgxToObject(args.cg2)
     ds = CGA.diff(CGB)
-    print ds
+    print(ds)
     cgd.DSToXML(ds, args.ds)
 
 if __name__ == "__main__":

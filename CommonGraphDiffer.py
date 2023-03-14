@@ -5,6 +5,7 @@ E = etree.Element
 import copy
 from xml.dom import minidom
 import codecs
+import cmp
 
 
 def getMetaXML(metaData):
@@ -120,7 +121,7 @@ def booleanObjectLists(objType, selfObjs, otherObjs):
         for selfObj in objsIntersection:
             myDict = recursive_dict(selfObj.MetaData)
             otherObj = [obj for obj in otherObjs if obj.InstanceGuid == selfObj.InstanceGuid][0]
-            if( cmp(recursive_dict(otherObj.MetaData), myDict) == 0): #it's the samE!
+            if recursive_dict(otherObj.MetaData) == myDict: # it's the same!
                 objsSame.append(otherObj)
             else:
                 objsChanged.append(otherObj)
@@ -166,21 +167,21 @@ class CommonGraph(object):
 #                print "list of all NodeGUIs", [n.InstanceGuid for n in self.Nodes]
                 parentNode = [n for n in self.Nodes if n.InstanceGuid == obj.ParentGuid][0]
             except Exception as e:
-                print e
+                print(e)
                 raise ValueError("Invalid input! Apply of diff not possible")
             parentNode.addPort(obj)
             return True
 
     def removeObj(self, objType, objGuid, objParentGuid=None):
-        if(objType == "node"):
+        if objType == "node":
             objList = self.Nodes
-        if(objType == "edge"):
+        elif objType == "edge":
             objList = self.Edges
-        if(objType == "port"):
+        elif objType == "port":
             try:
                 parentNode = [node for node in self.Nodes if node.InstanceGuid == objParentGuid][0]
                 objList = parentNode.Ports
-            except Exception, e:
+            except Exception as e:
                 # this sometimes doesn't work because parentNode was already deleted - and that's okay!
                 return True
         try:
@@ -189,25 +190,27 @@ class CommonGraph(object):
             return False
         return True
 
-    def changeObj(self, objType, obj, objParentGuid = None):
-        if(objType == "node"):
+    def changeObj(self, objType, obj, objParentGuid=None):
+        if objType == "node":
             objList = self.Nodes
-        if(objType == "edge"):
+        elif objType == "edge":
             objList = self.Edges
-        if(objType == "port"):
+        elif objType == "port":
             try:
                 parentNode = [node for node in self.Nodes if node.InstanceGuid == objParentGuid][0]
                 objList = parentNode.Ports
-            except Exception, e:
+            except Exception as e:
                 # if this doesn't work, this is bad
                 return False
         try:
             for idx, thisN in enumerate(objList):
                 if obj == thisN:
                     objList[idx].MetaData = obj.MetaData
-            else: return False
+                    break
+            else:
+                return False
             return True
-        except Exception, e:
+        except Exception as e:
             return False
 
     def getAllPorts(self):
@@ -215,7 +218,7 @@ class CommonGraph(object):
 
     def diff(self, other):
         # If the metadata changed, include the other's metadata
-        if cmp(recursive_dict(self.MetaData), recursive_dict(other.MetaData)) !=0:
+        if recursive_dict(self.MetaData) != recursive_dict(other.MetaData):
             thisDiffSet = DiffSet(other.MetaData)
         else:
             thisDiffSet = DiffSet()
@@ -266,7 +269,7 @@ class CommonGraph(object):
         newCG = copy.deepcopy(self)
 
         for thisNodeChange in [change for change in diffSet.Changes if change.__class__.__name__ == "NodeChange"]:
-            print thisNodeChange
+            print(thisNodeChange)
             if(thisNodeChange.Status == "added"):
                 newCG.add("node", Node.addFromChange(thisNodeChange))
             if(thisNodeChange.Status == "removed"):
@@ -275,7 +278,7 @@ class CommonGraph(object):
                 newCG.changeObj("node", Node.addFromChange(thisNodeChange))
 
         for thisPortChange in [change for change in diffSet.Changes if change.__class__.__name__ == "PortChange"]:
-            print thisPortChange
+            print(thisPortChange)
             if(thisPortChange.Status == "added"):
                 newCG.add("port", Port.addFromChange(thisPortChange))
             if(thisPortChange.Status == "removed"):
@@ -284,7 +287,7 @@ class CommonGraph(object):
                 newCG.changeObj("port", Port.addFromChange(thisPortChange), objParentGuid = thisPortChange.ParentGuid)
 
         for thisEdgeChange in [change for change in diffSet.Changes if change.__class__.__name__ == "EdgeChange"]:
-            print thisEdgeChange
+            print(thisEdgeChange)
             if(thisEdgeChange.Status == "added"):
                 newCG.add("edge", Edge.addFromChange(thisEdgeChange))
             if(thisEdgeChange.Status == "removed"):
@@ -339,9 +342,9 @@ class Node(object):
     def __repr__(self):
         s = '\n (#) Node (InstanceGuid: ' + self.InstanceGuid + ' Type: ' + self.Type
         if self.Position is not None:
-            s += ' Position:' + etree.tostring(self.Position)
+            s += ' Position:' + etree.tostring(self.Position).decode()
         if self.MetaData is not None:
-            s += ' MetaData: ' + etree.tostring(self.MetaData)
+            s += ' MetaData: ' + etree.tostring(self.MetaData).decode()
         s += ' ) \n' + '\n'.join([str(p) for p in self.Ports])
         return s
 
@@ -377,7 +380,7 @@ class Port(object):
     def __repr__(self):
         s =  '\n    * Port (InstanceGuid: ' + self.InstanceGuid + ' ParentGuid: ' + self.ParentGuid
         if self.MetaData is not None:
-            s += ' MetaData: ' + etree.tostring(self.MetaData)
+            s += ' MetaData: ' + etree.tostring(self.MetaData).decode()
         s += ' )'
         return s
     @classmethod
@@ -462,7 +465,7 @@ def CGToXML(cg, fileName):
 
 def prettify(elem):
     # Return a pretty-printed XML string for the Element.
-    rough_string = etree.tostring(elem, 'utf-8')
+    rough_string = etree.tostring(elem, 'utf-8').decode()
     reparsed = minidom.parseString(rough_string)
     return reparsed.toprettyxml(indent="\t")
 
@@ -485,6 +488,6 @@ def XMLToDS(fileName):
         elif xmlChange.tag == "EdgeChange":
             change = EdgeChange(status, xmlChange.get("InstanceGuid"), xmlChange.get("SrcGuid"), xmlChange.get("DstGuid"))
         else:
-            print "!!!!!unknown tag", xmlChange.tag
+            print("!!!!!unknown tag {}".format(xmlChange.tag))
         thisDiffSet.addChange(change)
     return thisDiffSet
